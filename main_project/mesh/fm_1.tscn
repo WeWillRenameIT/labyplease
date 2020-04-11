@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sprites/flash_memory/fm_1.png" type="Texture" id=1]
+[ext_resource path="res://scripts/fm_1.gd" type="Script" id=2]
+[ext_resource path="res://sprites/flash_memory/fm_2.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8.5, 15.5 )
+
+[node name="fm_1" type="RigidBody2D"]
+z_as_relative = false
+input_pickable = true
+gravity_scale = 0.0
+can_sleep = false
+script = ExtResource( 2 )
+
+[node name="fmc_3" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0, 0.0976868 )
+polygon = PoolVector2Array( -7, 12.9023, -7, -5.09769, -4, -5, -4, -14, 4, -14, 4, -5, 7, -5.09769, 7, 12.9023 )
+
+[node name="fms_1" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="fma_1" type="Area2D" parent="."]
+scale = Vector2( 2, 2 )
+
+[node name="fmc_1" type="CollisionShape2D" parent="fma_1"]
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 2 )
+[connection signal="input_event" from="." to="." method="_on_fm_1_input_event"]

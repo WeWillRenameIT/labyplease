@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tolpa.ogg-fb3aa267bfd8eb0d7b7a8c71a7df51c4.oggstr"
+
+[deps]
+
+source_file="res://sounds/tolpa.ogg"
+dest_files=[ "res://.import/tolpa.ogg-fb3aa267bfd8eb0d7b7a8c71a7df51c4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

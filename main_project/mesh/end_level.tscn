@@ -1,0 +1,248 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://sprites/scene/monitor.png" type="Texture" id=1]
+[ext_resource path="res://sprites/scene/backgrounds/book.png" type="Texture" id=2]
+[ext_resource path="res://sprites/scene/backgrounds/gear.png" type="Texture" id=3]
+[ext_resource path="res://sprites/scene/backgrounds/radiation.png" type="Texture" id=4]
+[ext_resource path="res://sprites/scene/backgrounds/background.png" type="Texture" id=5]
+[ext_resource path="res://sprites/scene/backgrounds/question.png" type="Texture" id=6]
+[ext_resource path="res://sprites/scene/backgrounds/list.png" type="Texture" id=7]
+[ext_resource path="res://scripts/end_level.gd" type="Script" id=8]
+[ext_resource path="res://sprites/scene/backgrounds/sh_crt.png" type="Texture" id=9]
+[ext_resource path="res://sprites/scene/backgrounds/off.png" type="Texture" id=10]
+[ext_resource path="res://sprites/scene/backgrounds/on.png" type="Texture" id=11]
+[ext_resource path="res://sprites/scene/shop/Без имени-2.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 141, 94 )
+
+[node name="computer" type="Node2D"]
+scale = Vector2( 2.299, 2.159 )
+script = ExtResource( 8 )
+
+[node name="monitor" type="Sprite" parent="."]
+position = Vector2( -6.77626e-21, 0 )
+scale = Vector2( 1.00356, 1.00535 )
+texture = ExtResource( 1 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 0, -4 )
+scale = Vector2( 1.00366, 1.00592 )
+texture = ExtResource( 5 )
+
+[node name="Node2D" type="Node2D" parent="background"]
+visible = false
+position = Vector2( -108.602, -14.9118 )
+scale = Vector2( 0.839032, 0.837152 )
+
+[node name="Label" type="Label" parent="background/Node2D"]
+margin_right = 73.0
+margin_bottom = 14.0
+text = "Virus check"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="background/Node2D"]
+margin_top = 83.125
+margin_right = 91.0
+margin_bottom = 97.125
+text = "Information"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="background/Node2D"]
+margin_top = 54.625
+margin_right = 91.0
+margin_bottom = 68.625
+text = "Check student"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="background/Node2D"]
+margin_top = 27.3125
+margin_right = 73.0
+margin_bottom = 41.3125
+text = "Testing"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="list" type="Sprite" parent="background"]
+position = Vector2( -119.562, 35.7882 )
+scale = Vector2( 0.839032, 0.837152 )
+texture = ExtResource( 7 )
+
+[node name="list_b" type="Button" parent="background/list"]
+margin_left = -9.5
+margin_top = -9.5
+margin_right = 9.5
+margin_bottom = 10.5
+shortcut_in_tooltip = false
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="radiation" type="Sprite" parent="background"]
+position = Vector2( -119.562, -11.9294 )
+scale = Vector2( 0.839032, 0.837152 )
+texture = ExtResource( 4 )
+
+[node name="rad_b" type="Button" parent="background/radiation"]
+margin_left = -9.50002
+margin_top = -9.5
+margin_right = 9.49998
+margin_bottom = 10.5
+focus_mode = 0
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gear" type="Sprite" parent="background"]
+position = Vector2( -119.562, 11.9294 )
+scale = Vector2( 0.839032, 0.837152 )
+texture = ExtResource( 3 )
+
+[node name="gear_b" type="Button" parent="background/gear"]
+margin_left = -9.50002
+margin_top = -9.5
+margin_right = 9.49998
+margin_bottom = 10.5
+focus_mode = 0
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="book" type="Sprite" parent="background"]
+position = Vector2( -119.562, 59.6471 )
+scale = Vector2( 0.839032, 0.837152 )
+texture = ExtResource( 2 )
+
+[node name="book_b" type="Button" parent="background/book"]
+margin_left = -9.5
+margin_top = -9.5
+margin_right = 9.5
+margin_bottom = 10.5
+focus_mode = 0
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="question" type="Sprite" parent="background"]
+visible = false
+position = Vector2( 123.547, -71.5765 )
+scale = Vector2( 1.25855, 1.25573 )
+texture = ExtResource( 6 )
+
+[node name="que_b" type="Button" parent="background/question"]
+margin_left = -9.49999
+margin_top = -10.2917
+margin_right = 9.50001
+margin_bottom = 9.70833
+focus_mode = 0
+shortcut_in_tooltip = false
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shop" type="Sprite" parent="background"]
+position = Vector2( -119.562, -35.7881 )
+scale = Vector2( 0.249081, 0.248529 )
+texture = ExtResource( 9 )
+
+[node name="shop_b" type="Button" parent="background/shop"]
+margin_left = -9.49999
+margin_top = -10.2917
+margin_right = 9.50001
+margin_bottom = 9.70833
+focus_mode = 0
+shortcut_in_tooltip = false
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="notify" type="Label" parent="background"]
+margin_left = -34.0
+margin_top = -9.0
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shop_w" type="Sprite" parent="."]
+visible = false
+position = Vector2( -0.000208333, 58.5 )
+scale = Vector2( 0.214062, 0.241803 )
+texture = ExtResource( 12 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 128, 88 )
+frames = SubResource( 1 )
+
+[node name="turn_on" type="Button" parent="AnimatedSprite"]
+anchor_left = 0.926
+anchor_top = 0.979
+anchor_right = 0.926
+anchor_bottom = 0.979
+margin_left = -12.334
+margin_top = -8.874
+margin_right = 0.666
+margin_bottom = 11.126
+rect_scale = Vector2( 0.7, 0.3 )
+focus_mode = 0
+shortcut_in_tooltip = false
+action_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 2 )
+[connection signal="pressed" from="background/list/list_b" to="." method="_on_list_b_pressed"]
+[connection signal="pressed" from="background/radiation/rad_b" to="." method="_on_rad_b_pressed"]
+[connection signal="pressed" from="background/gear/gear_b" to="." method="_on_gear_b_pressed"]
+[connection signal="pressed" from="background/book/book_b" to="." method="_on_book_b_pressed"]
+[connection signal="button_down" from="background/question/que_b" to="." method="_on_que_b_button_down"]
+[connection signal="button_up" from="background/question/que_b" to="." method="_on_que_b_button_up"]
+[connection signal="button_down" from="background/shop/shop_b" to="." method="_on_que_b_button_down"]
+[connection signal="button_up" from="background/shop/shop_b" to="." method="_on_que_b_button_up"]
+[connection signal="pressed" from="AnimatedSprite/turn_on" to="." method="_on_turn_on_pressed"]

@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://sprites/scene/strelka.png" type="Texture" id=1]
+[ext_resource path="res://sprites/scene/ruler.png" type="Texture" id=2]
+[ext_resource path="res://scripts/inst.gd" type="Script" id=3]
+[ext_resource path="res://sprites/table/locker_hand.png" type="Texture" id=4]
+[ext_resource path="res://sprites/table/locker.png" type="Texture" id=5]
+[ext_resource path="res://sprites/table/locker_clear.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64.0612, 64 )
+
+[node name="inst" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="ruler_a" type="Area2D" parent="."]
+visible = false
+
+[node name="ruler" type="Sprite" parent="ruler_a"]
+position = Vector2( -16, 0 )
+rotation = -1.5708
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ruler_a"]
+polygon = PoolVector2Array( -38, -1, 3, -33, 3, 31 )
+
+[node name="strelka_a" type="Area2D" parent="."]
+
+[node name="strelka" type="Sprite" parent="strelka_a"]
+visible = false
+position = Vector2( -0.499997, -0.5 )
+scale = Vector2( 0.049375, 0.059375 )
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="hand" type="Sprite" parent="strelka_a"]
+position = Vector2( -9.5, -0.500004 )
+scale = Vector2( 1.05556, 1.00781 )
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="strelka_a"]
+position = Vector2( -3, 0 )
+polygon = PoolVector2Array( -11, 50, -11, -51, 3, -51, 3, 50 )
+
+[node name="locker" type="Area2D" parent="."]
+visible = false
+
+[node name="strelka_a2" type="Area2D" parent="locker"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="locker/strelka_a2"]
+position = Vector2( -132, 0 )
+polygon = PoolVector2Array( -11, 50, -11, -51, 3, -51, 3, 50 )
+
+[node name="rul" type="Area2D" parent="locker"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="locker/rul"]
+position = Vector2( -71, -4 )
+rotation = 0.872665
+polygon = PoolVector2Array( -12.4687, 52.197, -12.0712, -64.956, 5.7241, -64.3835, 4.5605, 52.1268 )
+
+[node name="lock" type="AnimatedSprite" parent="locker"]
+position = Vector2( -73.5, -0.5 )
+scale = Vector2( 1.00685, 1.00781 )
+frames = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="locker"]
+position = Vector2( -64.5, -0.5 )
+scale = Vector2( 1.00685, 1.00781 )
+shape = SubResource( 1 )
+[connection signal="input_event" from="ruler_a" to="." method="_on_Area2D_input_event"]
+[connection signal="input_event" from="strelka_a" to="." method="_on_strelka_a_input_event"]
+[connection signal="input_event" from="locker/strelka_a2" to="." method="_on_strelka_a2_input_event"]
+[connection signal="input_event" from="locker/rul" to="." method="_on_rul_input_event"]
