@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
+[ext_resource path="res://texts/generalFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://mesh/reader.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/scene/big_table.png" type="Texture" id=3]
 [ext_resource path="res://mesh/computer.tscn" type="PackedScene" id=4]
@@ -66,10 +67,11 @@ scale = Vector2( 0.955679, 1.27267 )
 texture = ExtResource( 13 )
 
 [node name="Label" type="Label" parent="big_table"]
-margin_left = -292.978
-margin_top = -165.232
-margin_right = -219.978
-margin_bottom = -134.232
+margin_left = -293.0
+margin_top = -165.0
+margin_right = -180.0
+margin_bottom = -108.0
+custom_fonts/font = ExtResource( 1 )
 text = "Click on
 door"
 __meta__ = {
@@ -89,7 +91,7 @@ position = Vector2( -175, 46 )
 z_as_relative = false
 
 [node name="reader" parent="computer" instance=ExtResource( 2 )]
-position = Vector2( -109, 172.37 )
+position = Vector2( -109.25, 171.869 )
 z_index = 1
 
 [node name="stamp2" parent="." instance=ExtResource( 7 )]
@@ -138,6 +140,7 @@ margin_left = -264.0
 margin_top = -142.0
 margin_right = -237.0
 margin_bottom = -111.0
+custom_fonts/font = ExtResource( 1 )
 text = "true
 "
 __meta__ = {
@@ -150,6 +153,7 @@ margin_left = -229.0
 margin_top = -141.0
 margin_right = -199.0
 margin_bottom = -110.0
+custom_fonts/font = ExtResource( 1 )
 text = "false"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -160,6 +164,7 @@ margin_left = -346.0
 margin_top = -138.0
 margin_right = -306.0
 margin_bottom = -124.0
+custom_fonts/font = ExtResource( 1 )
 text = "Students:"
 __meta__ = {
 "_edit_use_anchors_": false

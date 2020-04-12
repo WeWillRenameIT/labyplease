@@ -1,0 +1,17 @@
+{
+    "Russian":{
+        "virusCheck": "Поиск вирусов",
+        "testingProgram": "Проверка программы",
+        "Checking": "Проверка студента",
+        "testIsDone": "Тест завершен",
+        "information": "Информация"
+    },
+
+    "English":{
+        "virusCheck": "Virus Check",
+        "testingProgram": "Testing a program",
+        "Checking": "Checking a program",
+        "testIsDone": "Test is done",
+        "information": "Information"
+    }
+}

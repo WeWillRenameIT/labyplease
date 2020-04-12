@@ -19,6 +19,10 @@ config/name="laby_please"
 run/main_scene="res://testing scene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Main="*res://options/main.gd"
+
 [display]
 
 window/size/width=1280
