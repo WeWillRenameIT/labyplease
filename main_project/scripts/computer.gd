@@ -19,7 +19,22 @@ var list = false#Прошла ли проверка
 var listing = false #Проверка по глобальному списку
 var shop = 0
 var ports = 1 #SAVE
+var quotePath = "res://texts/computer.json"
+var currentLang = Main.json_load("res://options/options.json")["language"]
 
+func _ready():
+	#Нужно подогнать изображения под шрифт 
+	$background/ProgressBarRad/Label.text = Main.json_load(quotePath)[currentLang]["virusCheck"]
+	$background/ProgressBarTest/Label.text = Main.json_load(quotePath)[currentLang]["testingProgram"]
+	$background/ProgressBarCheck/Label.text = Main.json_load(quotePath)[currentLang]["Checking"]
+	$background/Node2D/Label.text = Main.json_load(quotePath)[currentLang]["virusCheck"]
+	$background/Node2D/Label2.text = Main.json_load(quotePath)[currentLang]["testingProgram"]
+	$background/Node2D/Label3.text = Main.json_load(quotePath)[currentLang]["Checking"]
+	$background/Node2D/Label4.text = Main.json_load(quotePath)[currentLang]["information"]
+	#$background/label.text = Main.json_load(quotePath)[currentLang]["testIsDone"]
+	#В этой строке беда, потому что, когда тест проходится в скрипте задается текст элемента, надо будет изменить
+	pass
+	
 func _process(delta):
 	#Проверка на бонусы
 	if boot:
@@ -194,9 +209,7 @@ func _on_turn_on_pressed():
 		$AnimatedSprite.frame = 1
 		$bruh.visible = false
 		$background.visible = false
-		
-func _ready():
-	pass
+
 
 func check():
 	if boot:

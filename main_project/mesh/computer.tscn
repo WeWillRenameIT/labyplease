@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://sprites/scene/monitor.png" type="Texture" id=1]
 [ext_resource path="res://sprites/scene/backgrounds/book.png" type="Texture" id=2]
@@ -41,6 +41,7 @@
 [ext_resource path="res://sprites/scene/shop/reader_black.png" type="Texture" id=39]
 [ext_resource path="res://sprites/scene/shop/reader_gray.png" type="Texture" id=40]
 [ext_resource path="res://sprites/scene/shop/reader.png" type="Texture" id=41]
+[ext_resource path="res://texts/generalFont.tres" type="DynamicFont" id=42]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -143,6 +144,7 @@ margin_left = -25.6
 margin_top = 27.0001
 margin_right = 27.4
 margin_bottom = 58.0001
+custom_fonts/font = ExtResource( 42 )
 text = "Pindows
 "
 __meta__ = {
@@ -177,6 +179,7 @@ margin_left = 22.9161
 margin_top = -13.9176
 margin_right = 95.9161
 margin_bottom = 0.0823889
+custom_fonts/font = ExtResource( 42 )
 text = "Virus check"
 align = 1
 
@@ -196,6 +199,7 @@ margin_left = -3.98542
 margin_top = -13.9176
 margin_right = 123.015
 margin_bottom = 0.082387
+custom_fonts/font = ExtResource( 42 )
 text = "Testing program"
 align = 1
 
@@ -215,6 +219,7 @@ margin_left = -3.98542
 margin_top = -13.9176
 margin_right = 123.015
 margin_bottom = 0.082387
+custom_fonts/font = ExtResource( 42 )
 text = "Checking a student"
 align = 1
 
@@ -232,6 +237,7 @@ scale = Vector2( 0.839032, 0.837152 )
 [node name="Label" type="Label" parent="background/Node2D"]
 margin_right = 73.0
 margin_bottom = 14.0
+custom_fonts/font = ExtResource( 42 )
 text = "Virus check"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -241,6 +247,7 @@ __meta__ = {
 margin_top = 83.125
 margin_right = 91.0
 margin_bottom = 97.125
+custom_fonts/font = ExtResource( 42 )
 text = "Information"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -250,6 +257,7 @@ __meta__ = {
 margin_top = 54.625
 margin_right = 91.0
 margin_bottom = 68.625
+custom_fonts/font = ExtResource( 42 )
 text = "Check student"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -259,6 +267,7 @@ __meta__ = {
 margin_top = 27.3125
 margin_right = 73.0
 margin_bottom = 41.3125
+custom_fonts/font = ExtResource( 42 )
 text = "Testing"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -628,6 +637,7 @@ margin_left = -38.8578
 margin_top = -2.98234
 margin_right = 39.1422
 margin_bottom = 11.0177
+custom_fonts/font = ExtResource( 42 )
 text = "Test is done"
 __meta__ = {
 "_edit_use_anchors_": false
