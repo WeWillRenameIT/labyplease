@@ -1,0 +1,13 @@
+{
+    "Russian":{
+        "newGame": "Новая игра",
+        "loadGame": "Загрузить игру",
+        "quit": "Выход"
+    },
+
+    "English":{
+        "newGame": "New Game",
+        "loadGame": "Load Game",
+        "quit": "Quit"
+    }
+}

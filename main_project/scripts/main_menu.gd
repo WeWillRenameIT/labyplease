@@ -2,12 +2,13 @@ extends Control
 
 
 # Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var quotePath = "res://texts/mainMenu.json"
+var currentLang = Main.currentLang;
 
-
-# Called when the node enters the scene tree for the first time.
+# Параметры для загрузки локали
 func _ready():
+	# Загрузка текста кнопок в необходимой локали
+	$menuContainer/VBoxContainer/newGameButton/Label.text = Main.json_load(quotePath)[currentLang]["newGame"]
 	pass # Replace with function body.
 
 

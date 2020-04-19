@@ -1,29 +1,31 @@
 extends Node2D
 
 var notify = true
-var test_speed = 5 #Скорость проверки теста
-var vir_speed = 5 #Скорость проверки вируса
-var int_speed = 5 #Скорость проверки студента
-var boot_speed = 5 #Скорость загрузки пк. Число отнимается от 20 и ставится таймер таймер(20-5) по стандарту
-var boot= false #Ускоритель загрузки SAVE
-var test_s = false #Ускоритель проверки теста SAVE
-var vir = false #Ускоритель проверки вируса SAVE
-var check = false #Ускоритель проверки студента SAVE
-var on = true #Включен ли пк
-var rad = false #Идет ли проверка на вирусы
-var gear = false #Идет ли тестирование
-var rad_work = false #Прошла ли проверка на вирусы
-var gear_work = false #Прошел ли тест
-var inside = false #Вставлена ли флешка
-var list = false#Прошла ли проверка
-var listing = false #Проверка по глобальному списку
+var test_speed = 5 # Скорость проверки теста
+var vir_speed = 5 # Скорость проверки вируса
+var int_speed = 5 # Скорость проверки студента
+var boot_speed = 5 # Скорость загрузки пк. Число отнимается от 20 и ставится таймер таймер(20-5) по стандарту
+var boot= false # Ускоритель загрузки (SAVE!)
+var test_s = false # Ускоритель проверки теста (SAVE!)
+var vir = false # Ускоритель проверки вируса (SAVE!)
+var check = false # Ускоритель проверки студента (SAVE!)
+var on = true # Включен ли пк
+var rad = false # Идет ли проверка на вирусы
+var gear = false # Идет ли тестирование
+var rad_work = false # Прошла ли проверка на вирусы
+var gear_work = false # Прошел ли тест
+var inside = false # Вставлена ли флешка
+var list = false # Прошла ли проверка
+var listing = false # Проверка по глобальному списку
 var shop = 0
-var ports = 1 #SAVE
+var ports = 1 # (SAVE!)
+
+# Параметры для загрузки локали
 var quotePath = "res://texts/computer.json"
-var currentLang = Main.json_load("res://options/options.json")["language"]
+var currentLang = Main.currentLang;
 
 func _ready():
-	#Нужно подогнать изображения под шрифт 
+	# Нужно подогнать изображения под шрифт 
 	$background/ProgressBarRad/Label.text = Main.json_load(quotePath)[currentLang]["virusCheck"]
 	$background/ProgressBarTest/Label.text = Main.json_load(quotePath)[currentLang]["testingProgram"]
 	$background/ProgressBarCheck/Label.text = Main.json_load(quotePath)[currentLang]["Checking"]
@@ -32,7 +34,7 @@ func _ready():
 	$background/Node2D/Label3.text = Main.json_load(quotePath)[currentLang]["Checking"]
 	$background/Node2D/Label4.text = Main.json_load(quotePath)[currentLang]["information"]
 	#$background/label.text = Main.json_load(quotePath)[currentLang]["testIsDone"]
-	#В этой строке беда, потому что, когда тест проходится в скрипте задается текст элемента, надо будет изменить
+	# В этой строке беда, потому что, когда тест проходится в скрипте задается текст элемента, надо будет изменить
 	pass
 	
 func _process(delta):
@@ -46,14 +48,14 @@ func _process(delta):
 	if check:
 		int_speed = 10
 	
-	var virus = $reader.get_virus() #Есть ли вирус на флешке
-	var test = $reader.get_test() #Пройдет ли флешка тест
-	var port = $reader.get_port() #В какой порт вставлена флешка
-	var speed = $reader.get_speed() #Скорость сканирования флешки
-	var fio = get_parent().fio() #Получаем правильность данных из студака
+	var virus = $reader.get_virus() # Есть ли вирус на флешке
+	var test = $reader.get_test() # Пройдет ли флешка тест
+	var port = $reader.get_port() # В какой порт вставлена флешка
+	var speed = $reader.get_speed() # Скорость сканирования флешки
+	var fio = get_parent().fio() # Получаем правильность данных из студака
 	
-	inside = $reader.get_inside() #Проверяем вставлена ли флешка
-	#Если вставлена
+	inside = $reader.get_inside() # Проверяем вставлена ли флешка
+	# Если вставлена
 	if inside and notify: 
 		$background/notify.visible = true
 		yield(get_tree().create_timer(1.5),"timeout")
@@ -101,7 +103,7 @@ func _process(delta):
 		listing = false
 		$background/ProgressBarCheck.value = 0
 	
-	#Если флешка заражена и прошел тест, то выключаем пк и ломаем вход ридера
+	# Если флешка заражена и прошел тест, то выключаем пк и ломаем вход ридера
 	if $background/ProgressBarTest.value >=100:
 		if virus:
 			$background.visible = false
@@ -113,7 +115,7 @@ func _process(delta):
 		gear = false
 		$background/ProgressBarTest.value = 0
 	
-	#Прошол ли поиск студента в базе
+	# Прошел ли поиск студента в базе
 	if list:
 		$background/label.text = "Student: " + String(fio)
 		$background/label.visible = true
@@ -122,7 +124,7 @@ func _process(delta):
 		$background/label.visible = false
 		list = false
 	
-	#Прошело сканирование на вирусы
+	# Прошло сканирование на вирусы
 	if rad_work and virus:
 		$background/label.text = "Virus detected!!!"
 		$background/label.visible = true
@@ -136,7 +138,7 @@ func _process(delta):
 		$background/label.visible = false
 		rad_work = false
 	
-	#Прошел тест программы
+	# Прошел тест программы
 	if gear_work and test:
 		$background/label.text = "Test pass"
 		$background/label.visible = true
@@ -150,12 +152,12 @@ func _process(delta):
 		$background/label.visible = false
 		gear_work = false
 	
-	#Если время вышло включаем магазин
+	# Если время вышло включаем магазин
 	if $clocks.end:
 		$background/shop.visible = true
 		$background/shop.playing = true
 	
-	#Если все порты сломаны - конец уровня
+	# Если все порты сломаны - конец уровня
 	if ports<=$reader.notwork:
 		no_lives()
 		set_process(false)
@@ -171,7 +173,7 @@ func _on_gear_b_pressed():
 
 
 func _on_book_b_pressed():
-	print("book") #Тут надо вывести окно с подсказками в игре что куда тыкать и тп
+	print("book") # Тут надо вывести окно с подсказками в игре что куда тыкать и тп
 
 func _on_que_b_button_down():
 	$background/Node2D.visible = true

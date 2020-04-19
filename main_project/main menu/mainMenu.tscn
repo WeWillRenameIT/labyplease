@@ -14,7 +14,8 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 256.0
+margin_left = -1.22774
+margin_right = 254.772
 margin_bottom = 144.0
 rect_scale = Vector2( 5, 5 )
 texture = ExtResource( 1 )
@@ -27,9 +28,9 @@ __meta__ = {
 [node name="menuContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.00086565
 anchor_right = 0.00086565
-margin_left = 100.0
+margin_left = 98.892
 margin_top = 500.0
-margin_right = 550.0
+margin_right = 548.892
 margin_bottom = 660.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -53,7 +54,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="menuContainer/VBoxContainer/newGameButton"]
-margin_right = 45.0
+margin_right = 40.0
 margin_bottom = 4.0
 rect_min_size = Vector2( 45, 5 )
 rect_scale = Vector2( 10, 10 )
