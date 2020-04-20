@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/toggleLang_hover.png-3c71d38ad4be3c175a70ae592edeee56.stex"
+path="res://.import/splash1.png-0689ac79b0bb0e5c856f07ef46abb437.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/mainMenu/toggleLang_hover.png"
-dest_files=[ "res://.import/toggleLang_hover.png-3c71d38ad4be3c175a70ae592edeee56.stex" ]
+source_file="res://sprites/mainMenu/splash1.png"
+dest_files=[ "res://.import/splash1.png-0689ac79b0bb0e5c856f07ef46abb437.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

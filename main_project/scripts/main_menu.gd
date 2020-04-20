@@ -33,3 +33,13 @@ func _on_languageToggleBtn_pressed():
 	Main.json_save(fileToSave, "res://options/options.json")
 	get_tree().reload_current_scene()
 	pass # Replace with function body.
+
+
+func _on_loadGameButton_pressed():
+	# TODO - загрузка сохранения
+	pass # Replace with function body.
+
+
+func _on_quitButton_pressed():
+	get_tree().quit()
+	pass # Replace with function body.
