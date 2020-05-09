@@ -9,7 +9,7 @@ extends Node
 # Поэтому их не видно в файловой системе, если открыть папку options/texts в проводнике, можно будет увидеть
 # json файлы
 
-var currentLang = json_load("res://options/options.json")["language"]; # Язык, который используется в данный момент.
+var currentLang; # Язык, который используется в данный момент.
 
 func json_load(path): # Импрот данных из json файла, path - путь до json файла
 	var file = File.new()

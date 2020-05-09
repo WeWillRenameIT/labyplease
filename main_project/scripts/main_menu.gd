@@ -3,15 +3,24 @@ extends Control
 
 # Declare member variables here. Examples:
 var quotePath = "res://texts/mainMenu.json"
-var currentLang = Main.currentLang;
+var currentLang
+var optionsFile
 
 # Параметры для загрузки локали
 func _ready():
+	optionsFile = "user://options.json"
+	if File.new().file_exists(optionsFile):
+		Main.currentLang = Main.json_load(optionsFile)["language"]
+		currentLang = Main.currentLang
+	else:
+		Directory.new().copy("res://options/options.json", optionsFile)
+		Main.currentLang = Main.json_load(optionsFile)["language"]
+		currentLang = Main.currentLang
+	
 	# Загрузка текста кнопок в необходимой локали
 	$menuContainer/newGameButton/Label.text = Main.json_load(quotePath)[currentLang]["newGame"]
 	$menuContainer/loadGameButton/Label.text = Main.json_load(quotePath)[currentLang]["loadGame"]
 	$menuContainer/quitButton/Label.text = Main.json_load(quotePath)[currentLang]["quit"]
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,11 +37,15 @@ func _on_languageToggleBtn_pressed():
 		Main.currentLang = "Russian"
 	else:
 		Main.currentLang = "English"
-	var fileToSave = Main.json_load("res://options/options.json")
+	var fileToSave
+	if File.new().file_exists(optionsFile):
+		fileToSave = Main.json_load(optionsFile)
+	else:
+		Directory.new().copy("res://options/options.json", optionsFile)
+		fileToSave = Main.json_load(optionsFile)
 	fileToSave["language"] = Main.currentLang
-	Main.json_save(fileToSave, "res://options/options.json")
+	Main.json_save(fileToSave, optionsFile)
 	get_tree().reload_current_scene()
-	pass # Replace with function body.
 
 
 func _on_loadGameButton_pressed():
@@ -42,4 +55,3 @@ func _on_loadGameButton_pressed():
 
 func _on_quitButton_pressed():
 	get_tree().quit()
-	pass # Replace with function body.
