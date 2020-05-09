@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://texts/generalFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://mesh/reader.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://mesh/inst.tscn" type="PackedScene" id=9]
 [ext_resource path="res://mesh/wall_ul.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scripts/testing scene.gd" type="Script" id=11]
-[ext_resource path="res://sounds/gameplay1.ogg" type="AudioStream" id=12]
 [ext_resource path="res://sprites/scene/small_table.png" type="Texture" id=13]
 [ext_resource path="res://mesh/ruler.tscn" type="PackedScene" id=14]
 
@@ -111,7 +110,6 @@ z_index = 2
 z_as_relative = false
 
 [node name="background_music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
 volume_db = -15.0
 
 [node name="spawn1" type="Area2D" parent="."]
@@ -169,3 +167,5 @@ text = "Students:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="finished" from="background_music" to="." method="_on_background_music_finished"]
+[connection signal="ready" from="background_music" to="." method="_on_background_music_ready"]

@@ -15,7 +15,7 @@ var open=false
 var level = 3  #1- только отчет, 2- отч + флешка, 3 - всё. По сути это система уровней SAVE
 
 func _ready():
-	$background_music.play()
+	randomize()
 
 func _process(delta):
 	if $computer/clocks.end:
@@ -150,3 +150,39 @@ func open():
 		return $players_stuff/studak.open
 func set_bank(num):
 	bank=num
+
+func _on_background_music_ready():
+	var audio_files = ["res://sounds/gameplay1.ogg", "res://sounds/gameplay2.ogg", "res://sounds/gameplay3.ogg"]
+	var nextsong = randi()%3
+	var new_audio_file = audio_files[nextsong]
+	if File.new().file_exists(new_audio_file):
+		var music = load(new_audio_file)
+		music.set_loop(false)
+		$background_music.stream = music
+		$background_music.play()
+
+func _on_background_music_finished():
+	var audio_files = ["res://sounds/gameplay1.ogg", "res://sounds/gameplay2.ogg", "res://sounds/gameplay3.ogg"]
+	var nextsong = randi()%2
+	var new_audio_file
+	if $background_music.stream.resource_path == audio_files[0]:
+		if nextsong == 0:
+			new_audio_file = audio_files[1]
+		else:
+			new_audio_file = audio_files[2]
+	elif $background_music.stream.resource_path == audio_files[1]:
+		if nextsong == 0:
+			new_audio_file = audio_files[0]
+		else:
+			new_audio_file = audio_files[2]
+	else:
+		if nextsong == 0:
+			new_audio_file = audio_files[0]
+		else:
+			new_audio_file = audio_files[1]
+	
+	if File.new().file_exists(new_audio_file):
+		var music = load(new_audio_file)
+		music.set_loop(false)
+		$background_music.stream = music
+		$background_music.play()
