@@ -91,7 +91,7 @@ func _on_right_a_input_event(viewport, event, shape_idx):
 					check_status = true
 					$as_right/pages.visible = false
 					print("test is: "+ String(test))
-					if String(test):
+					if test:
 						$ot_1/status.text = 'True'
 					else:
 						$ot_1/status.text = 'False'

@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://texts/generalFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://mesh/reader.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/scene/big_table.png" type="Texture" id=3]
 [ext_resource path="res://mesh/computer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://mesh/clocks.tscn" type="PackedScene" id=5]
+[ext_resource path="res://mesh/room.tscn" type="PackedScene" id=6]
 [ext_resource path="res://mesh/stamp.tscn" type="PackedScene" id=7]
 [ext_resource path="res://mesh/inst.tscn" type="PackedScene" id=9]
 [ext_resource path="res://mesh/wall_ul.tscn" type="PackedScene" id=10]
@@ -45,8 +46,12 @@ polygon = PoolVector2Array( -76.0451, -21.3108, -76.0451, -25.0994, 650.093, -25
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera2D/StaticBody2D"]
 polygon = PoolVector2Array( 0.927361, -21.5476, 0.927353, -25.4151, 687.188, -25.5729, 684.406, 10.4975, 603.724, 10.4975, 603.724, -21.5476 )
 
-[node name="wall_up_left" parent="." instance=ExtResource( 10 )]
-position = Vector2( -367, -240 )
+[node name="room" parent="." instance=ExtResource( 6 )]
+position = Vector2( -410, -106 )
+scale = Vector2( 1, 1 )
+
+[node name="wall_up_left" parent="room" instance=ExtResource( 10 )]
+position = Vector2( 43.0001, -134 )
 scale = Vector2( 1.3, 1.245 )
 
 [node name="stamp" parent="." instance=ExtResource( 7 )]
@@ -55,17 +60,17 @@ position = Vector2( 49.0189, -16.4527 )
 z_as_relative = false
 
 [node name="big_table" type="Sprite" parent="."]
-position = Vector2( -53, -8.36975 )
-scale = Vector2( 1.00349, 1.00465 )
+position = Vector2( -53, -8.6918 )
+scale = Vector2( 1.00349, 1.00773 )
 texture = ExtResource( 3 )
 
 [node name="small_table" type="Sprite" parent="big_table"]
-position = Vector2( -223.182, -31.7829 )
-rotation = -1.5708
-scale = Vector2( 0.955679, 1.27267 )
+position = Vector2( -319, 45 )
+scale = Vector2( 1.25412, 0.917147 )
 texture = ExtResource( 13 )
 
 [node name="Label" type="Label" parent="big_table"]
+visible = false
 margin_left = -293.0
 margin_top = -165.0
 margin_right = -180.0
@@ -113,23 +118,21 @@ z_as_relative = false
 volume_db = -15.0
 
 [node name="spawn1" type="Area2D" parent="."]
+position = Vector2( -239.356, 20.9541 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn1"]
-position = Vector2( -265, 48 )
 shape = SubResource( 1 )
 
 [node name="spawn2" type="Area2D" parent="."]
-position = Vector2( -65, 22.0855 )
+position = Vector2( -501.287, 72.2612 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn2"]
-position = Vector2( -265, 48 )
 shape = SubResource( 1 )
 
 [node name="spawn3" type="Area2D" parent="."]
-position = Vector2( -72, -39 )
+position = Vector2( -375.812, 70.6741 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn3"]
-position = Vector2( -265, 48 )
 shape = SubResource( 1 )
 
 [node name="ltrue" type="Label" parent="."]
@@ -153,17 +156,6 @@ margin_right = -199.0
 margin_bottom = -110.0
 custom_fonts/font = ExtResource( 1 )
 text = "false"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="."]
-margin_left = -346.0
-margin_top = -138.0
-margin_right = -306.0
-margin_bottom = -124.0
-custom_fonts/font = ExtResource( 1 )
-text = "Students:"
 __meta__ = {
 "_edit_use_anchors_": false
 }

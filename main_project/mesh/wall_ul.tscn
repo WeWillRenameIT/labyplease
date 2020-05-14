@@ -140,4 +140,3 @@ frames = SubResource( 5 )
 [node name="noise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -26.0
-[connection signal="input_event" from="wall_dc/open_anim/Area2D" to="." method="_on_Area2D_input_event"]
