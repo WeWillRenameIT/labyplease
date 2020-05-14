@@ -9,8 +9,19 @@ var test = false
 var drag = false
 var bruh = Vector2(0,0)
 var approved = false
+var check_status = false
 
 func _process(delta):
+	if check_status and cp==0:
+		$as_right/status_main.visible = true
+		if test:
+			$as_right/status_main.text= 'True'
+		else:
+			$as_right/status_main.text= 'False'
+	if cp == pages:
+		$ot_1/status.visible = true
+	else:
+		$ot_1/status.visible = false
 	if cp !=0 :
 		$Control.visible = false
 	else: 
@@ -76,10 +87,14 @@ func _on_right_a_input_event(viewport, event, shape_idx):
 					$left_a.visible = true
 					$right_a.visible = true
 					$ot_1.visible = true
-				if cp == pages:
+				elif cp == pages:
+					check_status = true
 					$as_right/pages.visible = false
 					print("test is: "+ String(test))
-					$as_right/status.text = String(test)
+					if String(test):
+						$ot_1/status.text = 'True'
+					else:
+						$ot_1/status.text = 'False'
 					$main_col.disabled = true
 					$right_a/right.disabled = true
 					$right_a.visible = false
