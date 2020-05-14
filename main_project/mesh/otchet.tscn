@@ -43,6 +43,14 @@ position = Vector2( 16, 1.01352e-05 )
 scale = Vector2( 1.04348, 1.05109 )
 frames = SubResource( 1 )
 
+[node name="status" type="Label" parent="as_right"]
+margin_left = -17.624
+margin_right = 22.376
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="pages" type="Label" parent="as_right"]
 visible = false
 margin_left = -1.91666

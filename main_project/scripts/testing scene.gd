@@ -29,16 +29,6 @@ func _process(delta):
 		yield(get_tree().create_timer(3),"timeout")
 		end()
 	var wait = $wall_up_left/wall_dc.wait
-	if $players_stuff.get_child_count() !=0 :
-		if $players_stuff/otchet.cp == $players_stuff/otchet.pages:
-			if $players_stuff/otchet.test():
-				$ltrue.visible = true
-				yield(get_tree().create_timer(1.5),"timeout")
-				$ltrue.visible = false
-			else:
-				$lfalse.visible = true
-				yield(get_tree().create_timer(1.5),"timeout")
-				$lfalse.visible = false
 
 func end():
 	global_students += students

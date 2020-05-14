@@ -79,6 +79,7 @@ func _on_right_a_input_event(viewport, event, shape_idx):
 				if cp == pages:
 					$as_right/pages.visible = false
 					print("test is: "+ String(test))
+					$as_right/status.text = String(test)
 					$main_col.disabled = true
 					$right_a/right.disabled = true
 					$right_a.visible = false
