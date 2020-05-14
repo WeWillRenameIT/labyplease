@@ -380,8 +380,10 @@ texture = ExtResource( 25 )
 margin_top = 29.0
 margin_right = 63.0
 margin_bottom = 53.0
-custom_colors/font_color_disabled = Color( 1, 0.890196, 0, 1 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 text = "Next Day"
 flat = true
 __meta__ = {
@@ -606,6 +608,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="background/shop_menu"]
+visible = false
 margin_left = 28.1319
 margin_top = -244.857
 margin_right = 79.1319
@@ -617,6 +620,7 @@ __meta__ = {
 }
 
 [node name="shoplist" type="Label" parent="background/shop_menu"]
+visible = false
 margin_left = 28.0
 margin_top = -87.0
 margin_right = 165.0

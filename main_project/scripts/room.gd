@@ -36,3 +36,6 @@ func _on_Leave_pressed():
 	get_parent().student_leave(get_parent().level)
 	$Next.visible = true
 	$wall_up_left/wall_dc/open_anim.frame = 0
+	if get_parent().end_time:
+		set_process(false)
+		get_parent().end()

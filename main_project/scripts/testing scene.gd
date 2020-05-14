@@ -13,6 +13,7 @@ var new = false
 var children = 0
 var open=false
 var level = 3  #1- только отчет, 2- отч + флешка, 3 - всё. По сути это система уровней SAVE
+var end_time
 
 func _ready():
 	new_student(level)
@@ -26,19 +27,22 @@ func _ready():
 	randomize()
 
 func _process(delta):
-	if $computer/clocks.end:
-		$room/wall_up_left/wall_dc/open_anim.visible = false
+	end_time = $computer/clocks.end
+	if end_time:
+		#$room/wall_up_left/wall_dc/open_anim.visible = false
 		$room/wall_up_left/wall_dc/queue/tolpa.stop()
 		$room/wall_up_left/wall_dc/queue.visible = false
-		if $players_stuff.get_child_count() !=0 :
-			for child in $players_stuff.get_children():
-				$players_stuff.remove_child(child)
 		set_process(false)
-		yield(get_tree().create_timer(3),"timeout")
-		end()
+		#yield(get_tree().create_timer(3),"timeout")
+		#end()
+	if $computer/clocks.i >= 1065:
+		$room/Next.visible = false
 	var wait = $room/wall_up_left/wall_dc.wait
 
 func end():
+	if $players_stuff.get_child_count() !=0 :
+		for child in $players_stuff.get_children():
+			$players_stuff.remove_child(child)
 	global_students += students
 	global_right += right
 	global_wrong += wrong
@@ -54,11 +58,14 @@ func end():
 	$computer/background/shop.play()
 	$Camera2D.current=false
 	$end_cam.current=true
+	if end_time:
+		$computer/background/grayblock/repair_reader.disabled=true
+		$computer/background/grayblock/repair_reader.visible=false
 	$computer/background/question.visible=false
 	$computer/background/grayblock.visible = true
 	$computer/background/grayblock/Label.text = "Students: " + String(students) + "\n Right: " +String(right) +"\n Wrong: " + String(wrong) 
 	$computer/background/grayblock/Label.text += "\n money: " +String(money) +"p."
-	if very_wrong >=0: $computer/background/grayblock/Label.text += "\n Fine:" + String(1000*very_wrong)
+	if very_wrong >=0: $computer/background/grayblock/Label.text += "\n Fine:" + String(500*very_wrong)
 	$computer/background/grayblock/Label.text += "\n Bank: " +String(bank) +"p."
 
 func noend():

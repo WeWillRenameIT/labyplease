@@ -251,7 +251,8 @@ func _on_shop_b_pressed():
 	check()
 
 func _on_next_level_pressed():
-	pass # Replace with function body.
+	get_parent().level +=1
+	$background/grayblock/next_level.disabled = true
 
 
 func _on_exit_pressed():
@@ -298,6 +299,8 @@ func _on_Buy_pressed():
 	if money<shop:
 		$background/shop_menu/Label2.visible=true
 		$background/shop_menu/Label2.text = "Not enough money!"
+		$background/shop_menu/count.text = "0 p."
+		shop = 0
 		yield(get_tree().create_timer(1.5),"timeout")
 		$background/shop_menu/Label2.visible=false
 	else:
