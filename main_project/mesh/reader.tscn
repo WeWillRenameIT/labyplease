@@ -29,27 +29,30 @@ mode = 3
 script = ExtResource( 2 )
 
 [node name="stage" type="AnimatedSprite" parent="."]
-position = Vector2( -8, -4 )
+position = Vector2( 3, -38 )
 frames = SubResource( 1 )
 
 [node name="polygon_1e" type="CollisionPolygon2D" parent="."]
 visible = false
+position = Vector2( 0, -19 )
 build_mode = 1
 polygon = PoolVector2Array( -18, -8, -18, -29.757, -12.9926, -35, -9, -35, -9, -39, -3, -39, -3, -35, 13.0147, -35, 18, -29.8339, 18, -24, 9, -24, 9, -13, 18, -13, 18, -9, 13, -3, -13, -3 )
 
 [node name="polygon_2e" type="CollisionPolygon2D" parent="."]
 visible = false
+position = Vector2( 0, -19 )
 build_mode = 1
 polygon = PoolVector2Array( -18, 9, -18, -29.757, -12.9926, -35, -9, -35, -9, -39, -3, -39, -3, -35, 13.0147, -35, 18, -29.8339, 18, -24, 9, -24, 9, -13, 18, -13, 18, -6, 9, -6, 9, 5, 18, 5, 18, 9, 13, 16, -13, 16 )
 
 [node name="polygon_3e" type="CollisionPolygon2D" parent="."]
 visible = false
+position = Vector2( 0, -19 )
 build_mode = 1
 polygon = PoolVector2Array( -18, 29.0018, -18, -29.757, -12.9926, -35, -9, -35, -9, -39, -3, -39, -3, -35, 13.0147, -35, 18, -29.8339, 18, -24, 9, -24, 9, -13, 18, -13, 18, -6, 9, -6, 9, 5, 18, 5, 18, 12, 9, 12, 9, 23, 18, 23, 18, 29.0018, 13.0192, 34, -12.8574, 34 )
 
 [node name="input_3" type="Area2D" parent="."]
 visible = false
-position = Vector2( -8, -4 )
+position = Vector2( -3, -23 )
 
 [node name="input_3_p" type="CollisionPolygon2D" parent="input_3"]
 position = Vector2( 11, 40 )
@@ -63,7 +66,7 @@ offset = Vector2( 27, 6 )
 
 [node name="input_2" type="Area2D" parent="."]
 visible = false
-position = Vector2( -8, -4 )
+position = Vector2( -3, -23 )
 
 [node name="input_2_p" type="CollisionPolygon2D" parent="input_2"]
 position = Vector2( 8, 22 )
@@ -76,7 +79,7 @@ offset = Vector2( 27, 6 )
 
 [node name="input_1" type="Area2D" parent="."]
 visible = false
-position = Vector2( -8, -4 )
+position = Vector2( -3, -23 )
 
 [node name="input_1_p" type="CollisionPolygon2D" parent="input_1"]
 position = Vector2( 8, 4 )

@@ -6,7 +6,7 @@ var max_velocity = 300  # максимальная скорость
 var friction_coef = 100 # коэффициент трения
 var test = true #Что выведет компьютер при тестированнии программы на флешке
 var virus = false #Содержит ли флешка вирусы
-var scan_speed = 10 #Скорость сканирования флешки от единицы!
+var scan_speed = 1 #Скорость сканирования флешки от единицы!
 var drag = false
 var bruh = Vector2(0,0)
 
@@ -51,8 +51,8 @@ func get_speed():
 
 func generate():
 	randomize()
-	$fms_1.frame = randi()%2 #Номер спрайта с флешкой
-	if randi()%10 >=2:
+	$fms_1.frame = randi()%7 #Номер спрайта с флешкой
+	if randi()%10 >=2: 
 		virus = false
 	else:
 		virus = true
@@ -60,7 +60,7 @@ func generate():
 		test = true
 	else:
 		test = false
-	scan_speed = randi()%11 + 5
+	scan_speed = randi()%5 + 1
 
 func new_position(vect):
 	transform = Transform2D(0.0, vect)

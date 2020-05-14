@@ -19,7 +19,7 @@ func _ready():
 	yield(get_tree().create_timer(2),"timeout")
 	$room/dialog_box.visible = true
 	$room/dialog_box/lbl_dialog.text = 'Oh hello there'
-	yield(get_tree().create_timer(randi()%2),"timeout")
+	yield(get_tree().create_timer(2),"timeout")
 	$room/Next.visible = true
 	$room/Leave.visible = true
 	$room/dialog_box.visible = false
@@ -74,11 +74,11 @@ func noend():
 
 func new_student(num): #1- только отчет, 2- отч + флешка, 3 - всё
 	student_leave(num)
+	$room/wall_up_left/wall_dc.new_student()
+	print("\nnew student")
 	var otchet = preload("res://mesh/otchet.tscn").instance()
 	var studak = preload("res://mesh/studak.tscn").instance()
 	var fm = preload("res://mesh/fm_1.tscn").instance()
-	for child in $players_stuff.get_children():
-		$players_stuff.remove_child(child)
 	var spawn1 = $spawn1.transform.get_origin()
 	var spawn2 = $spawn2.transform.get_origin()
 	var spawn3 = $spawn3.transform.get_origin()
@@ -95,8 +95,6 @@ func new_student(num): #1- только отчет, 2- отч + флешка, 3 
 		$players_stuff.add_child(studak)
 		$players_stuff/studak.new_position(spawn2)
 	children = $players_stuff.get_child_count()
-	print("new student")
-	print(children)
 	print("right: "+ String(right))
 	print("wrong: "+ String(wrong))
 	print("Very wrong: "+ String(very_wrong))
@@ -111,7 +109,6 @@ func student_leave(num):
 	elif num<1:
 		num=1
 	var super
-	$room/wall_up_left/wall_dc.new_student()
 	if $players_stuff.get_child_count() !=0 :
 		students+=1
 		if $players_stuff.get_child_count() == 1: #Изначально у игрока будет только отчет, на сл уровне добавим флешку, потом студак
@@ -139,6 +136,9 @@ func student_leave(num):
 			else:
 				right+=1
 	$room/student.visible = false
+	if $players_stuff.get_child_count() != 0:
+		for child in $players_stuff.get_children():
+			$players_stuff.remove_child(child)
 
 func fio():
 	if $players_stuff.get_child_count() == 3:

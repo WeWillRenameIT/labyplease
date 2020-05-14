@@ -140,13 +140,14 @@ texture = ExtResource( 15 )
 visible = false
 anchor_right = 1.906
 anchor_bottom = 0.561
-margin_left = -25.6
+margin_left = -34.6
 margin_top = 27.0001
-margin_right = 27.4
-margin_bottom = 58.0001
+margin_right = 36.4
+margin_bottom = 62.0001
 custom_fonts/font = ExtResource( 42 )
-text = "Pindows
+text = "Shindows
 "
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
