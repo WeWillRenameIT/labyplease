@@ -21,6 +21,9 @@ func _ready():
 	$menuContainer/newGameButton/Label.text = Main.json_load(quotePath)[currentLang]["newGame"]
 	$menuContainer/loadGameButton/Label.text = Main.json_load(quotePath)[currentLang]["loadGame"]
 	$menuContainer/quitButton/Label.text = Main.json_load(quotePath)[currentLang]["quit"]
+	
+	# Запустить анимацию облаков
+	$Art/Clouds.material.set_shader_param("scroll_speed", 0.025)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

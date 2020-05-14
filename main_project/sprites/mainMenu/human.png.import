@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/zhalyzi.png-6c1e1ae0794bd41f7cab3da195e2055f.stex"
+path="res://.import/human.png-b9ca715ae20e883b86e5ea7ddab3cd6a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/mainMenu/zhalyzi.png"
-dest_files=[ "res://.import/zhalyzi.png-6c1e1ae0794bd41f7cab3da195e2055f.stex" ]
+source_file="res://sprites/mainMenu/human.png"
+dest_files=[ "res://.import/human.png-b9ca715ae20e883b86e5ea7ddab3cd6a.stex" ]
 
 [params]
 
