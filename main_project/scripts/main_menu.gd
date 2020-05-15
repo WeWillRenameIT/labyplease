@@ -24,6 +24,10 @@ func _ready():
 	
 	# Запустить анимацию облаков
 	$Art/Clouds.material.set_shader_param("scroll_speed", 0.025)
+	
+	# Включить музыку
+	if (!$Music.is_playing()):
+		$Music.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,7 +52,7 @@ func _on_languageToggleBtn_pressed():
 		fileToSave = Main.json_load(optionsFile)
 	fileToSave["language"] = Main.currentLang
 	Main.json_save(fileToSave, optionsFile)
-	get_tree().reload_current_scene()
+	_ready()
 
 
 func _on_loadGameButton_pressed():
