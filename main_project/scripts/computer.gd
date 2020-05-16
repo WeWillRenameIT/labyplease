@@ -1,10 +1,10 @@
 extends Node2D
 
 var notify = true
-var test_speed = 5 # Скорость проверки теста
-var vir_speed = 5 # Скорость проверки вируса
-var int_speed = 5 # Скорость проверки студента
-var boot_speed = 5 # Скорость загрузки пк. Число отнимается от 20 и ставится таймер таймер(20-5) по стандарту
+var test_speed = 4 # Скорость проверки теста
+var vir_speed = 4 # Скорость проверки вируса
+var int_speed = 4 # Скорость проверки студента
+var boot_speed = 4 # Скорость загрузки пк. Число отнимается от 20 и ставится таймер таймер(20-5) по стандарту
 var boot= false # Ускоритель загрузки (SAVE!)
 var test_s = false # Ускоритель проверки теста (SAVE!)
 var vir = false # Ускоритель проверки вируса (SAVE!)
@@ -163,13 +163,13 @@ func _process(delta):
 		set_process(false)
 
 func _on_list_b_pressed():
-	if !$clocks.end and !rad and !gear and get_parent().children()==3 and get_parent().open(): listing = true
+	if !rad and !gear and get_parent().children()==3 and get_parent().open(): listing = true
 
 func _on_rad_b_pressed():
-	if !$clocks.end and !gear and !listing: rad = true #Если идет тест, то не можем проверить на вирусы
+	if !gear and !listing: rad = true #Если идет тест, то не можем проверить на вирусы
 
 func _on_gear_b_pressed():
-	if !$clocks.end and !rad and !listing: gear = true #Если проверяется на вирусы, не можем тестировать
+	if !rad and !listing: gear = true #Если проверяется на вирусы, не можем тестировать
 
 
 func _on_book_b_pressed():
@@ -264,33 +264,33 @@ func _on_exit_pressed():
 func _on_ssd_b_pressed():
 	$background/shop_menu/test_ssd.frame = 1
 	$background/shop_menu/test_ssd/ssd_b.disabled=true
-	shop+=10000
+	shop+=5000
 	$background/shop_menu/count.text = String(shop)+"p."
 
 
 func _on_cpu_b_pressed():
 	$background/shop_menu/cpu.frame = 1
 	$background/shop_menu/cpu/cpu_b.disabled=true
-	shop+=30000
+	shop+=15000
 	$background/shop_menu/count.text = String(shop)+"p."
 
 
 func _on_int_b_pressed():
 	$background/shop_menu/internet.frame = 1
 	$background/shop_menu/internet/int_b.disabled=true
-	shop+=15000
+	shop+=7500
 	$background/shop_menu/count.text = String(shop)+"p."
 
 func _on_read_b_pressed():
 	$background/shop_menu/more_reader.frame = 1
 	$background/shop_menu/more_reader/read_b.disabled=true
-	shop+=5000
+	shop+=2500
 	$background/shop_menu/count.text = String(shop)+"p."
 
 func _on_vir_b_pressed():
 	$background/shop_menu/antivirus.frame = 1
 	$background/shop_menu/antivirus/vir_b.disabled=true
-	shop+=7000
+	shop+=3500
 	$background/shop_menu/count.text = String(shop)+"p."
 
 
