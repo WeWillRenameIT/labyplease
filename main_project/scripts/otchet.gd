@@ -10,6 +10,26 @@ var drag = false
 var bruh = Vector2(0,0)
 var approved = false
 var check_status = false
+var localeFilePath = "res://texts/otchet.json" # Файл локали
+var workCheckCorrect
+var workCheckIncorrect
+
+func _ready():
+	generate()
+	cp = 0
+	$as_right.frame = 0
+	$as_right.visible = true
+	$left_a.visible = false
+	$sec_col.disabled = true
+	$main_col.disabled = false
+	$ot_1.visible = false
+	$right_a.visible = true
+	$right_a/right.disabled = false
+	$left_a.visible = false
+	
+	# Загрузить локализацию
+	workCheckCorrect = Main.json_load(localeFilePath)[Main.currentLang]["correct"]
+	workCheckIncorrect = Main.json_load(localeFilePath)[Main.currentLang]["incorrect"]
 
 func _process(delta):
 	if check_status and cp==0:
@@ -29,19 +49,6 @@ func _process(delta):
 	if approved:
 		$right_a.visible = false
 		$right_a/right.disabled = true
-
-func _ready():
-	generate()
-	cp = 0
-	$as_right.frame = 0
-	$as_right.visible = true
-	$left_a.visible = false
-	$sec_col.disabled = true
-	$main_col.disabled = false
-	$ot_1.visible = false
-	$right_a.visible = true
-	$right_a/right.disabled = false
-	$left_a.visible = false
 
 func _input(event):
 	if event is InputEventMouseButton and not event.is_pressed() and event.button_index == BUTTON_LEFT:
@@ -92,9 +99,9 @@ func _on_right_a_input_event(viewport, event, shape_idx):
 					$as_right/pages.visible = false
 					print("test is: "+ String(test))
 					if test:
-						$ot_1/status.text = 'True'
+						$ot_1/status.text = workCheckCorrect
 					else:
-						$ot_1/status.text = 'False'
+						$ot_1/status.text = workCheckIncorrect
 					$main_col.disabled = true
 					$right_a/right.disabled = true
 					$right_a.visible = false

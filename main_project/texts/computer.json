@@ -9,9 +9,9 @@
 
     "English":{
         "virusCheck": "Virus Check",
-        "testingProgram": "Testing a program",
-        "Checking": "Checking a program",
-        "testIsDone": "Test is done",
+        "testingProgram": "Test program",
+        "Checking": "Check ID in database",
+        "testIsDone": "Test finished",
         "information": "Information"
     }
 }

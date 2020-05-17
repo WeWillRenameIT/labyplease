@@ -1,0 +1,11 @@
+{
+    "Russian":{
+        "correct": "Ошибок нет",
+        "incorrect": "Есть ошибки"
+    },
+
+    "English":{
+        "correct": "No mistakes",
+        "incorrect": "There are mistakes"
+    }
+}

@@ -2,7 +2,7 @@ extends Control
 
 
 # Declare member variables here. Examples:
-var quotePath = "res://texts/mainMenu.json"
+var localeFilePath = "res://texts/mainMenu.json"
 var currentLang
 var optionsFile
 
@@ -18,9 +18,9 @@ func _ready():
 		currentLang = Main.currentLang
 	
 	# Загрузка текста кнопок в необходимой локали
-	$menuContainer/newGameButton/Label.text = Main.json_load(quotePath)[currentLang]["newGame"]
-	$menuContainer/loadGameButton/Label.text = Main.json_load(quotePath)[currentLang]["loadGame"]
-	$menuContainer/quitButton/Label.text = Main.json_load(quotePath)[currentLang]["quit"]
+	$menuContainer/newGameButton/Label.text = Main.json_load(localeFilePath)[currentLang]["newGame"]
+	$menuContainer/loadGameButton/Label.text = Main.json_load(localeFilePath)[currentLang]["loadGame"]
+	$menuContainer/quitButton/Label.text = Main.json_load(localeFilePath)[currentLang]["quit"]
 	
 	# Запустить анимацию облаков
 	$Art/Clouds.material.set_shader_param("scroll_speed", 0.025)

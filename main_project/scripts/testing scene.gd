@@ -16,6 +16,7 @@ var level = 3  #1- только отчет, 2- отч + флешка, 3 - всё
 var end_time
 
 func _ready():
+	randomize()
 	new_student(level)
 	yield(get_tree().create_timer(2),"timeout")
 	$room/dialog_box.visible = true
@@ -24,7 +25,6 @@ func _ready():
 	$room/Next.visible = true
 	$room/Leave.visible = true
 	$room/dialog_box.visible = false
-	randomize()
 
 func _process(delta):
 	end_time = $computer/clocks.end
