@@ -1,0 +1,11 @@
+{
+    "Russian":{
+        "nextStudent": "Следующий",
+        "dismissStudent": "Можете идти"
+    },
+
+    "English":{
+        "nextStudent": "Next please",
+        "dismissStudent": "You can go"
+    }
+}

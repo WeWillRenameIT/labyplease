@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://sprites/scene/wall.png" type="Texture" id=1]
 [ext_resource path="res://mesh/student.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/dialog_box/box_1.png" type="Texture" id=3]
 [ext_resource path="res://sprites/dialog_box/dialog_box.png" type="Texture" id=4]
 [ext_resource path="res://scripts/room.gd" type="Script" id=5]
+[ext_resource path="res://texts/dialogueFont.tres" type="DynamicFont" id=6]
 
 [node name="room" type="Node2D"]
 z_as_relative = false
@@ -25,7 +26,7 @@ scale = Vector2( 5, 5 )
 visible = false
 margin_left = 121.705
 margin_top = -0.147152
-margin_right = 196.705
+margin_right = 221.705
 margin_bottom = 32.8528
 focus_mode = 0
 shortcut_in_tooltip = false
@@ -37,13 +38,15 @@ __meta__ = {
 }
 
 [node name="lbl_next" type="Label" parent="Next"]
-margin_left = 8.13763
-margin_top = 10.1008
-margin_right = 84.1376
-margin_bottom = 24.1008
+margin_left = 6.0
+margin_top = 10.0
+margin_right = 111.0
+margin_bottom = 24.0
 rect_scale = Vector2( 0.800001, 1 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Next please"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -52,8 +55,8 @@ __meta__ = {
 visible = false
 margin_left = 122.0
 margin_top = 32.8528
-margin_right = 197.0
-margin_bottom = 66.0
+margin_right = 222.0
+margin_bottom = 65.9998
 focus_mode = 0
 enabled_focus_mode = 0
 icon = ExtResource( 3 )
@@ -65,13 +68,15 @@ __meta__ = {
 }
 
 [node name="lbl_leave" type="Label" parent="Leave"]
-margin_left = 10.3204
-margin_top = 10.1008
-margin_right = 78.3204
-margin_bottom = 24.1008
+margin_left = 6.0
+margin_top = 10.0
+margin_right = 106.0
+margin_bottom = 24.0
 rect_scale = Vector2( 0.84, 1 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "You can go"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -88,6 +93,7 @@ margin_top = -9.0
 margin_right = 69.0
 margin_bottom = 5.0
 rect_scale = Vector2( 0.540001, 1 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 __meta__ = {

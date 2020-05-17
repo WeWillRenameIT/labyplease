@@ -5,7 +5,7 @@
     },
 
     "English":{
-        "correct": "No mistakes",
-        "incorrect": "There are mistakes"
+        "correct": "Correct",
+        "incorrect": "Incorrect"
     }
 }

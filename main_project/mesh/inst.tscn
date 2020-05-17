@@ -7,7 +7,7 @@
 [ext_resource path="res://sprites/table/locker.png" type="Texture" id=5]
 [ext_resource path="res://sprites/table/locker_clear.png" type="Texture" id=6]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
@@ -15,7 +15,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 64.0612, 64 )
 
 [node name="inst" type="Node2D"]
@@ -69,12 +69,12 @@ polygon = PoolVector2Array( -12.4687, 52.197, -12.0712, -64.956, 5.7241, -64.383
 [node name="lock" type="AnimatedSprite" parent="locker"]
 position = Vector2( -73.5, -0.5 )
 scale = Vector2( 1.00685, 1.00781 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="locker"]
 position = Vector2( -64.5, -0.5 )
 scale = Vector2( 1.00685, 1.00781 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 [connection signal="input_event" from="ruler_a" to="." method="_on_Area2D_input_event"]
 [connection signal="input_event" from="strelka_a" to="." method="_on_strelka_a_input_event"]
 [connection signal="input_event" from="locker/strelka_a2" to="." method="_on_strelka_a2_input_event"]

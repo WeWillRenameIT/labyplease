@@ -10,6 +10,7 @@ var drag = false
 var bruh = Vector2(0,0)
 var approved = false
 var check_status = false
+
 var localeFilePath = "res://texts/otchet.json" # Файл локали
 var workCheckCorrect
 var workCheckIncorrect
@@ -35,9 +36,9 @@ func _process(delta):
 	if check_status and cp==0:
 		$as_right/status_main.visible = true
 		if test:
-			$as_right/status_main.text= 'True'
+			$as_right/status_main.text= workCheckCorrect
 		else:
-			$as_right/status_main.text= 'False'
+			$as_right/status_main.text= workCheckIncorrect
 	if cp == pages:
 		$ot_1/status.visible = true
 	else:
