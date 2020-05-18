@@ -17,14 +17,16 @@ var end_time
 
 func _ready():
 	randomize()
-	new_student(level)
+	# Запустить первого студента
+	$room._on_Next_pressed()
+	"""new_student(level)
 	yield(get_tree().create_timer(2),"timeout")
 	$room/dialog_box.visible = true
 	$room/dialog_box/lbl_dialog.text = 'Oh hello there'
 	yield(get_tree().create_timer(2),"timeout")
 	$room/Next.visible = true
 	$room/Leave.visible = true
-	$room/dialog_box.visible = false
+	$room/dialog_box.visible = false"""
 
 func _process(delta):
 	end_time = $computer/clocks.end
@@ -155,13 +157,20 @@ func fio():
 
 func children():
 	return children
+
 func new():
 	return new
+
 func open():
 	if $players_stuff.get_child_count() == 3:
 		return $players_stuff/studak.open
+
 func set_bank(num):
 	bank=num
+	
+func getApproved():
+	# TODO: Сделать проверку, существует ли отчёт
+	return $players_stuff/otchet.approved()
 
 func _on_background_music_ready():
 	var audio_files = ["res://sounds/gameplay1.ogg", "res://sounds/gameplay2.ogg", "res://sounds/gameplay3.ogg"]

@@ -1,11 +1,35 @@
 {
     "Russian":{
         "nextStudent": "Следующий",
-        "dismissStudent": "Можете идти"
+        "dismissStudent": "Можете идти",
+        "studentDialogueGreeting1": "Здравствуйте!",
+        "studentDialogueGreeting2": "Мой усердный труд",
+        "studentDialogueGreeting3": "Вот моя работа",
+        "studentDialogueGreeting4": "Проверьте, пожалуйста",
+        "studentDialoguePositive1": "Ура!",
+        "studentDialoguePositive2": "Спасибо!",
+        "studentDialoguePositive3": "Прекрасно!",
+        "studentDialoguePositive4": "До свидания!",
+        "studentDialogueNegative1": "Ну вот...",
+        "studentDialogueNegative2": "Ну почти...",
+        "studentDialogueNegative3": "Придётся переделать",
+        "studentDialogueNegative4": "До свидания..."
     },
 
     "English":{
         "nextStudent": "Next please",
-        "dismissStudent": "You can go"
+        "dismissStudent": "You can go",
+        "studentDialogueGreeting1": "Hello!",
+        "studentDialogueGreeting2": "Worked through the night..",
+        "studentDialogueGreeting3": "Here's my work",
+        "studentDialogueGreeting4": "Please check my work",
+        "studentDialoguePositive1": "Yeah!",
+        "studentDialoguePositive2": "Thank you!",
+        "studentDialoguePositive3": "I've got this!",
+        "studentDialoguePositive4": "Until next time!",
+        "studentDialogueNegative1": "Ugh..",
+        "studentDialogueNegative2": "I was so close..",
+        "studentDialogueNegative3": "Gonna go redo it",
+        "studentDialogueNegative4": "Goodbye.."
     }
 }

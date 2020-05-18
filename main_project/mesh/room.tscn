@@ -83,14 +83,14 @@ __meta__ = {
 
 [node name="dialog_box" type="Sprite" parent="."]
 visible = false
-position = Vector2( 66.4751, -7.67444 )
-scale = Vector2( 2, 2 )
+position = Vector2( 72.2751, -36.4237 )
+scale = Vector2( 1.25, 1.75 )
 texture = ExtResource( 4 )
 
 [node name="lbl_dialog" type="Label" parent="dialog_box"]
-margin_left = -24.0
+margin_left = -46.0
 margin_top = -9.0
-margin_right = 69.0
+margin_right = 131.0
 margin_bottom = 5.0
 rect_scale = Vector2( 0.540001, 1 )
 custom_fonts/font = ExtResource( 6 )

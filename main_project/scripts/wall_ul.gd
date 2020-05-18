@@ -4,6 +4,11 @@ var fixed = false
 
 func _ready():
 	randomize()
+	# Загрузка локализации
+	var quotePath = "res://texts/wall_ul.json"
+	var currentLang = Main.currentLang;
+	$dialog_box/next_scream.text = Main.json_load(quotePath)[currentLang]["next"]
+	
 	if !fixed and blink(3) == 0:
 		yield(get_tree().create_timer(randi()%3 + 4),"timeout")
 		$noise.play()
