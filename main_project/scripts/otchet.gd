@@ -39,6 +39,8 @@ func _process(delta):
 			$as_right/status_main.text= workCheckCorrect
 		else:
 			$as_right/status_main.text= workCheckIncorrect
+	elif cp!=0:
+		$as_right/status_main.visible = false
 	if cp == pages:
 		$ot_1/status.visible = true
 	else:
@@ -95,7 +97,7 @@ func _on_right_a_input_event(viewport, event, shape_idx):
 					$left_a.visible = true
 					$right_a.visible = true
 					$ot_1.visible = true
-				elif cp == pages:
+				if cp == pages:
 					check_status = true
 					$as_right/pages.visible = false
 					print("test is: "+ String(test))
@@ -125,26 +127,26 @@ func _on_left_a_input_event(viewport, event, shape_idx):
 				$as_right.visible = true
 				$right_a/right.disabled = false
 				if cp != 0:
+					cp-=1
 					$as_right/pages.visible = true
-					$as_right/pages.text = String((cp+1)*2-3)
+					$as_right/pages.text = String((cp+1)*2-1)
 					$ot_1/pages.visible = true
-					$ot_1/pages.text = String((cp)*2-2)
+					$ot_1/pages.text = String((cp)*2)
 					$main_col.disabled = true
 					$right_a.visible = true
 					$left_a/left.disabled = false
 					$left_a.visible = true
-					cp-=1
-					if cp == 0:
-						$as_right/pages.visible = false
-						$main_col.disabled = false
-						$as_right.frame = 0
-						$as_right.visible = true
-						$sec_col.disabled = true
-						$left_a/left.disabled = true
-						$left_a.visible = false
-						$right_a/right.disabled = false
-						$right_a.visible = true
-						$ot_1.visible = false
+				if cp == 0:
+					$as_right/pages.visible = false
+					$main_col.disabled = false
+					$as_right.frame = 0
+					$as_right.visible = true
+					$sec_col.disabled = true
+					$left_a/left.disabled = true
+					$left_a.visible = false
+					$right_a/right.disabled = false
+					$right_a.visible = true
+					$ot_1.visible = false
 				print(cp)
 			if event.button_index == BUTTON_RIGHT: #ПКМ - мгновенно перемещаемся к началу
 				cp = 0
