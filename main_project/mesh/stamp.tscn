@@ -29,6 +29,7 @@ collision_mask = 1008
 
 [node name="cs1" type="CollisionShape2D" parent="stamp_1"]
 shape = SubResource( 1 )
+[connection signal="area_exited" from="stamp_1" to="." method="_on_stamp_1_area_exited"]
 [connection signal="area_shape_entered" from="stamp_1" to="." method="_on_stamp_1_area_shape_entered"]
 [connection signal="area_shape_exited" from="stamp_1" to="." method="_on_stamp_1_area_shape_exited"]
 [connection signal="input_event" from="stamp_1" to="." method="_on_stamp_1_input_event"]

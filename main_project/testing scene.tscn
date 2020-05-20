@@ -98,7 +98,7 @@ position = Vector2( -122.25, 191.869 )
 z_index = 1
 
 [node name="stamp2" parent="." instance=ExtResource( 7 )]
-position = Vector2( -20, -43 )
+position = Vector2( -20, -44 )
 
 [node name="inst" parent="." instance=ExtResource( 9 )]
 visible = false

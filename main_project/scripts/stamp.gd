@@ -46,7 +46,6 @@ func _on_stamp_1_area_shape_entered(area_id, area, area_shape, self_shape):
 	#var obj = add_child(area.obj_scene.instance())
 	#print(obj)
 	canStamp = true
-	print("Ставь печать!")
 	testArea = area
 	pass 
 
@@ -54,4 +53,9 @@ func _on_stamp_1_area_shape_entered(area_id, area, area_shape, self_shape):
 func _on_stamp_1_area_shape_exited(area_id, area, area_shape, self_shape):
 	#canStamp = false
 	#print("НЕ Ставь печать!")
+	pass # Replace with function body.
+
+
+func _on_stamp_1_area_exited(area):
+	canStamp = false
 	pass # Replace with function body.
