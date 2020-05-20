@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="laby_please"
+config/name="Laby Please"
 run/main_scene="res://main menu/mainMenu.tscn"
 config/icon="res://icon.png"
 

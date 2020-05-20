@@ -176,11 +176,10 @@ func _on_background_music_ready():
 	var audio_files = ["res://sounds/gameplay1.ogg", "res://sounds/gameplay2.ogg", "res://sounds/gameplay3.ogg"]
 	var nextsong = randi()%3
 	var new_audio_file = audio_files[nextsong]
-	if File.new().file_exists(new_audio_file):
-		var music = load(new_audio_file)
-		music.set_loop(false)
-		$background_music.stream = music
-		$background_music.play()
+	var music = load(new_audio_file)
+	music.set_loop(false)
+	$background_music.stream = music
+	$background_music.play()
 
 func _on_background_music_finished():
 	var audio_files = ["res://sounds/gameplay1.ogg", "res://sounds/gameplay2.ogg", "res://sounds/gameplay3.ogg"]
@@ -202,8 +201,7 @@ func _on_background_music_finished():
 		else:
 			new_audio_file = audio_files[1]
 	
-	if File.new().file_exists(new_audio_file):
-		var music = load(new_audio_file)
-		music.set_loop(false)
-		$background_music.stream = music
-		$background_music.play()
+	var music = load(new_audio_file)
+	music.set_loop(false)
+	$background_music.stream = music
+	$background_music.play()
