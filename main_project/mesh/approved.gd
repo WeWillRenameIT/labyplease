@@ -1,4 +1,4 @@
-extends Area2D
+extends Sprite
 
 
 # Declare member variables here. Examples:
@@ -9,3 +9,4 @@ extends Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("Я родился")
+	

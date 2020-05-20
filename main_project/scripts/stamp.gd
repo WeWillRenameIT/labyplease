@@ -9,10 +9,12 @@ func _ready():
 func _on_stamp_1_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == BUTTON_LEFT:
-			if canStamp ==  true and test.get_parent().cp == 0:
+			#if canStamp ==  true and test.get_parent().cp == 0:
+			if canStamp ==  true:
 				#print("bruh")
 				var obj_scene = preload("res://mesh/approved.tscn")
 				var obj = obj_scene.instance()
+				
 				#obj.region_enabled = true
 				#obj.set_region_rect(Rect2(Vector2(0,0),)) 
 				#print(testArea.get_overlapping_areas())
@@ -43,13 +45,13 @@ func _on_stamp_1_area_shape_entered(area_id, area, area_shape, self_shape):
 	#add_child(area)
 	#var obj = add_child(area.obj_scene.instance())
 	#print(obj)
-	
-
 	canStamp = true
+	print("Ставь печать!")
 	testArea = area
 	pass 
 
 
 func _on_stamp_1_area_shape_exited(area_id, area, area_shape, self_shape):
-	canStamp = false
+	#canStamp = false
+	#print("НЕ Ставь печать!")
 	pass # Replace with function body.
