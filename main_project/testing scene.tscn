@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://texts/generalFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://mesh/reader.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://mesh/clocks.tscn" type="PackedScene" id=5]
 [ext_resource path="res://mesh/room.tscn" type="PackedScene" id=6]
 [ext_resource path="res://mesh/stamp.tscn" type="PackedScene" id=7]
+[ext_resource path="res://mesh/Hidden_stamp.tscn" type="PackedScene" id=8]
 [ext_resource path="res://mesh/inst.tscn" type="PackedScene" id=9]
 [ext_resource path="res://mesh/wall_ul.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scripts/testing scene.gd" type="Script" id=11]
@@ -26,7 +27,6 @@ z_as_relative = false
 zoom = Vector2( 0.22, 0.26 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 position = Vector2( -231, -103 )
 current = true
 zoom = Vector2( 0.5, 0.555 )
@@ -41,10 +41,10 @@ collision_mask = 31
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Camera2D/StaticBody2D"]
 position = Vector2( 612.07, -11.4447 )
 rotation = 3.14159
-polygon = PoolVector2Array( -76.0451, -21.3108, -76.0451, -25.0994, 650.093, -25.0994, 649.165, 13.9703, 601.869, 13.9704, 601.869, -21.3108 )
+polygon = PoolVector2Array( -76.0451, -21.3108, -76.0451, -25.0994, 650.093, -25.0994, 649.165, 13.9703, 601.868, 14.0509, 601.869, -21.3093 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera2D/StaticBody2D"]
-polygon = PoolVector2Array( 0.927361, -21.5476, 0.927353, -25.4151, 687.188, -25.5729, 684.406, 10.4975, 603.724, 10.4975, 603.724, -21.5476 )
+polygon = PoolVector2Array( 0.927361, -21.5476, 0.927353, -25.4151, 687.188, -25.5729, 684.406, 10.4975, 596.303, 10.4977, 596.304, -21.7054 )
 
 [node name="room" parent="." instance=ExtResource( 6 )]
 position = Vector2( -410, -106 )
@@ -59,13 +59,13 @@ position = Vector2( 49.0189, -16.4527 )
 z_as_relative = false
 
 [node name="big_table" type="Sprite" parent="."]
-position = Vector2( -53, -8.6918 )
-scale = Vector2( 1.00349, 1.00773 )
+position = Vector2( -52.194, -9.5655 )
+scale = Vector2( 1.01282, 1.0102 )
 texture = ExtResource( 3 )
 
 [node name="small_table" type="Sprite" parent="big_table"]
-position = Vector2( -319, 45 )
-scale = Vector2( 1.25412, 0.917147 )
+position = Vector2( -321.006, 45 )
+scale = Vector2( 1.2682, 0.917147 )
 texture = ExtResource( 13 )
 
 [node name="Label" type="Label" parent="big_table"]
@@ -86,19 +86,16 @@ position = Vector2( 10, -3 )
 scale = Vector2( 1.00349, 1.00465 )
 
 [node name="computer" parent="." instance=ExtResource( 4 )]
-position = Vector2( -53, -208 )
+position = Vector2( -53, -209 )
 z_as_relative = false
 
 [node name="clocks" parent="computer" instance=ExtResource( 5 )]
-position = Vector2( -177, 52 )
+position = Vector2( -177, 53 )
 z_as_relative = false
 
 [node name="reader" parent="computer" instance=ExtResource( 2 )]
 position = Vector2( -122.25, 191.869 )
 z_index = 1
-
-[node name="stamp2" parent="." instance=ExtResource( 7 )]
-position = Vector2( -20, -44 )
 
 [node name="inst" parent="." instance=ExtResource( 9 )]
 visible = false
@@ -158,5 +155,11 @@ text = "false"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Hidden_stamp" parent="." instance=ExtResource( 8 )]
+position = Vector2( 91, 16 )
+scale = Vector2( 0.1, 0.1 )
+z_index = 4
+z_as_relative = false
 [connection signal="finished" from="background_music" to="." method="_on_background_music_finished"]
 [connection signal="ready" from="background_music" to="." method="_on_background_music_ready"]
