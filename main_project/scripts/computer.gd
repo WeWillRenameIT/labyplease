@@ -29,6 +29,8 @@ var testTrue = Main.json_load(quotePath)[currentLang]["testTrue"]
 var testFalse = Main.json_load(quotePath)[currentLang]["testFalse"]
 var virusTrue = Main.json_load(quotePath)[currentLang]["virusTrue"]
 var virusFalse = Main.json_load(quotePath)[currentLang]["virusFalse"]
+var studentTrue = Main.json_load(quotePath)[currentLang]["studentTrue"]
+var studentFalse = Main.json_load(quotePath)[currentLang]["studentFalse"]
 
 var readerBroken = Main.json_load(quotePath)[currentLang]["readerBroken"]
 var dayEnd_notEnoughCash = Main.json_load(quotePath)[currentLang]["dayEnd_notEnoughCash"]
@@ -47,6 +49,12 @@ func _ready():
 	$background/Node2D/Label2.text = Main.json_load(quotePath)[currentLang]["testingProgram"]
 	$background/Node2D/Label3.text = Main.json_load(quotePath)[currentLang]["Checking"]
 	$background/Node2D/Label4.text = Main.json_load(quotePath)[currentLang]["information"]
+	
+	$background/grayblock/next_level.text = Main.json_load(quotePath)[currentLang]["dayEnd_nextLevel"]
+	$background/grayblock/repair_reader.text = Main.json_load(quotePath)[currentLang]["dayEnd_repairReader"]
+	$background/grayblock/note_1.text = Main.json_load(quotePath)[currentLang]["dayEnd_label"]
+	$background/grayblock/note_2.text = Main.json_load(quotePath)[currentLang]["dayEnd_label2"]
+	$background/shop_menu/Buy.text = Main.json_load(quotePath)[currentLang]["shopBuy"]
 	
 func _process(delta):
 	#Проверка на бонусы
@@ -128,7 +136,10 @@ func _process(delta):
 	
 	# Прошел ли поиск студента в базе
 	if list:
-		$background/label.text = "Student: " + String(fio)
+		if (fio):
+			$background/label.text = studentTrue
+		else:
+			$background/label.text = studentFalse
 		$background/label.visible = true
 		yield(get_tree().create_timer(1.5),"timeout")
 		$background/ProgressBarCheck.value = 0
@@ -162,11 +173,6 @@ func _process(delta):
 		yield(get_tree().create_timer(1.5),"timeout")
 		$background/label.visible = false
 		gear_work = false
-	
-	# Если время вышло включаем магазин
-	if $clocks.end:
-		$background/shop.visible = true
-		$background/shop.playing = true
 	
 	# Если все порты сломаны - конец уровня
 	if ports<=$reader.notwork:
@@ -257,6 +263,7 @@ func check():
 		$background/shop_menu/more_reader/read_b.disabled=false
 
 func _on_shop_b_pressed():
+	$background/grayblock.visible = false
 	$background/shop_menu.visible = true
 	$background/shop_menu/total.text = String(get_parent().bank)+"p."
 	check()
@@ -279,6 +286,7 @@ func _on_next_level_pressed():
 
 func _on_exit_pressed():
 	$background/shop_menu.visible = false
+	$background/grayblock.visible = true
 	shop = 0
 	$background/shop_menu/count.text = ""
 

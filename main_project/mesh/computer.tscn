@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://sprites/scene/monitor.png" type="Texture" id=1]
 [ext_resource path="res://sprites/scene/backgrounds/book.png" type="Texture" id=2]
@@ -42,6 +42,7 @@
 [ext_resource path="res://sprites/scene/shop/reader_gray.png" type="Texture" id=40]
 [ext_resource path="res://sprites/scene/shop/reader.png" type="Texture" id=41]
 [ext_resource path="res://texts/generalFont.tres" type="DynamicFont" id=42]
+[ext_resource path="res://texts/statsFont.tres" type="DynamicFont" id=43]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -352,7 +353,7 @@ __meta__ = {
 
 [node name="shop" type="AnimatedSprite" parent="background"]
 visible = false
-position = Vector2( -119.562, -34.794 )
+position = Vector2( -123.07, -7.349 )
 scale = Vector2( 0.24122, 0.242969 )
 frames = SubResource( 2 )
 frame = 1
@@ -413,10 +414,12 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="background/grayblock"]
-margin_left = -119.863
-margin_top = -32.5273
-margin_right = -79.8628
-margin_bottom = -18.5273
+margin_left = -120.0
+margin_top = -33.0
+margin_right = 69.0
+margin_bottom = 61.0
+rect_scale = Vector2( 0.6, 1 )
+custom_fonts/font = ExtResource( 43 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -562,11 +565,12 @@ __meta__ = {
 
 [node name="Label2" type="Label" parent="background/shop_menu"]
 visible = false
-margin_left = 35.1649
-margin_top = 323.561
-margin_right = 75.1649
-margin_bottom = 337.561
-rect_scale = Vector2( 3.25054, 4.14816 )
+margin_left = 35.0
+margin_top = 324.0
+margin_right = 209.0
+margin_bottom = 341.0
+rect_scale = Vector2( 2, 5 )
+custom_fonts/font = ExtResource( 43 )
 
 [node name="count" type="Label" parent="background/shop_menu"]
 margin_left = 98.0
@@ -648,12 +652,13 @@ __meta__ = {
 
 [node name="label" type="Label" parent="background"]
 visible = false
-margin_left = -38.8578
-margin_top = -2.98234
-margin_right = 39.1422
-margin_bottom = 11.0177
+margin_left = -136.0
+margin_top = 13.8999
+margin_right = 136.0
+margin_bottom = 29.8999
 custom_fonts/font = ExtResource( 42 )
 text = "Test is done"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

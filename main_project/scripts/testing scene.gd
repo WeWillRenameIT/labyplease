@@ -64,19 +64,30 @@ func end():
 	bank-=1000*very_wrong
 	if bank<0:
 		bank = 0
-	$computer/background/shop.visible=true
+	$computer/background/shop.visible = true
+	$computer/background/shop.playing = true
 	$computer/background/shop.play()
 	$Camera2D.current=false
 	$end_cam.current=true
 	if end_time:
 		$computer/background/grayblock/repair_reader.disabled=true
 		$computer/background/grayblock/repair_reader.visible=false
-	$computer/background/question.visible=false
+	$computer/background/question.visible = false
 	$computer/background/grayblock.visible = true
-	$computer/background/grayblock/Label.text = "Students: " + String(students) + "\n Right: " +String(right) +"\n Wrong: " + String(wrong) 
-	$computer/background/grayblock/Label.text += "\n money: " +String(money) +"p."
-	if very_wrong >=0: $computer/background/grayblock/Label.text += "\n Fine:" + String(500*very_wrong)
-	$computer/background/grayblock/Label.text += "\n Bank: " +String(bank) +"p."
+	
+	var quotePath = "res://texts/computer.json"
+	var currentLang = Main.currentLang;
+	var statsStudents = Main.json_load(quotePath)[currentLang]["statsStudents"]
+	var statsCorrect = Main.json_load(quotePath)[currentLang]["statsCorrect"]
+	var statsWrong = Main.json_load(quotePath)[currentLang]["statsWrong"]
+	var statsSalary = Main.json_load(quotePath)[currentLang]["statsSalary"]
+	var statsFines = Main.json_load(quotePath)[currentLang]["statsFines"]
+	var statsBank = Main.json_load(quotePath)[currentLang]["statsBank"]
+	
+	$computer/background/grayblock/Label.text = statsStudents + ": " + String(students) + "\n" + statsCorrect + ": " + String(right) +"\n" + statsWrong + ": " + String(wrong+very_wrong) 
+	$computer/background/grayblock/Label.text += "\n" + statsSalary + ": " +String(money) +"p."
+	if very_wrong >=0: $computer/background/grayblock/Label.text += "\n" + statsFines + ": " + String(500*very_wrong) + "р."
+	$computer/background/grayblock/Label.text += "\n" + statsBank + ": " +String(bank) +"p."
 
 
 

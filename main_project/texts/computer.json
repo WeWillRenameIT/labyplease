@@ -9,12 +9,21 @@
         "virusFalse": "Вирусов нет",
         "testTrue": "Тест пройден",
         "testFalse": "Тест не пройден",
+        "studentTrue": "Данные совпадают",
+        "studentFalse": "Данные неверны!",
         "readerBroken": "Ридер сломан",
         "dayEnd_label": "Сводка за день:",
-        "dayEnd_label2": "Рабочий день окончен",
+        "dayEnd_label2": "День окончен",
         "dayEnd_notEnoughCash": "Недостаточно денег",
         "dayEnd_nextLevel": "Следующий день",
-        "dayEnd_repairReader": "Починка ридера"
+        "dayEnd_repairReader": "Починка ридера",
+        "statsStudents": "Студенты",
+        "statsCorrect": "Правильная оценка",
+        "statsWrong": "Неправильная оценка",
+        "statsSalary": "Зарплата",
+        "statsFines": "Штраф",
+        "statsBank": "Деньги",
+        "shopBuy": "Купить"
     },
 
     "English":{
@@ -27,11 +36,20 @@
         "virusFalse": "No viruses",
         "testTrue": "Test passed",
         "testFalse": "Test failed",
+        "studentTrue": "ID is valid",
+        "studentFalse": "Invalid ID!",
         "readerBroken": "Reader is broken",
         "dayEnd_label": "Stats:",
         "dayEnd_label2": "Work day over",
         "dayEnd_notEnoughCash": "Not enough cash",
         "dayEnd_nextLevel": "Next day",
-        "dayEnd_repairReader": "Fix reader"
+        "dayEnd_repairReader": "Fix reader",
+        "statsStudents": "Students",
+        "statsCorrect": "Correctly checked",
+        "statsWrong": "Incorrectly checked",
+        "statsSalary": "Salary",
+        "statsFines": "Fine",
+        "statsBank": "Bank",
+        "shopBuy": "Buy"
     }
 }
