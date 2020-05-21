@@ -1,9 +1,9 @@
 extends Node2D
 
 var notify = true
-var test_speed = 4 # Скорость проверки теста
-var vir_speed = 4 # Скорость проверки вируса
-var int_speed = 4 # Скорость проверки студента
+var test_speed = 10 # Скорость проверки теста
+var vir_speed = 8 # Скорость проверки вируса
+var int_speed = 8 # Скорость проверки студента
 var boot_speed = 4 # Скорость загрузки пк. Число отнимается от 20 и ставится таймер таймер(20-5) по стандарту
 var boot= false # Ускоритель загрузки (SAVE!)
 var test_s = false # Ускоритель проверки теста (SAVE!)

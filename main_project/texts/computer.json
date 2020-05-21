@@ -2,7 +2,7 @@
     "Russian":{
         "virusCheck": "Поиск вирусов",
         "testingProgram": "Проверка программы",
-        "Checking": "Проверка студента",
+        "Checking": "Проверка студ. билета",
         "testIsDone": "Тест завершен", 
         "information": "Информация"
     },
@@ -10,7 +10,7 @@
     "English":{
         "virusCheck": "Virus Check",
         "testingProgram": "Test program",
-        "Checking": "Check ID in database",
+        "Checking": "Check student ID",
         "testIsDone": "Test finished",
         "information": "Information"
     }
