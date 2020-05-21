@@ -480,6 +480,7 @@ __meta__ = {
 }
 
 [node name="shop_menu" type="AnimatedSprite" parent="background"]
+visible = false
 position = Vector2( 3.98541, -1.43051e-06 )
 scale = Vector2( 0.141669, 0.113679 )
 frames = SubResource( 3 )

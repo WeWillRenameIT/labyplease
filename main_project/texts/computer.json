@@ -4,7 +4,17 @@
         "testingProgram": "Проверка программы",
         "Checking": "Проверка студ. билета",
         "testIsDone": "Тест завершен", 
-        "information": "Информация"
+        "information": "Информация",
+        "virusTrue": "Обнаружен вирус!",
+        "virusFalse": "Вирусов нет",
+        "testTrue": "Тест пройден",
+        "testFalse": "Тест не пройден",
+        "readerBroken": "Ридер сломан",
+        "dayEnd_label": "Сводка за день:",
+        "dayEnd_label2": "Рабочий день окончен",
+        "dayEnd_notEnoughCash": "Недостаточно денег",
+        "dayEnd_nextLevel": "Следующий день",
+        "dayEnd_repairReader": "Починка ридера"
     },
 
     "English":{
@@ -12,6 +22,16 @@
         "testingProgram": "Test program",
         "Checking": "Check student ID",
         "testIsDone": "Test finished",
-        "information": "Information"
+        "information": "Information",
+        "virusTrue": "Virus found!",
+        "virusFalse": "No viruses",
+        "testTrue": "Test passed",
+        "testFalse": "Test failed",
+        "readerBroken": "Reader is broken",
+        "dayEnd_label": "Stats:",
+        "dayEnd_label2": "Work day over",
+        "dayEnd_notEnoughCash": "Not enough cash",
+        "dayEnd_nextLevel": "Next day",
+        "dayEnd_repairReader": "Fix reader"
     }
 }

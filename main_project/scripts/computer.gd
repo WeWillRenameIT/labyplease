@@ -24,6 +24,14 @@ var ports = 1 # (SAVE!)
 var quotePath = "res://texts/computer.json"
 var currentLang = Main.currentLang;
 
+var testTrue = Main.json_load(quotePath)[currentLang]["testTrue"]
+var testFalse = Main.json_load(quotePath)[currentLang]["testFalse"]
+var virusTrue = Main.json_load(quotePath)[currentLang]["virusTrue"]
+var virusFalse = Main.json_load(quotePath)[currentLang]["virusFalse"]
+
+var readerBroken = Main.json_load(quotePath)[currentLang]["readerBroken"]
+var dayEnd_notEnoughCash = Main.json_load(quotePath)[currentLang]["dayEnd_notEnoughCash"]
+
 func _ready():
 	# Нужно подогнать изображения под шрифт 
 	$background/ProgressBarRad/Label.text = Main.json_load(quotePath)[currentLang]["virusCheck"]
@@ -33,9 +41,6 @@ func _ready():
 	$background/Node2D/Label2.text = Main.json_load(quotePath)[currentLang]["testingProgram"]
 	$background/Node2D/Label3.text = Main.json_load(quotePath)[currentLang]["Checking"]
 	$background/Node2D/Label4.text = Main.json_load(quotePath)[currentLang]["information"]
-	#$background/label.text = Main.json_load(quotePath)[currentLang]["testIsDone"]
-	# В этой строке беда, потому что, когда тест проходится в скрипте задается текст элемента, надо будет изменить
-	pass
 	
 func _process(delta):
 	#Проверка на бонусы
@@ -126,13 +131,13 @@ func _process(delta):
 	
 	# Прошло сканирование на вирусы
 	if rad_work and virus:
-		$background/label.text = "Virus detected!!!"
+		$background/label.text = virusTrue
 		$background/label.visible = true
 		yield(get_tree().create_timer(1.5),"timeout")
 		$background/label.visible = false
 		rad_work = false
 	if rad_work and !virus:
-		$background/label.text = "Virus free"
+		$background/label.text = virusFalse
 		$background/label.visible = true
 		yield(get_tree().create_timer(1.5),"timeout")
 		$background/label.visible = false
@@ -140,13 +145,13 @@ func _process(delta):
 	
 	# Прошел тест программы
 	if gear_work and test:
-		$background/label.text = "Test pass"
+		$background/label.text = testTrue
 		$background/label.visible = true
 		yield(get_tree().create_timer(1.5),"timeout")
 		$background/label.visible = false
 		gear_work = false
 	elif gear_work and !test:
-		$background/label.text = "Test failed!!!"
+		$background/label.text = testFalse
 		$background/label.visible = true
 		yield(get_tree().create_timer(1.5),"timeout")
 		$background/label.visible = false
@@ -183,7 +188,7 @@ func _on_que_b_button_up():
 
 func no_lives():
 	get_parent().end()
-	$background/grayblock/note_2.text="Reader is broken."
+	$background/grayblock/note_2.text=readerBroken
 	$background/grayblock/repair_reader.visible=true
 	$background/grayblock/repair_reader.disabled=false
 
@@ -298,7 +303,7 @@ func _on_Buy_pressed():
 	var money = get_parent().bank
 	if money<shop:
 		$background/shop_menu/Label2.visible=true
-		$background/shop_menu/Label2.text = "Not enough money!"
+		$background/shop_menu/Label2.text = dayEnd_notEnoughCash
 		$background/shop_menu/count.text = "0 p."
 		shop = 0
 		yield(get_tree().create_timer(1.5),"timeout")
