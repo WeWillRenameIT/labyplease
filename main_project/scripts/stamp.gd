@@ -7,6 +7,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_stamp_1_input_event(viewport, event, shape_idx):
+	get_tree().set_input_as_handled()
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == BUTTON_LEFT:
 			#if canStamp ==  true and test.get_parent().cp == 0:

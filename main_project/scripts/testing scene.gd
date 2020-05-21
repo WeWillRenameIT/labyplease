@@ -14,8 +14,15 @@ var children = 0
 var open=false
 var level = 3  #1- только отчет, 2- отч + флешка, 3 - всё. По сути это система уровней SAVE
 var end_time
+var optionsPath = "user://options.json"
 
 func _ready():
+	bank = Main.json_load(optionsPath)['bank']
+	global_right = Main.json_load(optionsPath)['global_right']
+	global_wrong = Main.json_load(optionsPath)['global_wrong']
+	global_students = Main.json_load(optionsPath)['global_students']
+	level = Main.json_load(optionsPath)['level']
+	print("CureentLevel: ", Main.currentLevel)
 	randomize()
 	# Запустить первого студента
 	$room._on_Next_pressed()
@@ -29,6 +36,7 @@ func _ready():
 	$room/dialog_box.visible = false"""
 
 func _process(delta):
+	#print(get_tree().is_input_handled())
 	end_time = $computer/clocks.end
 	if end_time:
 		#$room/wall_up_left/wall_dc/open_anim.visible = false
@@ -69,6 +77,8 @@ func end():
 	$computer/background/grayblock/Label.text += "\n money: " +String(money) +"p."
 	if very_wrong >=0: $computer/background/grayblock/Label.text += "\n Fine:" + String(500*very_wrong)
 	$computer/background/grayblock/Label.text += "\n Bank: " +String(bank) +"p."
+
+
 
 func noend():
 	$Camera2D.current=true

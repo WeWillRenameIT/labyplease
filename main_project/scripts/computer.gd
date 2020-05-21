@@ -19,12 +19,18 @@ var list = false # Прошла ли проверка
 var listing = false # Проверка по глобальному списку
 var shop = 0
 var ports = 1 # (SAVE!)
+var optionsPath = "user://options.json"
 
 # Параметры для загрузки локали
 var quotePath = "res://texts/computer.json"
 var currentLang = Main.currentLang;
 
 func _ready():
+	boot = Main.json_load(optionsPath)['boot']
+	test_s = Main.json_load(optionsPath)['test_s']
+	vir = Main.json_load(optionsPath)['vir']
+	check = Main.json_load(optionsPath)['check']
+	ports = Main.json_load(optionsPath)['ports']
 	# Нужно подогнать изображения под шрифт 
 	$background/ProgressBarRad/Label.text = Main.json_load(quotePath)[currentLang]["virusCheck"]
 	$background/ProgressBarTest/Label.text = Main.json_load(quotePath)[currentLang]["testingProgram"]
@@ -252,6 +258,17 @@ func _on_shop_b_pressed():
 
 func _on_next_level_pressed():
 	get_parent().level +=1
+	var temp = Main.json_load(optionsPath)
+	temp['bank'] = get_parent().bank
+	temp['global_right'] = get_parent().global_right
+	temp['global_wrong'] = get_parent().global_wrong
+	temp['global_students'] = get_parent().global_students
+	temp['level'] = get_parent().level
+	temp['boot'] = boot
+	temp['test_s'] = test_s
+	temp['vir'] = vir
+	temp['check'] = check
+	temp['ports'] = ports
 	$background/grayblock/next_level.disabled = true
 
 

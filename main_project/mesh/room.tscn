@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://sprites/scene/wall.png" type="Texture" id=1]
 [ext_resource path="res://mesh/student.tscn" type="PackedScene" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://sprites/dialog_box/dialog_box.png" type="Texture" id=4]
 [ext_resource path="res://scripts/room.gd" type="Script" id=5]
 [ext_resource path="res://texts/dialogueFont.tres" type="DynamicFont" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 42.2726, 14.6004 )
 
 [node name="room" type="Node2D"]
 z_as_relative = false
@@ -23,7 +26,6 @@ position = Vector2( -20, 8 )
 scale = Vector2( 5, 5 )
 
 [node name="Next" type="Button" parent="."]
-visible = false
 margin_left = 121.705
 margin_top = -0.147152
 margin_right = 221.705
@@ -51,8 +53,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="nextArea2D" type="Area2D" parent="Next"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="nextAreaCollisionShape2D" type="CollisionShape2D" parent="Next/nextArea2D"]
+position = Vector2( 47.9874, 16.2331 )
+shape = SubResource( 1 )
+
 [node name="Leave" type="Button" parent="."]
-visible = false
 margin_left = 122.0
 margin_top = 32.8528
 margin_right = 222.0
@@ -81,6 +90,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="leaveArea2D" type="Area2D" parent="Leave"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="leaveAreaCollisionShape2D" type="CollisionShape2D" parent="Leave/leaveArea2D"]
+position = Vector2( 48.5219, 17.278 )
+shape = SubResource( 1 )
+
 [node name="dialog_box" type="Sprite" parent="."]
 visible = false
 position = Vector2( 72.2751, -36.4237 )
@@ -99,5 +116,11 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="mouse_entered" from="Next" to="." method="_on_Next_mouse_entered"]
 [connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
+[connection signal="area_entered" from="Next/nextArea2D" to="." method="_on_nextArea2D_area_entered"]
+[connection signal="area_exited" from="Next/nextArea2D" to="." method="_on_nextArea2D_area_exited"]
+[connection signal="mouse_entered" from="Leave" to="." method="_on_Leave_mouse_entered"]
 [connection signal="pressed" from="Leave" to="." method="_on_Leave_pressed"]
+[connection signal="area_entered" from="Leave/leaveArea2D" to="." method="_on_leaveArea2D_area_entered"]
+[connection signal="area_exited" from="Leave/leaveArea2D" to="." method="_on_leaveArea2D_area_exited"]
