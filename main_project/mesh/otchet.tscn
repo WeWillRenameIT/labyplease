@@ -8,9 +8,9 @@
 [ext_resource path="res://sprites/otchet/maskTest.png" type="Texture" id=6]
 [ext_resource path="res://mesh/torch.tscn" type="PackedScene" id=7]
 
-[sub_resource type="CanvasItemMaterial" id=3]
+[sub_resource type="CanvasItemMaterial" id=1]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": true,
@@ -18,7 +18,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 8 )
 
 [node name="otchet" type="RigidBody2D"]
@@ -44,10 +44,10 @@ scale = Vector2( 1.5, 1.5 )
 polygon = PoolVector2Array( -96, -48, -32, -48, -32, 48, -80, 48, -80, 32, -96, 32 )
 
 [node name="as_right" type="AnimatedSprite" parent="."]
-material = SubResource( 3 )
+material = SubResource( 1 )
 position = Vector2( 16, 1.01352e-05 )
 scale = Vector2( 1.04348, 1.05109 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 
 [node name="pages" type="Label" parent="as_right"]
 visible = false
@@ -186,7 +186,7 @@ texture = ExtResource( 4 )
 
 [node name="right" type="CollisionShape2D" parent="right_a"]
 position = Vector2( 38, 64 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="left_a" type="Area2D" parent="."]
 visible = false
@@ -200,7 +200,7 @@ texture = ExtResource( 4 )
 
 [node name="left" type="CollisionShape2D" parent="left_a"]
 position = Vector2( -88, 40 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Control" type="Control" parent="."]
 margin_left = -33.0
@@ -208,7 +208,6 @@ margin_top = -72.0
 margin_right = 64.0
 margin_bottom = 73.0
 rect_min_size = Vector2( -0.009, 0 )
-rect_clip_content = true
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false

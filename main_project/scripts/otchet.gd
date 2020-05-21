@@ -199,3 +199,5 @@ func _on_Control_gui_input(event):
 			bruh = get_local_mouse_position()
 		if event.button_index == BUTTON_RIGHT:
 			set_rotation_degrees(0)
+
+
