@@ -20,6 +20,7 @@ func _on_stamp_1_input_event(viewport, event, shape_idx):
 				#print(testArea.get_overlapping_areas())
 				#print(obj.get_region_rect()) 
 				obj.set_position(get_global_position()-test.get_global_position())
+				obj.position.y += 9
 				test.add_child(obj)
 				test.get_parent().approved = true
 				#print("disance:" , testArea.position - obj.position)
