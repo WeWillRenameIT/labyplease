@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://sprites/mainMenu/back.png" type="Texture" id=1]
 [ext_resource path="res://scripts/main_menu.gd" type="Script" id=2]
@@ -10,6 +10,10 @@
 [ext_resource path="res://sprites/mainMenu/zhalyzi.png" type="Texture" id=8]
 [ext_resource path="res://sprites/mainMenu/clouds.png" type="Texture" id=9]
 [ext_resource path="res://sounds/main_menu.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sprites/scene/backgrounds/question.png" type="Texture" id=11]
+[ext_resource path="res://sprites/mainMenu/instructions_sprite.png" type="Texture" id=12]
+[ext_resource path="res://sprites/otchet/img_67992.png" type="Texture" id=13]
+[ext_resource path="res://sprites/mainMenu/instructions_sprite2.png" type="Texture" id=14]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -211,7 +215,109 @@ __meta__ = {
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 volume_db = -12.0
+
+[node name="TutorialButton" type="TextureButton" parent="."]
+margin_left = 1230.0
+margin_top = 5.0
+margin_right = 1270.0
+margin_bottom = 45.0
+texture_normal = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tutorial" type="TextureRect" parent="."]
+visible = false
+margin_left = 657.363
+margin_top = 40.9325
+margin_right = 1377.36
+margin_bottom = 760.932
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial"]
+margin_left = 8.0
+margin_top = 378.0
+margin_right = 715.0
+margin_bottom = 711.0
+rect_scale = Vector2( 1, 0.9 )
+custom_fonts/font = ExtResource( 5 )
+text = "Управление: мышкой.
+Игроку требуется проверять работы студентов:
+1. Открыть студенческий билет (1), проверить его данные на компьютере (6);
+2. Вставить флешку (2) в считыывающее устройство (5), проверить флешку на вирусы и проверить программу студента на компьютере (6);
+3. Пролистать отчёт (4).
+Руководствуясь сообщениями о результатах проверок, игрок принимает решение о выставлении оценки \"зачтено\" или \"не зачтено\".
+Оценка \"зачтено\" ставится путём установки на отчёт (4) штампа (3) и нажатием кнопки \"Можете идти\".
+Оценка \"не зачтено\" ставится путём нажатия кнопки \"Можете идти\" без установки штампа."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Tutorial"]
+margin_left = 646.0
+margin_top = 663.0
+margin_right = 712.0
+margin_bottom = 710.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Tutorial/Button"]
+position = Vector2( 34.3362, 20.8944 )
+scale = Vector2( 0.0438751, 0.0438751 )
+texture = ExtResource( 13 )
+flip_h = true
+
+[node name="Tutorial2" type="TextureRect" parent="."]
+visible = false
+margin_left = 657.363
+margin_top = 40.9325
+margin_right = 1377.36
+margin_bottom = 760.932
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Tutorial2"]
+margin_left = 8.0
+margin_top = 378.0
+margin_right = 715.0
+margin_bottom = 711.0
+rect_scale = Vector2( 1, 0.9 )
+custom_fonts/font = ExtResource( 5 )
+text = "При проверке программы с флешки, на которой находится вирус, компьютер зависнет, а использованный порт считывающего устройства сломается. Именно поэтому стоит проверять флешки на вирусы перед проверкой программы.
+Если компьютер завис, требуется нажать красную кнопку в нижнем левом углу, чтобы перезагрузить компьютер.
+Если у игрока не осталось рабочих портов считывающего устройства, игрок может потратить 1000р. на починку портов или закончить игру на текущем уровне и перейти к следующему."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Tutorial2"]
+margin_left = 14.8777
+margin_top = 658.635
+margin_right = 80.8777
+margin_bottom = 705.635
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Tutorial2/Button2"]
+position = Vector2( 34.3362, 20.8944 )
+scale = Vector2( 0.0438751, 0.0438751 )
+texture = ExtResource( 13 )
 [connection signal="pressed" from="menuContainer/newGameButton" to="." method="_on_newGameButton_pressed"]
 [connection signal="pressed" from="menuContainer/loadGameButton" to="." method="_on_loadGameButton_pressed"]
 [connection signal="pressed" from="menuContainer/quitButton" to="." method="_on_quitButton_pressed"]
 [connection signal="pressed" from="languageToggleBtn" to="." method="_on_languageToggleBtn_pressed"]
+[connection signal="pressed" from="TutorialButton" to="." method="_on_TutorialButton_pressed"]
+[connection signal="pressed" from="Tutorial/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Tutorial2/Button2" to="." method="_on_Button2_pressed"]

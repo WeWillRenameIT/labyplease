@@ -21,6 +21,8 @@ func _ready():
 	$menuContainer/newGameButton/Label.text = Main.json_load(localeFilePath)[currentLang]["newGame"]
 	$menuContainer/loadGameButton/Label.text = Main.json_load(localeFilePath)[currentLang]["loadGame"]
 	$menuContainer/quitButton/Label.text = Main.json_load(localeFilePath)[currentLang]["quit"]
+	$Tutorial/Label.text = Main.json_load(localeFilePath)[currentLang]["tutorial"]
+	$Tutorial2/Label.text = Main.json_load(localeFilePath)[currentLang]["tutorial2"]
 	
 	# Запустить анимацию облаков
 	$Art/Clouds.material.set_shader_param("scroll_speed", 0.025)
@@ -68,3 +70,21 @@ func _on_loadGameButton_pressed():
 
 func _on_quitButton_pressed():
 	get_tree().quit()
+
+
+func _on_TutorialButton_pressed():
+	if ($Tutorial.visible == false && $Tutorial2.visible == false):
+		$Tutorial.visible = true
+	else:
+		$Tutorial.visible = false
+		$Tutorial2.visible = false
+
+
+func _on_Button_pressed():
+	$Tutorial.visible = false
+	$Tutorial2.visible = true
+
+
+func _on_Button2_pressed():
+	$Tutorial2.visible = false
+	$Tutorial.visible = true
