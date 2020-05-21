@@ -176,10 +176,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="background/ProgressBarRad"]
-margin_left = 22.9161
-margin_top = -13.9176
-margin_right = 95.9161
-margin_bottom = 0.0823889
+margin_left = -48.0
+margin_top = -14.0
+margin_right = 169.0
+margin_bottom = 2.0
 custom_fonts/font = ExtResource( 42 )
 text = "Virus check"
 align = 1
@@ -196,10 +196,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="background/ProgressBarTest"]
-margin_left = -3.98542
-margin_top = -13.9176
-margin_right = 123.015
-margin_bottom = 0.082387
+margin_left = -48.0
+margin_top = -14.0
+margin_right = 175.0
+margin_bottom = 2.0
 custom_fonts/font = ExtResource( 42 )
 text = "Testing program"
 align = 1
@@ -216,10 +216,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="background/ProgressBarCheck"]
-margin_left = -3.98542
-margin_top = -13.9176
-margin_right = 123.015
-margin_bottom = 0.082387
+margin_left = -49.0
+margin_top = -14.0
+margin_right = 171.0
+margin_bottom = 2.0
 custom_fonts/font = ExtResource( 42 )
 text = "Checking a student"
 align = 1
