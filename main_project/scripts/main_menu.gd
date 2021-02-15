@@ -6,16 +6,25 @@ var localeFilePath = "res://texts/mainMenu.json"
 var currentLang
 var optionsFile
 
-# Параметры для загрузки локали
 func _ready():
+	# Загрузить настройки
 	optionsFile = "user://options.json"
 	if File.new().file_exists(optionsFile):
 		Main.currentLang = Main.json_load(optionsFile)["language"]
 		currentLang = Main.currentLang
 	else:
-		Directory.new().copy("res://options/options.json", optionsFile)
+		Directory.new().copy("res://options/templates/options.json", optionsFile)
 		Main.currentLang = Main.json_load(optionsFile)["language"]
 		currentLang = Main.currentLang
+		
+	# Загрузить сохранение (TODO: отдельные профили с именами)
+	var saveFile = "user://savedata/Player.save"
+	if File.new().file_exists(saveFile):
+		Main.saveData = Main.json_load(saveFile)
+	else:
+		Directory.new().make_dir("user://savedata")
+		Directory.new().copy("res://options/templates/Player.save", saveFile)	
+		Main.saveData = Main.json_load(saveFile)
 	
 	# Загрузка текста кнопок в необходимой локали
 	$menuContainer/newGameButton/Label.text = Main.json_load(localeFilePath)[currentLang]["newGame"]

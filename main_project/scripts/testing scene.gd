@@ -17,12 +17,14 @@ var end_time
 var optionsPath = "user://options.json"
 
 func _ready():
-	bank = Main.json_load(optionsPath)['bank']
-	global_right = Main.json_load(optionsPath)['global_right']
-	global_wrong = Main.json_load(optionsPath)['global_wrong']
-	global_students = Main.json_load(optionsPath)['global_students']
-	level = Main.json_load(optionsPath)['level']
-	print("CureentLevel: ", Main.currentLevel)
+	# Загрузить данные из сохранения	
+	bank = Main.saveData['bank'] # Кол-во денег у игрока
+	global_right = Main.saveData['global_right']
+	global_wrong = Main.saveData['global_wrong']
+	global_students = Main.saveData['global_students']
+	level = Main.saveData['level']
+	
+	print("CurrentLevel: ", Main.currentLevel)
 	randomize()
 	# Запустить первого студента
 	$room._on_Next_pressed()

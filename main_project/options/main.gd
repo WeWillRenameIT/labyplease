@@ -12,6 +12,24 @@ extends Node
 var currentLevel;
 var currentLang; # Язык, который используется в данный момент.
 
+# JSON-объект с данными сохранения, до загрузки пустой
+var saveData = null
+
+#var saveData = {
+#	"name": "Player",
+#	"currentLevel": 1,
+#	"bank": 0,
+#	"global_right": 0,
+#	"global_wrong": 0,
+#	"global_students": 0,
+#	"level": 3,
+#	"boot": false,
+#	"test_s": false,
+#	"vir": false,
+#	"check": false,
+#	"ports": 1
+#}
+
 func json_load(path): # Импрот данных из json файла, path - путь до json файла
 	var file = File.new()
 	file.open(path, File.READ)

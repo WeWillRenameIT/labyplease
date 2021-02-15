@@ -17,7 +17,11 @@ var speed = 1
 
 #по умолчанию всегда горит зеленый, т.е. все входы исправны
 
-func _ready():
+# _ready у детей выполняется раньше, чем у родителей, поэтому ports неправильно подгружалась
+# Инициализировать reader надо после computer, поэтому я сделал отдельную функцию initialize, которая вызывается в _ready объекта computer
+#func _ready():
+
+func initialize():
 	ip_1_in = false
 	ip_2_in = false
 	ip_3_in = false
@@ -27,7 +31,6 @@ func _ready():
 	generate(get_parent().ports)
 	numb_ports(num_en)
 	print(num_en)
-
 
 func _process(delta):
 	if !ip_1: #Если вход не работает, то он горит красным

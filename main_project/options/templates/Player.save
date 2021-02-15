@@ -1,0 +1,14 @@
+{
+    "name": "Player",
+    "currentLevel": 1,
+    "bank": 0,
+    "global_right": 0,
+    "global_wrong": 0,
+    "global_students": 0,
+    "level": 3,
+    "boot": false,
+    "test_s": false,
+    "vir": false,
+    "check": false,
+    "ports": 1
+}

@@ -36,11 +36,15 @@ var readerBroken = Main.json_load(quotePath)[currentLang]["readerBroken"]
 var dayEnd_notEnoughCash = Main.json_load(quotePath)[currentLang]["dayEnd_notEnoughCash"]
 
 func _ready():
-	boot = Main.json_load(optionsPath)['boot']
-	test_s = Main.json_load(optionsPath)['test_s']
-	vir = Main.json_load(optionsPath)['vir']
-	check = Main.json_load(optionsPath)['check']
-	ports = Main.json_load(optionsPath)['ports']
+	# Эти опции загружаются из файла с сохранением
+	boot = Main.saveData['boot']
+	test_s = Main.saveData['test_s']
+	vir = Main.saveData['vir']
+	check = Main.saveData['check']
+	ports = Main.saveData['ports']
+	
+	$reader.initialize()
+	
 	# Нужно подогнать изображения под шрифт 
 	$background/ProgressBarRad/Label.text = Main.json_load(quotePath)[currentLang]["virusCheck"]
 	$background/ProgressBarTest/Label.text = Main.json_load(quotePath)[currentLang]["testingProgram"]
