@@ -72,7 +72,6 @@ func _integrate_forces(state):
 		state.linear_velocity /= friction_coef
 
 func _on_otchet_input_event(viewport, event, shape_idx):
-	pass
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == BUTTON_LEFT:
 			drag = true

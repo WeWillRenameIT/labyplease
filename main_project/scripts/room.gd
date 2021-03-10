@@ -32,6 +32,7 @@ func _ready():
 	$Leave/lbl_leave.text = Main.json_load(quotePath)[currentLang]["dismissStudent"]
 
 func _on_Next_pressed():
+	print("next")
 	#if get_tree().is_input_handled():
 	if canInput:
 		$Next.visible = false
@@ -61,6 +62,7 @@ func _on_Next_pressed():
 
 
 func _on_Leave_pressed():
+	print("leave")
 	#if get_tree().is_input_handled():
 	if canInput:
 		$wall_up_left/wall_dc/open_anim.frame = 1
@@ -93,23 +95,26 @@ func _on_Leave_mouse_entered():
 	pass # Replace with function body.
 
 
-func _on_nextArea2D_area_exited(area):
+"""func _on_nextArea2D_area_exited(area):
 	canInput = true
+	print("canInput: ",canInput)
 	#get_tree().set_input_as_handled()
 	pass # Replace with function body.
 
 
 func _on_leaveArea2D_area_exited(area):
 	canInput = true
+	print("canInput: ",canInput)
 	#get_tree().set_input_as_handled()
 	pass # Replace with function body.
 
 
 func _on_nextArea2D_area_entered(area):
 	canInput = false
+	print("canInput: ",canInput)
 	pass # Replace with function body.
 
 
 func _on_leaveArea2D_area_entered(area):
 	canInput = false
-	pass # Replace with function body.
+	pass # Replace with function body."""

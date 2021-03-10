@@ -58,7 +58,7 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="nextAreaCollisionShape2D" type="CollisionShape2D" parent="Next/nextArea2D"]
-position = Vector2( 47.9874, 16.2331 )
+position = Vector2( 48.5277, 16.2331 )
 shape = SubResource( 1 )
 
 [node name="Leave" type="Button" parent="."]

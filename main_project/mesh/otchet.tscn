@@ -22,7 +22,6 @@ animations = [ {
 extents = Vector2( 8, 8 )
 
 [node name="otchet" type="RigidBody2D"]
-z_index = 3
 z_as_relative = false
 input_pickable = true
 collision_layer = 2
@@ -225,6 +224,8 @@ polygon = PoolVector2Array( -27.8044, -71.4701, -26.8188, 72.5021, 48.8283, 72.2
 [node name="torch" parent="." instance=ExtResource( 7 )]
 position = Vector2( 15.9134, 0.875972 )
 scale = Vector2( 0.50552, 0.636955 )
+z_index = 3
+z_as_relative = false
 texture = ExtResource( 6 )
 [connection signal="input_event" from="." to="." method="_on_otchet_input_event"]
 [connection signal="input_event" from="right_a" to="." method="_on_right_a_input_event"]
