@@ -106,6 +106,7 @@ __meta__ = {
 margin_right = 350.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 350, 70 )
+mouse_default_cursor_shape = 2
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -139,6 +140,7 @@ margin_top = 74.0
 margin_right = 350.0
 margin_bottom = 144.0
 rect_min_size = Vector2( 350, 70 )
+mouse_default_cursor_shape = 2
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -172,6 +174,7 @@ margin_top = 148.0
 margin_right = 350.0
 margin_bottom = 218.0
 rect_min_size = Vector2( 350, 70 )
+mouse_default_cursor_shape = 2
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false

@@ -33,6 +33,7 @@ polygon = PoolVector2Array( -7, 12.9023, -7, -5.09769, -4, -5, -4, -14, 4, -14, 
 
 [node name="fms_1" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 6
 
 [node name="fma_1" type="Area2D" parent="."]
 scale = Vector2( 2, 2 )

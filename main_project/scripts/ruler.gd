@@ -1,8 +1,8 @@
 extends RigidBody2D
 
 var mouse_drag_scale = 10
-var max_velocity = 150  # максимальная скорость
-var friction_coef = 1.13 # коэффициент трения
+var max_velocity = 1500  # максимальная скорость
+var friction_coef = 0.01 # коэффициент трения
 var drag = false
 var bruh = Vector2(0,0)
 

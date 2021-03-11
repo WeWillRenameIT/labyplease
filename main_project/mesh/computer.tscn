@@ -122,19 +122,19 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 141, 94 )
+extents = Vector2( 144, 96 )
 
 [node name="computer" type="Node2D"]
 script = ExtResource( 8 )
 
 [node name="monitor" type="Sprite" parent="."]
-position = Vector2( -6.77626e-21, 0 )
-scale = Vector2( 1.00356, 1.00535 )
+position = Vector2( -1.19209e-07, 2.38419e-07 )
+scale = Vector2( 1.02491, 1.02674 )
 texture = ExtResource( 1 )
 
 [node name="bruh" type="Sprite" parent="."]
-position = Vector2( -9.23872e-07, -4 )
-scale = Vector2( 0.17125, 0.17 )
+position = Vector2( -8.64267e-07, -4 )
+scale = Vector2( 0.175, 0.176 )
 texture = ExtResource( 15 )
 
 [node name="load_text" type="Label" parent="."]
@@ -155,14 +155,14 @@ __meta__ = {
 
 [node name="load" type="AnimatedSprite" parent="."]
 visible = false
-position = Vector2( -3.8147e-06, -4 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( 0.101507, -3.98531 )
+scale = Vector2( 0.268773, 0.221911 )
 frames = SubResource( 1 )
 animation = "New Anim"
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 0, -4 )
-scale = Vector2( 1.00366, 1.00592 )
+position = Vector2( -1.19209e-06, -4.00001 )
+scale = Vector2( 1.02564, 1.04142 )
 texture = ExtResource( 5 )
 
 [node name="ProgressBarRad" type="ProgressBar" parent="background"]
@@ -286,6 +286,7 @@ margin_left = -9.5
 margin_top = -9.5
 margin_right = 9.5
 margin_bottom = 10.5
+mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
 flat = true
 align = 0
@@ -304,6 +305,7 @@ margin_top = -9.5
 margin_right = 9.49998
 margin_bottom = 10.5
 focus_mode = 0
+mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
 enabled_focus_mode = 0
 flat = true
@@ -323,6 +325,7 @@ margin_top = -9.5
 margin_right = 9.49998
 margin_bottom = 10.5
 focus_mode = 0
+mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
 enabled_focus_mode = 0
 flat = true
@@ -343,6 +346,7 @@ margin_top = -9.5
 margin_right = 9.5
 margin_bottom = 10.5
 focus_mode = 0
+mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
 enabled_focus_mode = 0
 flat = true
@@ -365,6 +369,7 @@ margin_right = -14.0438
 margin_bottom = -17.1734
 rect_scale = Vector2( 3.39169, 3.32665 )
 focus_mode = 0
+mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
 enabled_focus_mode = 0
 flat = true
@@ -702,7 +707,6 @@ collision_layer = 7
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 0, 1 )
 shape = SubResource( 10 )
 [connection signal="pressed" from="background/list/list_b" to="." method="_on_list_b_pressed"]
 [connection signal="pressed" from="background/radiation/rad_b" to="." method="_on_rad_b_pressed"]
