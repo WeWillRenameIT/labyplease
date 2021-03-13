@@ -30,6 +30,9 @@ var saveData = null
 #	"ports": 1
 #}
 
+func _ready():
+	pause_mode = Node.PAUSE_MODE_PROCESS
+
 func json_load(path): # Импрот данных из json файла, path - путь до json файла
 	var file = File.new()
 	file.open(path, File.READ)
@@ -48,4 +51,14 @@ func json_save(data,path):
 	file.open(path, File.WRITE)
 	file.store_string(JSON.print(data,"\n"))
 	file.close()
+
+func pause_game():
+	var pause_menu = preload("res://mesh/PauseMenu.tscn")
+	var instance = pause_menu.instance()
+	add_child(instance)
+	instance.set_position(Vector2(-553.015,-304))
+	instance.set_scale(Vector2(0.503,0.557))
+	get_tree().paused = true;
+	pass
 	
+

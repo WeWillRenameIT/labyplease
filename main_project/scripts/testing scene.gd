@@ -37,6 +37,19 @@ func _ready():
 	$room/Leave.visible = true
 	$room/dialog_box.visible = false"""
 
+func _input(event):
+	if event.is_action_pressed("pause"):
+		#Main.pause_game()
+		var pause_menu = preload("res://mesh/PauseMenu.tscn")
+		var instance = pause_menu.instance()
+		print(get_child_count())
+		add_child(instance)
+		get_tree().paused = true;
+		instance.set_position(Vector2(-553.015,-304))
+		instance.set_scale(Vector2(0.503,0.557))
+		#pass
+		
+
 func _process(delta):
 	#print(get_tree().is_input_handled())
 	end_time = $computer/clocks.end

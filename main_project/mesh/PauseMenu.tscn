@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sprites/pause/puase_menu.png" type="Texture" id=1]
+[ext_resource path="res://texts/fontSources/17543.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://mesh/PauseMenu.gd" type="Script" id=3]
+[ext_resource path="res://sprites/pause/theme_for_buttons.tres" type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+outline_size = 1
+outline_color = Color( 0.0745098, 0.0745098, 0.0745098, 1 )
+font_data = ExtResource( 2 )
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_bottom = 0.291
+margin_left = 320.0
+margin_right = 982.0
+margin_bottom = 150.48
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 662.0
+margin_bottom = 52.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "ПАУЗА"
+align = 1
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+margin_top = 77.0
+margin_right = 662.0
+margin_bottom = 129.0
+size_flags_vertical = 3
+theme = ExtResource( 4 )
+text = "Выйти из игры"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 154.0
+margin_right = 662.0
+margin_bottom = 206.0
+size_flags_vertical = 3
+custom_constants/separation = 25
+
+[node name="Load" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 318.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Загрузиить игру"
+
+[node name="Save" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 343.0
+margin_right = 662.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Сохранить игру"
+
+[node name="GoToMainMenu" type="Button" parent="VBoxContainer"]
+margin_top = 231.0
+margin_right = 662.0
+margin_bottom = 283.0
+size_flags_vertical = 3
+text = "Вернуться в главное меню"
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+margin_top = 308.0
+margin_right = 662.0
+margin_bottom = 360.0
+size_flags_vertical = 3
+text = "Продолжить"
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Load" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="VBoxContainer/GoToMainMenu" to="." method="_on_GoToMainMenu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
