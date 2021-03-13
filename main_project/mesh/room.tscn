@@ -11,6 +11,7 @@
 extents = Vector2( 42.2726, 14.6004 )
 
 [node name="room" type="Node2D"]
+pause_mode = 1
 z_as_relative = false
 script = ExtResource( 5 )
 

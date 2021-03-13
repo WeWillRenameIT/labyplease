@@ -25,6 +25,7 @@ animations = [ {
 } ]
 
 [node name="reader_cc" type="RigidBody2D"]
+z_index = -1
 mode = 3
 script = ExtResource( 2 )
 

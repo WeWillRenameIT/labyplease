@@ -10,8 +10,6 @@ extents = Vector2( 7.33282, 8.36747 )
 
 [node name="studak" type="RigidBody2D"]
 position = Vector2( 32, 0 )
-z_index = 2
-z_as_relative = false
 input_pickable = true
 collision_layer = 2
 collision_mask = 0

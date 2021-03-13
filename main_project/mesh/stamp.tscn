@@ -9,7 +9,6 @@ extents = Vector2( 38, 32 )
 
 [node name="stamp" type="Node2D"]
 light_mask = 993
-z_index = 5
 script = ExtResource( 3 )
 
 [node name="InkApproved" type="Sprite" parent="."]

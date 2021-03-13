@@ -37,30 +37,30 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 662.0
-margin_bottom = 52.0
+margin_bottom = 44.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
 text = "ПАУЗА"
 align = 1
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
-margin_top = 77.0
+margin_top = 69.0
 margin_right = 662.0
-margin_bottom = 129.0
+margin_bottom = 107.0
 size_flags_vertical = 3
 theme = ExtResource( 4 )
 text = "Выйти из игры"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 154.0
+margin_top = 132.0
 margin_right = 662.0
-margin_bottom = 206.0
+margin_bottom = 170.0
 size_flags_vertical = 3
 custom_constants/separation = 25
 
 [node name="Load" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_right = 318.0
-margin_bottom = 52.0
+margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Загрузиить игру"
@@ -68,26 +68,34 @@ text = "Загрузиить игру"
 [node name="Save" type="Button" parent="VBoxContainer/HBoxContainer"]
 margin_left = 343.0
 margin_right = 662.0
-margin_bottom = 52.0
+margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Сохранить игру"
 
 [node name="GoToMainMenu" type="Button" parent="VBoxContainer"]
-margin_top = 231.0
+margin_top = 195.0
 margin_right = 662.0
-margin_bottom = 283.0
+margin_bottom = 233.0
 size_flags_vertical = 3
 text = "Вернуться в главное меню"
 
 [node name="Continue" type="Button" parent="VBoxContainer"]
-margin_top = 308.0
+margin_top = 258.0
+margin_right = 662.0
+margin_bottom = 296.0
+size_flags_vertical = 3
+text = "Продолжить"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+margin_top = 321.0
 margin_right = 662.0
 margin_bottom = 360.0
 size_flags_vertical = 3
-text = "Продолжить"
+text = "Опции"
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Load" to="." method="_on_Load_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Save" to="." method="_on_Save_pressed"]
 [connection signal="pressed" from="VBoxContainer/GoToMainMenu" to="." method="_on_GoToMainMenu_pressed"]
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_Options_pressed"]

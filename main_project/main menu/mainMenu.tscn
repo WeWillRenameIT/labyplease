@@ -49,8 +49,9 @@ __meta__ = {
 
 [node name="Clouds" type="TextureRect" parent="Art"]
 material = SubResource( 2 )
+margin_left = 1.29236
 margin_top = 40.0
-margin_right = 328.0
+margin_right = 329.292
 margin_bottom = 107.0
 rect_scale = Vector2( 5, 5 )
 texture = ExtResource( 9 )

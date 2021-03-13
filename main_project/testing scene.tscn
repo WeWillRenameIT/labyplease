@@ -160,7 +160,5 @@ __meta__ = {
 [node name="Hidden_stamp" parent="." instance=ExtResource( 8 )]
 position = Vector2( 90.1072, 16 )
 scale = Vector2( 0.1, 0.1 )
-z_index = 4
-z_as_relative = false
 [connection signal="finished" from="background_music" to="." method="_on_background_music_finished"]
 [connection signal="ready" from="background_music" to="." method="_on_background_music_ready"]
