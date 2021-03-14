@@ -96,7 +96,7 @@ z_as_relative = false
 
 [node name="reader" parent="computer" instance=ExtResource( 2 )]
 position = Vector2( -126.254, 194 )
-z_index = 1
+z_index = 0
 
 [node name="inst" parent="." instance=ExtResource( 9 )]
 visible = false

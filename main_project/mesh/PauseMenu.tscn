@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://sprites/pause/puase_menu.png" type="Texture" id=1]
 [ext_resource path="res://texts/fontSources/17543.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://mesh/PauseMenu.gd" type="Script" id=3]
 [ext_resource path="res://sprites/pause/theme_for_buttons.tres" type="Theme" id=4]
@@ -21,9 +20,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
-centered = false
+[node name="Dim" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0.784314 )
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_bottom = 0.291
