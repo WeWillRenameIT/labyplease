@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/puase_menu.png-664384ebbee0f1817fc35648fa60b0bf.stex"
+path="res://.import/saveGameSelect.png-f4bec3a078dde1cf0e22ca9b2775c5f2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/pause/puase_menu.png"
-dest_files=[ "res://.import/puase_menu.png-664384ebbee0f1817fc35648fa60b0bf.stex" ]
+source_file="res://sprites/mainMenu/saveGameSelect.png"
+dest_files=[ "res://.import/saveGameSelect.png-f4bec3a078dde1cf0e22ca9b2775c5f2.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

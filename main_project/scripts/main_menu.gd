@@ -39,6 +39,21 @@ func _ready():
 	# Включить музыку
 	if (!$Music.is_playing()):
 		$Music.play()
+	
+	# Загрузка профилей
+	var saveDataDirectoryString = "user://savedata/"
+	var saveDataDirectory =  Directory.new()
+	saveDataDirectory.open(saveDataDirectoryString)
+	saveDataDirectory.list_dir_begin(true)
+	
+	var saveFileToAdd = saveDataDirectory.get_next()
+	while saveFileToAdd != '':
+		# TODO: Если JSON не парсентся, то откинуть файл
+		print(saveFileToAdd)
+		var name = Main.json_load(saveDataDirectoryString + saveFileToAdd)["name"]
+		$profileSelect/VBoxContainer/ProfileList.add_item(name, null, true);
+		saveFileToAdd = saveDataDirectory.get_next()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -97,3 +112,10 @@ func _on_Button_pressed():
 func _on_Button2_pressed():
 	$Tutorial2.visible = false
 	$Tutorial.visible = true
+
+
+func _on_CreateProfile_pressed():
+	var name = $profileSelect/VBoxContainer/NameInput.text
+	if (name.length() > 0):
+		$profileSelect/VBoxContainer/ProfileList.add_item(name, null, true)
+		$profileSelect/VBoxContainer/NameInput.text = ""

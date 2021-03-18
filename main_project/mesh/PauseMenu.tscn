@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://texts/fontSources/17543.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://mesh/PauseMenu.gd" type="Script" id=3]
-[ext_resource path="res://sprites/pause/theme_for_buttons.tres" type="Theme" id=4]
+[ext_resource path="res://scripts/PauseMenu.gd" type="Script" id=3]
+[ext_resource path="res://sprites/theme_for_buttons.tres" type="Theme" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
