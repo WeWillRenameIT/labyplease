@@ -18,6 +18,7 @@ var optionsPath = "user://options.json"
 
 func _ready():
 	# Загрузить данные из сохранения	
+	print("Профиль: " + Main.saveData['name'])
 	bank = Main.saveData['bank'] # Кол-во денег у игрока
 	global_right = Main.saveData['global_right']
 	global_wrong = Main.saveData['global_wrong']

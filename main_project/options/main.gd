@@ -12,23 +12,41 @@ extends Node
 var currentLevel;
 var currentLang; # Язык, который используется в данный момент.
 var currentVolume = 1
-# JSON-объект с данными сохранения, до загрузки пустой
+
+# Данные сохранения, до загрузки пустые
+var saveFile = null
 var saveData = null
 
-#var saveData = {
-#	"name": "Player",
-#	"currentLevel": 1,
-#	"bank": 0,
-#	"global_right": 0,
-#	"global_wrong": 0,
-#	"global_students": 0,
-#	"level": 3,
-#	"boot": false,
-#	"test_s": false,
-#	"vir": false,
-#	"check": false,
-#	"ports": 1
-#}
+func loadSaveData(saveFileFullPath):
+	saveFile = saveFileFullPath
+	if (saveFile != null):
+		saveData = json_load(saveFile)
+
+func saveSaveData():
+	json_save(saveData, saveFile)
+
+func newSaveFile(profileName):
+	if (saveFile != null && saveData != null):
+		saveSaveData()
+	saveData = blankSaveData
+	saveData.name = profileName
+	saveFile = "user://savedata/" + profileName + ".save"
+	saveSaveData()
+
+const blankSaveData = {
+	"name": "Player",
+	"currentLevel": 1,
+	"bank": 0,
+	"global_right": 0,
+	"global_wrong": 0,
+	"global_students": 0,
+	"level": 3,
+	"boot": false,
+	"test_s": false,
+	"vir": false,
+	"check": false,
+	"ports": 1
+}
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
