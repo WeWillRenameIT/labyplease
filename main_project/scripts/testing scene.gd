@@ -209,8 +209,9 @@ func getApproved():
 	# TODO: Сделать проверку, существует ли отчёт
 	return $players_stuff/otchet.approved()
 
+var audio_files
+
 func _on_background_music_ready():
-	var audio_files
 	# easter egg!
 	if (Main.saveData["name"].sha256_text() == "5e5327a726b139360767945bab188c4af9033c4625cceedc53fb54431b0f9371"):
 		audio_files = ["res://sounds/gameplayEasterEgg.ogg", "res://sounds/gameplayEasterEgg.ogg", "res://sounds/gameplayEasterEgg.ogg"]
@@ -224,7 +225,7 @@ func _on_background_music_ready():
 	$background_music.play()
 
 func _on_background_music_finished():
-	var audio_files = ["res://sounds/gameplay1.ogg", "res://sounds/gameplay2.ogg", "res://sounds/gameplay3.ogg"]
+	#var audio_files = ["res://sounds/gameplay1.ogg", "res://sounds/gameplay2.ogg", "res://sounds/gameplay3.ogg"]
 	var nextsong = randi()%2
 	var new_audio_file
 	if $background_music.stream.resource_path == audio_files[0]:

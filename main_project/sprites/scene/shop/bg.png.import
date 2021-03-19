@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Без имени-1.png-56989dc8e068fa51731b6ecdf0ab4f1f.stex"
+path="res://.import/bg.png-1b753a3c33e8f9181b15c07bc2ca6cd9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/scene/backgrounds/Без имени-1.png"
-dest_files=[ "res://.import/Без имени-1.png-56989dc8e068fa51731b6ecdf0ab4f1f.stex" ]
+source_file="res://sprites/scene/shop/bg.png"
+dest_files=[ "res://.import/bg.png-1b753a3c33e8f9181b15c07bc2ca6cd9.stex" ]
 
 [params]
 
@@ -24,11 +24,11 @@ flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0

@@ -25,7 +25,7 @@
 [ext_resource path="res://sprites/scene/backgrounds/sh_crt2.png" type="Texture" id=23]
 [ext_resource path="res://sprites/scene/backgrounds/sh_crt.png" type="Texture" id=24]
 [ext_resource path="res://sprites/scene/backgrounds/grayblock.png" type="Texture" id=25]
-[ext_resource path="res://sprites/scene/shop/Без имени-2.png" type="Texture" id=26]
+[ext_resource path="res://sprites/scene/shop/bg.png" type="Texture" id=26]
 [ext_resource path="res://sprites/scene/shop/test_ssd.png" type="Texture" id=27]
 [ext_resource path="res://sprites/scene/shop/test_ssd_black.png" type="Texture" id=28]
 [ext_resource path="res://sprites/scene/shop/ethernet.png" type="Texture" id=29]
@@ -43,6 +43,7 @@
 [ext_resource path="res://sprites/scene/shop/reader.png" type="Texture" id=41]
 [ext_resource path="res://texts/generalFont.tres" type="DynamicFont" id=42]
 [ext_resource path="res://texts/statsFont.tres" type="DynamicFont" id=43]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

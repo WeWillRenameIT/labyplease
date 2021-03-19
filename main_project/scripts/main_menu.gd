@@ -62,9 +62,9 @@ func _ready():
 
 func loadLocale():
 	# Загрузка текста кнопок в необходимой локали
-	$menuContainer/newGameButton/Label.text = Main.json_load(localeFilePath)[currentLang]["newGame"]
-	$menuContainer/loadGameButton/Label.text = Main.json_load(localeFilePath)[currentLang]["loadGame"]
-	$menuContainer/quitButton/Label.text = Main.json_load(localeFilePath)[currentLang]["quit"]
+	$menuContainer/newGameButton.text = Main.json_load(localeFilePath)[currentLang]["newGame"]
+	$menuContainer/loadGameButton.text = Main.json_load(localeFilePath)[currentLang]["loadGame"]
+	$menuContainer/quitButton.text = Main.json_load(localeFilePath)[currentLang]["quit"]
 	$Tutorial/Label.text = Main.json_load(localeFilePath)[currentLang]["tutorial"]
 	$Tutorial2/Label.text = Main.json_load(localeFilePath)[currentLang]["tutorial2"]
 
