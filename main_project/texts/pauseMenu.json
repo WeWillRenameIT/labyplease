@@ -1,0 +1,21 @@
+{
+    "Russian":{
+        "label": "Пауза",
+        "quitGameButton": "Выйти из игры",
+        "loadButton": "Загрузить игру",
+        "saveButton": "Сохранить игру",
+        "backToMainMenuButton": "Вернуться в главное меню",
+        "continueButton": "Продолжить",
+        "optionsButton": "Опции"
+    },
+
+    "English":{
+        "label": "Paused",
+        "quitGameButton": "Quit",
+        "loadButton": "Load Game",
+        "saveButton": "Save Game",
+        "backToMainMenuButton": "Back to Main Menu",
+        "continueButton": "Continue",
+        "optionsButton": "Options"
+    }
+}

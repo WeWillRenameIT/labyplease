@@ -45,7 +45,7 @@ custom_fonts/font = SubResource( 1 )
 text = "ПАУЗА"
 align = 1
 
-[node name="Exit" type="Button" parent="PauseBlock"]
+[node name="QuitGameButton" type="Button" parent="PauseBlock"]
 margin_top = 69.0
 margin_right = 662.0
 margin_bottom = 107.0
@@ -63,14 +63,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Load" type="Button" parent="PauseBlock/HBoxContainer"]
+[node name="LoadButton" type="Button" parent="PauseBlock/HBoxContainer"]
 margin_right = 318.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Загрузиить игру"
+text = "Загрузить игру"
 
-[node name="Save" type="Button" parent="PauseBlock/HBoxContainer"]
+[node name="SaveButton" type="Button" parent="PauseBlock/HBoxContainer"]
 margin_left = 343.0
 margin_right = 662.0
 margin_bottom = 38.0
@@ -78,21 +78,21 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Сохранить игру"
 
-[node name="GoToMainMenu" type="Button" parent="PauseBlock"]
+[node name="BackToMainMenuButton" type="Button" parent="PauseBlock"]
 margin_top = 195.0
 margin_right = 662.0
 margin_bottom = 233.0
 size_flags_vertical = 3
 text = "Вернуться в главное меню"
 
-[node name="Continue" type="Button" parent="PauseBlock"]
+[node name="ContinueButton" type="Button" parent="PauseBlock"]
 margin_top = 258.0
 margin_right = 662.0
 margin_bottom = 296.0
 size_flags_vertical = 3
 text = "Продолжить"
 
-[node name="Options" type="Button" parent="PauseBlock"]
+[node name="OptionsButton" type="Button" parent="PauseBlock"]
 margin_top = 321.0
 margin_right = 662.0
 margin_bottom = 360.0
@@ -144,11 +144,11 @@ margin_top = 336.0
 margin_right = 662.0
 margin_bottom = 360.0
 text = "Назад"
-[connection signal="pressed" from="PauseBlock/Exit" to="." method="_on_Exit_pressed"]
-[connection signal="pressed" from="PauseBlock/HBoxContainer/Load" to="." method="_on_Load_pressed"]
-[connection signal="pressed" from="PauseBlock/HBoxContainer/Save" to="." method="_on_Save_pressed"]
-[connection signal="pressed" from="PauseBlock/GoToMainMenu" to="." method="_on_GoToMainMenu_pressed"]
-[connection signal="pressed" from="PauseBlock/Continue" to="." method="_on_Continue_pressed"]
-[connection signal="pressed" from="PauseBlock/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="PauseBlock/QuitGameButton" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="PauseBlock/HBoxContainer/LoadButton" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="PauseBlock/HBoxContainer/SaveButton" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="PauseBlock/BackToMainMenuButton" to="." method="_on_GoToMainMenu_pressed"]
+[connection signal="pressed" from="PauseBlock/ContinueButton" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="PauseBlock/OptionsButton" to="." method="_on_Options_pressed"]
 [connection signal="value_changed" from="OptionsBlock/Volume" to="." method="_on_Volume_value_changed"]
 [connection signal="pressed" from="OptionsBlock/Back" to="." method="_on_Back_pressed"]

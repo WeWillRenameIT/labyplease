@@ -2,8 +2,23 @@ extends Control
 
 func _ready():
 	$OptionsBlock/Volume.value = Main.currentVolume
+	# Параметры для загрузки локали
+	var localeFilePath = "res://texts/pauseMenu.json"
+	var currentLang = Main.currentLang;
+	
+	var localeJson = Main.json_load(localeFilePath)
+	
+	$PauseBlock/Label.text = localeJson[currentLang]["label"]
+	$PauseBlock/QuitGameButton.text = localeJson[currentLang]["quitGameButton"]
+	$PauseBlock/HBoxContainer/LoadButton.text = localeJson[currentLang]["loadButton"]
+	$PauseBlock/HBoxContainer/SaveButton.text = localeJson[currentLang]["saveButton"]
+	$PauseBlock/BackToMainMenuButton.text = localeJson[currentLang]["backToMainMenuButton"]
+	$PauseBlock/ContinueButton.text = localeJson[currentLang]["continueButton"]
+	$PauseBlock/OptionsButton.text = localeJson[currentLang]["optionsButton"]
 	print("Pause menu")
 	
+
+
 func _input(event):
 	if event.is_action_pressed("pause"):
 		if $OptionsBlock.visible == true:
