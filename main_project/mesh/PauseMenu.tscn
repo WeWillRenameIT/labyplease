@@ -28,17 +28,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_bottom = 0.291
+[node name="PauseBlock" type="VBoxContainer" parent="."]
 margin_left = 320.0
 margin_right = 982.0
-margin_bottom = 150.48
+margin_bottom = 360.0
 custom_constants/separation = 25
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="PauseBlock"]
 margin_right = 662.0
 margin_bottom = 44.0
 size_flags_vertical = 3
@@ -46,7 +45,7 @@ custom_fonts/font = SubResource( 1 )
 text = "ПАУЗА"
 align = 1
 
-[node name="Exit" type="Button" parent="VBoxContainer"]
+[node name="Exit" type="Button" parent="PauseBlock"]
 margin_top = 69.0
 margin_right = 662.0
 margin_bottom = 107.0
@@ -54,21 +53,24 @@ size_flags_vertical = 3
 theme = ExtResource( 4 )
 text = "Выйти из игры"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseBlock"]
 margin_top = 132.0
 margin_right = 662.0
 margin_bottom = 170.0
 size_flags_vertical = 3
 custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Load" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Load" type="Button" parent="PauseBlock/HBoxContainer"]
 margin_right = 318.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Загрузиить игру"
 
-[node name="Save" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Save" type="Button" parent="PauseBlock/HBoxContainer"]
 margin_left = 343.0
 margin_right = 662.0
 margin_bottom = 38.0
@@ -76,29 +78,77 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Сохранить игру"
 
-[node name="GoToMainMenu" type="Button" parent="VBoxContainer"]
+[node name="GoToMainMenu" type="Button" parent="PauseBlock"]
 margin_top = 195.0
 margin_right = 662.0
 margin_bottom = 233.0
 size_flags_vertical = 3
 text = "Вернуться в главное меню"
 
-[node name="Continue" type="Button" parent="VBoxContainer"]
+[node name="Continue" type="Button" parent="PauseBlock"]
 margin_top = 258.0
 margin_right = 662.0
 margin_bottom = 296.0
 size_flags_vertical = 3
 text = "Продолжить"
 
-[node name="Options" type="Button" parent="VBoxContainer"]
+[node name="Options" type="Button" parent="PauseBlock"]
 margin_top = 321.0
 margin_right = 662.0
 margin_bottom = 360.0
 size_flags_vertical = 3
 text = "Опции"
-[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Load" to="." method="_on_Load_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Save" to="." method="_on_Save_pressed"]
-[connection signal="pressed" from="VBoxContainer/GoToMainMenu" to="." method="_on_GoToMainMenu_pressed"]
-[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_Options_pressed"]
+
+[node name="OptionsBlock" type="Control" parent="."]
+visible = false
+margin_left = 320.0
+margin_right = 982.0
+margin_bottom = 360.0
+
+[node name="OptionsLabel" type="Label" parent="OptionsBlock"]
+margin_right = 662.0
+margin_bottom = 312.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "ОПЦИИ"
+align = 1
+
+[node name="Volume" type="HSlider" parent="OptionsBlock"]
+margin_top = 69.0
+margin_right = 244.0
+margin_bottom = 85.0
+max_value = 1.0
+step = 0.01
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="OptionsBlock/Volume"]
+margin_top = 16.0
+margin_right = 244.0
+margin_bottom = 40.0
+max_value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VolumeLabel" type="Label" parent="OptionsBlock/Volume"]
+margin_top = -25.0
+margin_right = 244.0
+margin_bottom = -1.0
+text = "Громость"
+align = 1
+
+[node name="Back" type="Button" parent="OptionsBlock"]
+margin_top = 336.0
+margin_right = 662.0
+margin_bottom = 360.0
+text = "Назад"
+[connection signal="pressed" from="PauseBlock/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="PauseBlock/HBoxContainer/Load" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="PauseBlock/HBoxContainer/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="PauseBlock/GoToMainMenu" to="." method="_on_GoToMainMenu_pressed"]
+[connection signal="pressed" from="PauseBlock/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="PauseBlock/Options" to="." method="_on_Options_pressed"]
+[connection signal="value_changed" from="OptionsBlock/Volume" to="." method="_on_Volume_value_changed"]
+[connection signal="pressed" from="OptionsBlock/Back" to="." method="_on_Back_pressed"]

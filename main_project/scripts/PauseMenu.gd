@@ -1,13 +1,17 @@
 extends Control
 
 func _ready():
+	$OptionsBlock/Volume.value = Main.currentVolume
 	print("Pause menu")
 	
 func _input(event):
 	if event.is_action_pressed("pause"):
-		get_tree().set_input_as_handled()
-		get_tree().paused = false
-		queue_free()
+		if $OptionsBlock.visible == true:
+			_on_Back_pressed()
+		elif $PauseBlock.visible == true:
+			get_tree().set_input_as_handled()
+			get_tree().paused = false
+			queue_free()
 
 func _on_Exit_pressed():
 	get_tree().quit()
@@ -29,6 +33,21 @@ func _on_Continue_pressed():
 	queue_free()
 	pass # Replace with function body.
 
-
 func _on_Options_pressed():
+	$PauseBlock.visible = false
+	$OptionsBlock.visible = true
+	pass # Replace with function body.
+
+
+func _on_Back_pressed():
+	$PauseBlock.visible = true
+	$OptionsBlock.visible = false
+	pass # Replace with function body.
+
+
+func _on_Volume_value_changed(value):
+	$OptionsBlock/Volume/ProgressBar.value = value
+	var musicPlayer = get_tree().get_root().find_node("background_music", true, false)
+	musicPlayer.set_volume_db(linear2db(value))
+	Main.currentVolume = value
 	pass # Replace with function body.

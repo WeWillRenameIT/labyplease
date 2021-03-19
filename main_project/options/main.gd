@@ -11,7 +11,7 @@ extends Node
 
 var currentLevel;
 var currentLang; # Язык, который используется в данный момент.
-
+var currentVolume = 1
 # JSON-объект с данными сохранения, до загрузки пустой
 var saveData = null
 
