@@ -17,6 +17,10 @@ func _ready():
 		Main.currentLang = Main.json_load(optionsFile)["language"]
 		currentLang = Main.currentLang
 	
+	# Создать папку для сохранений, если её нет (важно для Android версии)
+	if (!Directory.new().dir_exists("user://savedata")):
+		Directory.new().make_dir("user://savedata/")
+	
 	# Загрузить локаль
 	loadLocale()
 	
@@ -38,10 +42,12 @@ func _ready():
 	var saveFileToAdd = saveDataDirectory.get_next()
 	while saveFileToAdd != '':
 		# TODO: Если JSON не парсентся, то откинуть файл
-		var name = Main.json_load(saveDataDirectoryString + saveFileToAdd)["name"]
-		profileList.add_item(name, null, true);
-		# В метаданных сохраняем имя файла с сохранением
-		profileList.set_item_metadata(profileList.get_item_count() - 1, saveDataDirectoryString + saveFileToAdd)
+		if (Main.json_load(saveDataDirectoryString + saveFileToAdd) != null):
+			var name = Main.json_load(saveDataDirectoryString + saveFileToAdd)["name"]
+			if (name != null):
+				profileList.add_item(name, null, true);
+				# В метаданных сохраняем имя файла с сохранением
+				profileList.set_item_metadata(profileList.get_item_count() - 1, saveDataDirectoryString + saveFileToAdd)
 		saveFileToAdd = saveDataDirectory.get_next()
 	
 	if (profileList.get_item_count() > 0):
