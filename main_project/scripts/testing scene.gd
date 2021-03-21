@@ -37,6 +37,9 @@ func _ready():
 	$room/Next.visible = true
 	$room/Leave.visible = true
 	$room/dialog_box.visible = false"""
+	
+	#Загружаем текущее значение громкости
+	$background_music.set_volume_db(linear2db(Main.currentVolume))
 
 func _input(event):
 	if event.is_action_pressed("pause"):

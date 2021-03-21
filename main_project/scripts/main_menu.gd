@@ -12,10 +12,12 @@ func _ready():
 	if File.new().file_exists(optionsFile):
 		Main.currentLang = Main.json_load(optionsFile)["language"]
 		currentLang = Main.currentLang
+		Main.currentVolume = Main.json_load(optionsFile)["volume"]
 	else:
 		Directory.new().copy("res://options/templates/options.json", optionsFile)
 		Main.currentLang = Main.json_load(optionsFile)["language"]
 		currentLang = Main.currentLang
+		Main.currentVolume = Main.json_load(optionsFile)["volume"]
 	
 	# Создать папку для сохранений, если её нет (важно для Android версии)
 	if (!Directory.new().dir_exists("user://savedata")):
@@ -30,6 +32,7 @@ func _ready():
 	# Включить музыку
 	if (!$Music.is_playing()):
 		$Music.play()
+		$Music.set_volume_db(linear2db(Main.currentVolume))
 	
 	# Загрузка профилей
 	var saveDataDirectoryString = "user://savedata/"
@@ -80,12 +83,18 @@ func loadLocale():
 
 
 func _on_newGameButton_pressed():
+	#Думаю эт бесполнезно (Doktan: 21.03.2021)
+	#------------------------------------------
 	Main.currentLevel = 1;
 	var temp = Main.json_load("user://options.json")
 	temp['currentLevel'] = Main.currentLevel
 	Main.json_save(temp,"user://options.json")
+	#-------------------------------------------
+	var saveTemp = Main.blankSaveData
+	saveTemp["name"] = Main.currentUser
+	Main.json_save(saveTemp,"user://savedata/" + Main.currentUser + ".save")
+	Main.saveData = saveTemp
 	get_tree().change_scene("res://testing scene.tscn")
-	pass # Replace with function body.
 
 func _on_languageToggleBtn_pressed():
 	if (Main.currentLang == "English"):
@@ -148,7 +157,22 @@ func _on_CreateProfile_pressed():
 func _on_ProfileList_item_selected(index):
 	var saveName = $profileSelect/VBoxContainer/ProfileList.get_item_metadata(index)
 	Main.loadSaveData(saveName)
+	#хз, почему функция Вовы не работает
+	Main.currentUser = Main.json_load(saveName)["name"]
+	var temp = Main.json_load(saveName)
 
+	var matches = 0
+	for key in temp.keys():
+		if key != "name" and Main.blankSaveData[key] == temp[key]:
+			matches += 1
+	print(matches)
+	if matches == 11:
+		$menuContainer/loadGameButton.disabled = true
+	else:
+		$menuContainer/loadGameButton.disabled = false
+
+
+	
 
 func _on_ShowProfileSelectBtn_pressed():
 	$profileSelect.visible = !$profileSelect.visible

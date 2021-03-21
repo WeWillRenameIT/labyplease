@@ -13,9 +13,13 @@ var currentLevel;
 var currentLang; # Язык, который используется в данный момент.
 var currentVolume = 1
 
+
 # Данные сохранения, до загрузки пустые
 var saveFile = null
 var saveData = null
+#Использую currentUser, чтобы знать чьи сейвы обнулять при нажатии на Новую игру
+#Записываю в main, мало ли потребуется в дальнейшем
+var currentUser = "GameDev Enjoyer"
 
 func loadSaveData(saveFileFullPath):
 	saveFile = saveFileFullPath
@@ -70,6 +74,7 @@ func json_save(data,path):
 	file.store_string(JSON.print(data,"\n"))
 	file.close()
 
+#данная функция не спавнит
 func pause_game():
 	var pause_menu = preload("res://mesh/PauseMenu.tscn")
 	var instance = pause_menu.instance()

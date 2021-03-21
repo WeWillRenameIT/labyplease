@@ -59,10 +59,13 @@ func _on_Back_pressed():
 	$OptionsBlock.visible = false
 	pass # Replace with function body.
 
-
 func _on_Volume_value_changed(value):
 	$OptionsBlock/Volume/ProgressBar.value = value
 	var musicPlayer = get_tree().get_root().find_node("background_music", true, false)
 	musicPlayer.set_volume_db(linear2db(value))
 	Main.currentVolume = value
+	#Надо теперь сохранить значение громкости
+	var data = Main.json_load("user://options.json")
+	data["volume"] = value
+	Main.json_save(data,"user://options.json")
 	pass # Replace with function body.
