@@ -23,6 +23,8 @@ extents = Vector2( 8.5, 15.5 )
 [node name="fm_1" type="RigidBody2D"]
 z_as_relative = false
 input_pickable = true
+collision_layer = 2
+collision_mask = 2147483649
 gravity_scale = 0.0
 can_sleep = false
 script = ExtResource( 2 )

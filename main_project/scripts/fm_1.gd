@@ -17,17 +17,24 @@ func _ready():
 	print("speed: "+String(scan_speed))
 	
 func _on_fm_1_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.is_pressed():
-		if event.button_index == BUTTON_LEFT:
-			drag = true
-			set_rotation_degrees(-90) 
-			bruh = get_local_mouse_position()
-		if event.button_index == BUTTON_RIGHT:
-			set_rotation_degrees(-90)
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_WHEEL_UP:
+			set_rotation_degrees(rotation_degrees+5) 
+		if event.button_index == BUTTON_WHEEL_DOWN:
+			set_rotation_degrees(rotation_degrees-5) 
+		if event.is_pressed():
+			if event.button_index == BUTTON_LEFT:
+				drag = true
+				z_index = 1
+				#set_rotation_degrees(0) 
+				bruh = get_local_mouse_position()
+			if event.button_index == BUTTON_RIGHT:
+				set_rotation_degrees(0)
 
 func _input(event):
 	if event is InputEventMouseButton and not event.is_pressed() and event.button_index == BUTTON_LEFT:
 		drag = false
+		z_index = 0
 
 func _integrate_forces(state):
 	state.angular_velocity = 0 #Занулим скорость вращения флешки

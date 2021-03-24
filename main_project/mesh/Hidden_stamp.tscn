@@ -27,7 +27,7 @@ __meta__ = {
 }
 
 [node name="stamp" parent="show" instance=ExtResource( 2 )]
-position = Vector2( -40, 0 )
+position = Vector2( -51, 0 )
 
 [node name="strelo4ka" type="Button" parent="."]
 margin_top = 120.0

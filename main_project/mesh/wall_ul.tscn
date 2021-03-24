@@ -63,7 +63,8 @@ position = Vector2( 0, -2 )
 shape = SubResource( 1 )
 
 [node name="wall_dc" type="Sprite" parent="."]
-position = Vector2( 0, 3 )
+position = Vector2( 1.12355e-05, 3 )
+scale = Vector2( 1.00699, 1 )
 texture = ExtResource( 3 )
 script = ExtResource( 17 )
 
@@ -140,7 +141,7 @@ scale = Vector2( 1.06294, 1 )
 texture = ExtResource( 6 )
 
 [node name="light" type="AnimatedSprite" parent="lustra_3"]
-position = Vector2( -2.53328, 48.9527 )
+position = Vector2( -1.87502, 49 )
 scale = Vector2( 1, 0.995 )
 frames = SubResource( 5 )
 

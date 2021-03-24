@@ -16,8 +16,8 @@ z_as_relative = false
 script = ExtResource( 5 )
 
 [node name="wall" type="Sprite" parent="."]
-position = Vector2( -753.74, -126.698 )
-scale = Vector2( 1.45872, 0.942556 )
+position = Vector2( -745.75, -123.715 )
+scale = Vector2( 1.44561, 0.915663 )
 texture = ExtResource( 1 )
 offset = Vector2( 561.526, 139.478 )
 

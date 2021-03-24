@@ -20,14 +20,13 @@ extents = Vector2( 10, 11 )
 [node name="level_test" type="Node2D"]
 script = ExtResource( 11 )
 
-[node name="end_cam" type="Camera2D" parent="."]
-position = Vector2( -53, -208 )
+[node name="comp_cam" type="Camera2D" parent="."]
+position = Vector2( 176, -103.65 )
 scale = Vector2( 0.875887, -0.113867 )
 z_as_relative = false
 zoom = Vector2( 0.22, 0.26 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( -231, -103 )
 current = true
 zoom = Vector2( 0.5, 0.555 )
 
@@ -39,19 +38,19 @@ collision_layer = 31
 collision_mask = 31
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Camera2D/StaticBody2D"]
-position = Vector2( 609.299, -11.4164 )
+position = Vector2( 606.505, -10.5763 )
 rotation = 3.14159
-polygon = PoolVector2Array( -76.0451, -21.3108, -76.0451, -25.0994, 650.093, -25.0994, 649.165, 13.9703, 601.868, 14.0509, 601.869, -21.3093 )
+polygon = PoolVector2Array( -25.9657, -20.5216, -25.9657, -22.4159, 626.908, -22.4141, 626.907, 11.0518, 597.231, 11.0518, 597.232, -20.5199 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera2D/StaticBody2D"]
 position = Vector2( 6.49165, -0.149138 )
-polygon = PoolVector2Array( 0.927361, -21.5476, 0.927353, -25.4151, 687.188, -25.5729, 684.406, 10.4975, 597.231, 10.3311, 597.232, -21.5562 )
+polygon = PoolVector2Array( -26.8933, -21.4774, -26.8932, -25.8975, 625.98, -25.8973, 625.979, 10.0943, 596.303, 10.0943, 596.304, -21.4773 )
 
 [node name="room" parent="." instance=ExtResource( 6 )]
-position = Vector2( -416, -104.147 )
+position = Vector2( -181, 0.0473003 )
 
 [node name="wall_up_left" parent="room" instance=ExtResource( 10 )]
-position = Vector2( 49, -137.841 )
+position = Vector2( 47.3045, -137.354 )
 scale = Vector2( 1.3, 1.245 )
 
 [node name="stamp" parent="." instance=ExtResource( 7 )]
@@ -60,13 +59,13 @@ position = Vector2( 49.0189, -16.4527 )
 z_as_relative = false
 
 [node name="big_table" type="Sprite" parent="."]
-position = Vector2( -53.8192, -8.21185 )
-scale = Vector2( 1.02439, 0.997243 )
+position = Vector2( 176, 96 )
+scale = Vector2( 1.02465, 0.996229 )
 texture = ExtResource( 3 )
 
 [node name="small_table" type="Sprite" parent="big_table"]
-position = Vector2( -313.799, 45 )
-scale = Vector2( 1.21762, 0.917147 )
+position = Vector2( -312.284, 44.3729 )
+scale = Vector2( 1.2055, 0.925033 )
 texture = ExtResource( 13 )
 
 [node name="Label" type="Label" parent="big_table"]
@@ -87,15 +86,14 @@ position = Vector2( 10, -3 )
 scale = Vector2( 1.00349, 1.00465 )
 
 [node name="computer" parent="." instance=ExtResource( 4 )]
-position = Vector2( -53.7456, -208 )
-z_as_relative = false
+position = Vector2( 176, -104 )
 
 [node name="clocks" parent="computer" instance=ExtResource( 5 )]
-position = Vector2( -180, 41.449 )
+position = Vector2( -180, 50.8736 )
 z_as_relative = false
 
 [node name="reader" parent="computer" instance=ExtResource( 2 )]
-position = Vector2( -126.254, 194 )
+position = Vector2( -122, 156 )
 z_index = 0
 
 [node name="inst" parent="." instance=ExtResource( 9 )]
@@ -115,19 +113,19 @@ z_as_relative = false
 volume_db = -15.0
 
 [node name="spawn1" type="Area2D" parent="."]
-position = Vector2( -383.5, 24.9541 )
+position = Vector2( -96, 120 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn1"]
 shape = SubResource( 1 )
 
 [node name="spawn2" type="Area2D" parent="."]
-position = Vector2( -501.287, 72.2612 )
+position = Vector2( -281, 176 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn2"]
 shape = SubResource( 1 )
 
 [node name="spawn3" type="Area2D" parent="."]
-position = Vector2( -447.812, 70.6741 )
+position = Vector2( -204, 176 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn3"]
 shape = SubResource( 1 )
@@ -158,7 +156,7 @@ __meta__ = {
 }
 
 [node name="Hidden_stamp" parent="." instance=ExtResource( 8 )]
-position = Vector2( 90.1072, 16 )
+position = Vector2( 319.963, 81.5 )
 scale = Vector2( 0.1, 0.1 )
 [connection signal="finished" from="background_music" to="." method="_on_background_music_finished"]
 [connection signal="ready" from="background_music" to="." method="_on_background_music_ready"]

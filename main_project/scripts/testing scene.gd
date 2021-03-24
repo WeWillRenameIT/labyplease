@@ -15,6 +15,7 @@ var open=false
 var level = 3  #1- только отчет, 2- отч + флешка, 3 - всё. По сути это система уровней SAVE
 var end_time
 var optionsPath = "user://options.json"
+var student = false
 
 func _ready():
 	# Загрузить данные из сохранения	
@@ -86,8 +87,7 @@ func end():
 	$computer/background/shop.visible = true
 	$computer/background/shop.playing = true
 	$computer/background/shop.play()
-	$Camera2D.current=false
-	$end_cam.current=true
+	comp_cam(true)
 	if end_time:
 		$computer/background/grayblock/repair_reader.disabled=true
 		$computer/background/grayblock/repair_reader.visible=false
@@ -108,11 +108,12 @@ func end():
 	if very_wrong >=0: $computer/background/grayblock/Label.text += "\n" + statsFines + ": " + String(500*very_wrong) + "р."
 	$computer/background/grayblock/Label.text += "\n" + statsBank + ": " +String(bank) +"p."
 
-
+func comp_cam(type):
+	$Camera2D.current=!type
+	$comp_cam.current=type
 
 func noend():
-	$Camera2D.current=true
-	$end_cam.current=false
+	comp_cam(false)
 	$computer/background/shop.visible=false
 	$computer/background/shop.stop()
 	$computer/background/question.visible=true
@@ -120,6 +121,12 @@ func noend():
 	for child in $players_stuff.get_children():
 		$players_stuff.remove_child(child)
 	new_student(level)
+
+func get_name():
+	if($room/student):
+		 return [$room/student.first_name,$room/student.second_name]
+	else:
+		return "damn"
 
 func new_student(num): #1- только отчет, 2- отч + флешка, 3 - всё
 	student_leave(num)
@@ -132,11 +139,15 @@ func new_student(num): #1- только отчет, 2- отч + флешка, 3 
 	var spawn2 = $spawn2.transform.get_origin()
 	var spawn3 = $spawn3.transform.get_origin()
 	yield(get_tree().create_timer(1.5),"timeout")
+	$computer/background/radiation/checked.visible = false
+	$computer/background/gear/checked.visible = false
+	$computer/background/list/checked.visible = false
 	$room/student.visible = true
 	$room/student.generate()
 	if num >=1:
 		$players_stuff.add_child(otchet)
 		$players_stuff/otchet.new_position(spawn1)
+		$players_stuff/otchet.set_rotation_degrees(90) 
 	if num >=2:
 		$players_stuff.add_child(fm)
 		$players_stuff/fm_1.new_position(spawn3)
@@ -147,8 +158,10 @@ func new_student(num): #1- только отчет, 2- отч + флешка, 3 
 	print("right: "+ String(right))
 	print("wrong: "+ String(wrong))
 	print("Very wrong: "+ String(very_wrong))
+	student = true;
 
 func student_leave(num):
+	student = false;
 	if $room/wall_up_left/wall_dc.wait:
 		return
 	if $computer.listing:

@@ -12,7 +12,7 @@ func _ready():
 	if File.new().file_exists(optionsFile):
 		Main.currentLang = Main.json_load(optionsFile)["language"]
 		currentLang = Main.currentLang
-		Main.currentVolume = Main.json_load(optionsFile)["volume"]
+		#Main.currentVolume = Main.json_load(optionsFile)["volume"] #problem, need fix!
 	else:
 		Directory.new().copy("res://options/templates/options.json", optionsFile)
 		Main.currentLang = Main.json_load(optionsFile)["language"]

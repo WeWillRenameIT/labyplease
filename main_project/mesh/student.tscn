@@ -41,7 +41,41 @@
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
+var first_name = \"Ivan\"
+var second_name = \"Ivanovich\"
 
+#Волосы 6-9 будут девушками
+var arr_names_male = [\"Alexey\",
+\"Alexander\",
+\"Viktor\",
+\"Ilya\",
+\"Konstantin\",
+\"Petr\",
+\"Igor\",
+\"Denis\",
+\"Dmitriy\",
+\"Daniil\",
+\"Vladislav\"]
+var arr_names_female = [\"Alexandra\",
+\"Polina\",
+\"Viktorya\",
+\"Irina\",
+\"Natalya\",
+\"Marina\",
+\"Maria\",
+\"Anna\",
+\"Ekaterina\"]
+#Женщинам добавляем 'а' в конец, фамилии специально подобраны под это
+var arr_sernames = [\"Ivanov\",
+\"Petrov\",
+\"Portyanov\",
+\"Vetrov\",
+\"Dmitriev\",
+\"Kirpichev\",
+\"Vodyanov\",
+\"Dyatlov\",
+\"Kamenshikov\",
+\"Artemov\"]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	generate()
@@ -51,9 +85,21 @@ func generate():
 	$face.frame = randi()%6
 	$nose.frame = randi()%5
 	$eyes.frame = randi()%5
-	$hair.frame = randi()%10
+	var num = randi()%10
+	generate_name(num)
+	$hair.frame = num
 	$mouth.frame = randi()%5
 	$glasses.frame = randi()%14
+
+func generate_name(num):
+	randomize()
+	if(num>=6):
+		first_name = arr_names_female[randi()%9];
+		second_name = arr_sernames[randi()%10]+\"a\";
+	else:
+		first_name = arr_names_male[randi()%11];
+		second_name = arr_sernames[randi()%10];
+	print(\"name: \"+first_name+\"\\nsername: \"+second_name)
 "
 
 [sub_resource type="SpriteFrames" id=2]

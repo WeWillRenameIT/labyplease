@@ -10,11 +10,13 @@ var bruh = Vector2(0,0)
 func _input(event):
 	if event is InputEventMouseButton and not event.is_pressed() and event.button_index == BUTTON_LEFT:
 		drag = false
+		z_index = 0
 
 func _on_lineyka_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == BUTTON_LEFT:
 			drag = true
+			z_index = 1
 			bruh = get_local_mouse_position()
 		if event.button_index == BUTTON_RIGHT:
 			visible = false

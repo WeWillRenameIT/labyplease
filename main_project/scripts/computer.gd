@@ -3,7 +3,7 @@ extends Node2D
 var notify = true
 var test_speed = 10 # Скорость проверки теста
 var vir_speed = 8 # Скорость проверки вируса
-var int_speed = 8 # Скорость проверки студента
+var int_speed = 0.05 # Скорость проверки студента
 var boot_speed = 4 # Скорость загрузки пк. Число отнимается от 20 и ставится таймер таймер(20-5) по стандарту
 var boot= false # Ускоритель загрузки (SAVE!)
 var test_s = false # Ускоритель проверки теста (SAVE!)
@@ -69,7 +69,7 @@ func _process(delta):
 	if vir:
 		vir_speed = 10
 	if check:
-		int_speed = 10
+		int_speed = 0.5
 	
 	var virus = $reader.get_virus() # Есть ли вирус на флешке
 	var test = $reader.get_test() # Пройдет ли флешка тест
@@ -107,14 +107,7 @@ func _process(delta):
 	else: 
 		$background/ProgressBarRad.visible = false
 		$background/ProgressBarRad.value = 0
-	
-	if listing and !gear and !rad and (get_parent().children() == 3):
-		$background/ProgressBarCheck.visible =true
-		$background/ProgressBarCheck.value += $background/ProgressBarCheck.step * int_speed
-		$background/label.visible = false
-	else:
-		$background/ProgressBarCheck.visible = false
-		$background/ProgressBarCheck.value = 0
+
 	
 	if $background/ProgressBarRad.value >=100:
 		rad_work = true
@@ -137,18 +130,6 @@ func _process(delta):
 		gear_work = true
 		gear = false
 		$background/ProgressBarTest.value = 0
-	
-	# Прошел ли поиск студента в базе
-	if list:
-		if (fio):
-			$background/label.text = studentTrue
-		else:
-			$background/label.text = studentFalse
-		$background/label.visible = true
-		yield(get_tree().create_timer(1.5),"timeout")
-		$background/ProgressBarCheck.value = 0
-		$background/label.visible = false
-		list = false
 	
 	# Прошло сканирование на вирусы
 	if rad_work and virus:
@@ -183,8 +164,11 @@ func _process(delta):
 		no_lives()
 		set_process(false)
 
-func _on_list_b_pressed():
-	if !rad and !gear and get_parent().children()==3 and get_parent().open(): listing = true
+func _on_list_b_button_up():
+	if (!$Games.visible and !$background/list/checked.visible and get_parent().student):
+		$Games.visible = true
+		if !rad and !gear and get_parent().children()==3:
+			$Games.play("db")
 
 func _on_rad_b_pressed():
 	if !gear and !listing: rad = true #Если идет тест, то не можем проверить на вирусы

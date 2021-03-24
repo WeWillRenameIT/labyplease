@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://sprites/scene/monitor.png" type="Texture" id=1]
 [ext_resource path="res://sprites/scene/backgrounds/book.png" type="Texture" id=2]
@@ -43,7 +43,9 @@
 [ext_resource path="res://sprites/scene/shop/reader.png" type="Texture" id=41]
 [ext_resource path="res://texts/generalFont.tres" type="DynamicFont" id=42]
 [ext_resource path="res://texts/statsFont.tres" type="DynamicFont" id=43]
-
+[ext_resource path="res://mesh/mini_games.tscn" type="PackedScene" id=44]
+[ext_resource path="res://sprites/scene/red_x.png" type="Texture" id=45]
+[ext_resource path="res://sprites/scene/green_y.png" type="Texture" id=46]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -56,6 +58,14 @@ animations = [ {
 "loop": true,
 "name": "New Anim",
 "speed": 4.0
+} ]
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 45 ), ExtResource( 46 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=2]
@@ -126,6 +136,7 @@ animations = [ {
 extents = Vector2( 144, 96 )
 
 [node name="computer" type="Node2D"]
+z_index = 2
 script = ExtResource( 8 )
 
 [node name="monitor" type="Sprite" parent="."]
@@ -162,7 +173,7 @@ frames = SubResource( 1 )
 animation = "New Anim"
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( -1.19209e-06, -4.00001 )
+position = Vector2( -7.94422e-05, -4 )
 scale = Vector2( 1.02564, 1.04142 )
 texture = ExtResource( 5 )
 
@@ -278,7 +289,7 @@ __meta__ = {
 }
 
 [node name="list" type="Sprite" parent="background"]
-position = Vector2( -123.07, 64.2281 )
+position = Vector2( -124.8, 65.2955 )
 scale = Vector2( 0.839032, 0.837152 )
 texture = ExtResource( 7 )
 
@@ -287,16 +298,24 @@ margin_left = -9.5
 margin_top = -9.5
 margin_right = 9.5
 margin_bottom = 10.5
+focus_mode = 0
 mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
+enabled_focus_mode = 0
 flat = true
 align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="checked" type="AnimatedSprite" parent="background/list"]
+visible = false
+position = Vector2( 27.8893, -1.52588e-05 )
+scale = Vector2( 0.292317, 0.284056 )
+frames = SubResource( 11 )
+
 [node name="radiation" type="Sprite" parent="background"]
-position = Vector2( -123.07, 16.5105 )
+position = Vector2( -124.8, 19.2045 )
 scale = Vector2( 0.839032, 0.837152 )
 texture = ExtResource( 4 )
 
@@ -315,8 +334,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="checked" type="AnimatedSprite" parent="background/radiation"]
+visible = false
+position = Vector2( 27.8893, -3.8147e-06 )
+scale = Vector2( 0.290514, 0.286754 )
+frames = SubResource( 11 )
+
 [node name="gear" type="Sprite" parent="background"]
-position = Vector2( -123.07, 40.3693 )
+position = Vector2( -124.8, 42.25 )
 scale = Vector2( 0.839032, 0.837152 )
 texture = ExtResource( 3 )
 
@@ -334,6 +359,12 @@ align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="checked" type="AnimatedSprite" parent="background/gear"]
+visible = false
+position = Vector2( 27.8893, -7.62939e-06 )
+scale = Vector2( 0.290514, 0.284056 )
+frames = SubResource( 11 )
 
 [node name="book" type="Sprite" parent="background"]
 visible = false
@@ -413,6 +444,7 @@ custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 0.803922, 1, 0, 1 )
 disabled = true
 text = "Починка ридера 1000p."
+flat = true
 clip_text = true
 align = 0
 __meta__ = {
@@ -610,6 +642,7 @@ margin_bottom = 354.69
 rect_scale = Vector2( 3.25054, 3.44857 )
 custom_fonts/font = ExtResource( 42 )
 text = "Купить"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -703,12 +736,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Games" parent="." instance=ExtResource( 44 )]
+visible = false
+position = Vector2( 1.19209e-07, -9.53674e-07 )
+scale = Vector2( 0.35, 0.35 )
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 collision_layer = 7
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2( 0, -9.53674e-07 )
 shape = SubResource( 10 )
+[connection signal="button_up" from="background/list/list_b" to="." method="_on_list_b_button_up"]
 [connection signal="pressed" from="background/list/list_b" to="." method="_on_list_b_pressed"]
 [connection signal="pressed" from="background/radiation/rad_b" to="." method="_on_rad_b_pressed"]
 [connection signal="pressed" from="background/gear/gear_b" to="." method="_on_gear_b_pressed"]
