@@ -26,7 +26,7 @@ func _ready():
 	global_students = Main.saveData['global_students']
 	level = Main.saveData['level']
 	
-	print("CurrentLevel: ", Main.currentLevel)
+	print("CurrentLevel: ", Main.saveData['currentLevel'])
 	randomize()
 	# Запустить первого студента
 	$room._on_Next_pressed()
@@ -50,7 +50,7 @@ func _input(event):
 		print(get_child_count())
 		add_child(instance)
 		get_tree().paused = true;
-		instance.set_position(Vector2(-553.015,-304))
+		instance.set_position(Vector2(-320,-200))
 		instance.set_scale(Vector2(0.503,0.557))
 		#pass
 		

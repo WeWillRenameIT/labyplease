@@ -3,6 +3,7 @@ extends Control
 
 # Declare member variables here. Examples:
 var localeFilePath = "res://texts/mainMenu.json"
+var saveDataDirectoryString = "user://savedata/"
 var currentLang
 var optionsFile
 
@@ -35,7 +36,6 @@ func _ready():
 		$Music.set_volume_db(linear2db(Main.currentVolume))
 	
 	# Загрузка профилей
-	var saveDataDirectoryString = "user://savedata/"
 	var saveDataDirectory =  Directory.new()
 	saveDataDirectory.open(saveDataDirectoryString)
 	saveDataDirectory.list_dir_begin(true)
@@ -63,6 +63,7 @@ func _ready():
 		# TODO: заблокировать кнопки новой игры и загрузки, пока не будет создан профиль?
 		# временный фикс - создаётся сейв Player))
 		profileList.add_item("Player", null, true);
+		profileList.set_item_metadata(profileList.get_item_count() - 1, "user://savedata/Player.save")
 		Main.newSaveFile("Player")
 		profileList.select(0)
 		# Обработать, будто мы выбрали этот профиль
@@ -84,16 +85,14 @@ func loadLocale():
 
 func _on_newGameButton_pressed():
 	#Думаю эт бесполнезно (Doktan: 21.03.2021)
+	# Да, это какой-то легаси (Kirieraito: 25.03.2021)
 	#------------------------------------------
-	Main.currentLevel = 1;
-	var temp = Main.json_load("user://options.json")
-	temp['currentLevel'] = Main.currentLevel
-	Main.json_save(temp,"user://options.json")
+	#Main.currentLevel = 1;
+	#var temp = Main.json_load("user://options.json")
+	#temp['currentLevel'] = Main.currentLevel
+	#Main.json_save(temp,"user://options.json")
 	#-------------------------------------------
-	var saveTemp = Main.blankSaveData
-	saveTemp["name"] = Main.currentUser
-	Main.json_save(saveTemp,"user://savedata/" + Main.currentUser + ".save")
-	Main.saveData = saveTemp
+	Main.newGame()
 	get_tree().change_scene("res://testing scene.tscn")
 
 func _on_languageToggleBtn_pressed():
@@ -149,21 +148,23 @@ func _on_Button2_pressed():
 func _on_CreateProfile_pressed():
 	var name = $profileSelect/VBoxContainer/NameInput.text
 	if (name.length() > 0):
-		$profileSelect/VBoxContainer/ProfileList.add_item(name, null, true)
+		var saveFile = Main.newSaveFile(name)
+		var profileList = $profileSelect/VBoxContainer/ProfileList
+		profileList.add_item(name, null, true)
+		profileList.set_item_metadata(profileList.get_item_count() - 1, saveFile)
 		$profileSelect/VBoxContainer/NameInput.text = ""
-	Main.newSaveFile(name)
+		
 
 # Выбор определённого профиля
 func _on_ProfileList_item_selected(index):
 	var saveName = $profileSelect/VBoxContainer/ProfileList.get_item_metadata(index)
 	Main.loadSaveData(saveName)
-	#хз, почему функция Вовы не работает
-	Main.currentUser = Main.json_load(saveName)["name"]
-	var temp = Main.json_load(saveName)
-
+	
+	# TODO: Переписать
+	# Берём два JSON, удаляем у них name и сравниваем
 	var matches = 0
-	for key in temp.keys():
-		if key != "name" and Main.blankSaveData[key] == temp[key]:
+	for key in Main.saveData.keys():
+		if key != "name" and Main.blankSaveData[key] == Main.saveData[key]:
 			matches += 1
 	print(matches)
 	if matches == 11:

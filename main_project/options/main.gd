@@ -9,17 +9,20 @@ extends Node
 # Поэтому их не видно в файловой системе, если открыть папку options/texts в проводнике, можно будет увидеть
 # json файлы
 
-var currentLevel;
+#var currentLevel; # Легаси какой-то. / (с) Вова
 var currentLang; # Язык, который используется в данный момент.
 var currentVolume = 1
-
 
 # Данные сохранения, до загрузки пустые
 var saveFile = null
 var saveData = null
-#Использую currentUser, чтобы знать чьи сейвы обнулять при нажатии на Новую игру
-#Записываю в main, мало ли потребуется в дальнейшем
-var currentUser = "GameDev Enjoyer"
+
+func newGame():
+	if (saveData != null):
+		var name = saveData.name
+		saveData = blankSaveData
+		saveData.name = name
+		saveSaveData()
 
 func loadSaveData(saveFileFullPath):
 	saveFile = saveFileFullPath
@@ -29,6 +32,7 @@ func loadSaveData(saveFileFullPath):
 func saveSaveData():
 	json_save(saveData, saveFile)
 
+# Создаёт новый сейв для профиля с именем profileName, возвращает путь к файлу
 func newSaveFile(profileName):
 	if (saveFile != null && saveData != null):
 		saveSaveData()
@@ -36,6 +40,7 @@ func newSaveFile(profileName):
 	saveData.name = profileName
 	saveFile = "user://savedata/" + profileName + ".save"
 	saveSaveData()
+	return saveFile
 
 const blankSaveData = {
 	"name": "Player",

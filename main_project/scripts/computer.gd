@@ -3,7 +3,7 @@ extends Node2D
 var notify = true
 var test_speed = 10 # Скорость проверки теста
 var vir_speed = 8 # Скорость проверки вируса
-var int_speed = 0.05 # Скорость проверки студента
+var int_speed = 0.1 # Скорость проверки студента
 var boot_speed = 4 # Скорость загрузки пк. Число отнимается от 20 и ставится таймер таймер(20-5) по стандарту
 var boot= false # Ускоритель загрузки (SAVE!)
 var test_s = false # Ускоритель проверки теста (SAVE!)
@@ -69,7 +69,7 @@ func _process(delta):
 	if vir:
 		vir_speed = 10
 	if check:
-		int_speed = 0.5
+		int_speed = 0.05
 	
 	var virus = $reader.get_virus() # Есть ли вирус на флешке
 	var test = $reader.get_test() # Пройдет ли флешка тест

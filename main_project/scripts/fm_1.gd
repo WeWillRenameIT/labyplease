@@ -25,7 +25,7 @@ func _on_fm_1_input_event(_viewport, event, _shape_idx):
 		if event.is_pressed():
 			if event.button_index == BUTTON_LEFT:
 				drag = true
-				z_index = 1
+				z_index = -1
 				#set_rotation_degrees(0) 
 				bruh = get_local_mouse_position()
 			if event.button_index == BUTTON_RIGHT:
@@ -34,7 +34,7 @@ func _on_fm_1_input_event(_viewport, event, _shape_idx):
 func _input(event):
 	if event is InputEventMouseButton and not event.is_pressed() and event.button_index == BUTTON_LEFT:
 		drag = false
-		z_index = 0
+		z_index = -2
 
 func _integrate_forces(state):
 	state.angular_velocity = 0 #Занулим скорость вращения флешки
