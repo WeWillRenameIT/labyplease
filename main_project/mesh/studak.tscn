@@ -65,6 +65,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="group" type="Label" parent="ot_1"]
+margin_left = -27.125
+margin_top = 13.2708
+margin_right = 50.875
+margin_bottom = 27.2708
+rect_scale = Vector2( 0.3, 0.3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "AAAA-00-11"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="right_a" type="Area2D" parent="."]
 position = Vector2( -22, -33 )
 scale = Vector2( 1.1, 0.8 )

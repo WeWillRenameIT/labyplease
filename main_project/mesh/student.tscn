@@ -43,6 +43,7 @@
 script/source = "extends Node2D
 var first_name = \"Ivan\"
 var second_name = \"Ivanovich\"
+var group = 'AAAA-00-20'
 
 #Волосы 6-9 будут девушками
 var arr_names_male = [\"Alexey\",
@@ -76,6 +77,9 @@ var arr_sernames = [\"Ivanov\",
 \"Dyatlov\",
 \"Kamenshikov\",
 \"Artemov\"]
+
+var letters = [\"A\",\"B\",\"C\",\"D\",\"E\",\"F\",'G','H','I','J','K','L','M','N','O','P',
+'Q','R','S','T','U','V','W','X','Y','Z']
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	generate()
@@ -90,6 +94,8 @@ func generate():
 	$hair.frame = num
 	$mouth.frame = randi()%5
 	$glasses.frame = randi()%14
+	generate_group()
+	print(\"group: \"+group)
 
 func generate_name(num):
 	randomize()
@@ -100,6 +106,17 @@ func generate_name(num):
 		first_name = arr_names_male[randi()%11];
 		second_name = arr_sernames[randi()%10];
 	print(\"name: \"+first_name+\"\\nsername: \"+second_name)
+
+func generate_group():
+	randomize()	
+	var first='';
+	first = letters[randi()%letters.size()]+letters[randi()%letters.size()]+letters[randi()%letters.size()]+letters[randi()%letters.size()]
+	var num = randi()%100;
+	if num<10:
+		group = first+'-0'+String(num)+'-20'
+	else:
+		group = first+'-'+String(num)+'-20'
+		
 "
 
 [sub_resource type="SpriteFrames" id=2]

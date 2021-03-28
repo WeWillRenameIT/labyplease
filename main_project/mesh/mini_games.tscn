@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sprites/minigames/backgrounds/back_main.png" type="Texture" id=1]
 [ext_resource path="res://scripts/mini_games.gd" type="Script" id=2]
@@ -22,15 +22,6 @@ resource_name = "Group_2"
 
 [sub_resource type="ButtonGroup" id=4]
 resource_name = "Group_3"
-
-[sub_resource type="ButtonGroup" id=5]
-resource_name = "Group_4"
-
-[sub_resource type="ButtonGroup" id=6]
-resource_name = "Group_5"
-
-[sub_resource type="ButtonGroup" id=7]
-resource_name = "Group_6"
 
 [node name="Games" type="Node2D"]
 script = ExtResource( 2 )
@@ -57,7 +48,7 @@ position = Vector2( -28, 2 )
 ]]
 margin_left = -215.0
 margin_top = -138.0
-margin_right = -95.0
+margin_right = -55.0
 margin_bottom = -107.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -69,7 +60,6 @@ custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
 disabled = true
 enabled_focus_mode = 0
 group = SubResource( 2 )
-text = "Kamenshikova"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -80,7 +70,7 @@ __meta__ = {
 ]]
 margin_left = -215.0
 margin_top = -107.0
-margin_right = -132.0
+margin_right = -55.0
 margin_bottom = -76.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -102,7 +92,7 @@ __meta__ = {
 ]]
 margin_left = -215.0
 margin_top = -76.0
-margin_right = -132.0
+margin_right = -55.0
 margin_bottom = -45.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -124,7 +114,7 @@ __meta__ = {
 ]]
 margin_left = -215.0
 margin_top = -45.0
-margin_right = -132.0
+margin_right = -55.0
 margin_bottom = -14.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -146,7 +136,7 @@ __meta__ = {
 ]]
 margin_left = -215.0
 margin_top = -14.0
-margin_right = -132.0
+margin_right = -55.0
 margin_bottom = 17.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -168,7 +158,7 @@ __meta__ = {
 ]]
 margin_left = -215.0
 margin_top = 17.0
-margin_right = -132.0
+margin_right = -55.0
 margin_bottom = 48.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -190,7 +180,7 @@ __meta__ = {
 ]]
 margin_left = -215.0
 margin_top = 48.0
-margin_right = -132.0
+margin_right = -55.0
 margin_bottom = 79.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -212,7 +202,7 @@ __meta__ = {
 ]]
 margin_left = -215.0
 margin_top = 79.0
-margin_right = -132.0
+margin_right = -55.0
 margin_bottom = 110.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -234,7 +224,7 @@ __meta__ = {
 ]]
 margin_left = -215.0
 margin_top = 110.0
-margin_right = -132.0
+margin_right = -55.0
 margin_bottom = 141.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -256,7 +246,7 @@ __meta__ = {
 ]]
 margin_left = -215.0
 margin_top = 141.0
-margin_right = -132.0
+margin_right = -55.0
 margin_bottom = 172.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -273,15 +263,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Column_name_1" type="Label" parent="Database/column 1"]
+margin_left = -208.0
+margin_top = -152.0
+margin_right = -48.0
+margin_bottom = -138.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="column 2" type="Node2D" parent="Database"]
-position = Vector2( 55, 0 )
+position = Vector2( 144, 0 )
 
 [node name="cb_1" type="CheckBox" parent="Database/column 2" groups=[
 "Group_2",
 ]]
 margin_left = -213.0
 margin_top = -136.0
-margin_right = -123.0
+margin_right = -53.0
 margin_bottom = -105.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -303,7 +304,7 @@ __meta__ = {
 ]]
 margin_left = -213.0
 margin_top = -106.0
-margin_right = -123.0
+margin_right = -53.0
 margin_bottom = -75.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -325,7 +326,7 @@ __meta__ = {
 ]]
 margin_left = -213.0
 margin_top = -74.0
-margin_right = -123.0
+margin_right = -53.0
 margin_bottom = -43.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -347,7 +348,7 @@ __meta__ = {
 ]]
 margin_left = -213.0
 margin_top = -43.0
-margin_right = -123.0
+margin_right = -53.0
 margin_bottom = -12.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -369,7 +370,7 @@ __meta__ = {
 ]]
 margin_left = -213.0
 margin_top = -12.0
-margin_right = -123.0
+margin_right = -53.0
 margin_bottom = 19.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -391,7 +392,7 @@ __meta__ = {
 ]]
 margin_left = -213.0
 margin_top = 19.0
-margin_right = -123.0
+margin_right = -53.0
 margin_bottom = 50.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -413,7 +414,7 @@ __meta__ = {
 ]]
 margin_left = -213.0
 margin_top = 50.0
-margin_right = -123.0
+margin_right = -53.0
 margin_bottom = 81.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -435,7 +436,7 @@ __meta__ = {
 ]]
 margin_left = -213.0
 margin_top = 81.0
-margin_right = -123.0
+margin_right = -53.0
 margin_bottom = 112.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -457,7 +458,7 @@ __meta__ = {
 ]]
 margin_left = -213.0
 margin_top = 112.0
-margin_right = -123.0
+margin_right = -53.0
 margin_bottom = 143.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -479,7 +480,7 @@ __meta__ = {
 ]]
 margin_left = -213.0
 margin_top = 143.0
-margin_right = -123.0
+margin_right = -53.0
 margin_bottom = 174.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -496,15 +497,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Column_name_2" type="Label" parent="Database/column 2"]
+margin_left = -204.0
+margin_top = -150.0
+margin_right = -40.0
+margin_bottom = -136.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="column 3" type="Node2D" parent="Database"]
-position = Vector2( 143, 0 )
+position = Vector2( 324, 0 )
 
 [node name="cb_1" type="CheckBox" parent="Database/column 3" groups=[
 "Group_3",
 ]]
 margin_left = -211.0
 margin_top = -136.0
-margin_right = -121.0
+margin_right = -51.0
 margin_bottom = -105.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -526,7 +538,7 @@ __meta__ = {
 ]]
 margin_left = -211.0
 margin_top = -105.0
-margin_right = -121.0
+margin_right = -51.0
 margin_bottom = -74.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -548,7 +560,7 @@ __meta__ = {
 ]]
 margin_left = -211.0
 margin_top = -74.0
-margin_right = -121.0
+margin_right = -51.0
 margin_bottom = -43.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -570,7 +582,7 @@ __meta__ = {
 ]]
 margin_left = -211.0
 margin_top = -43.0
-margin_right = -121.0
+margin_right = -51.0
 margin_bottom = -12.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -592,7 +604,7 @@ __meta__ = {
 ]]
 margin_left = -211.0
 margin_top = -12.0
-margin_right = -121.0
+margin_right = -51.0
 margin_bottom = 19.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -614,7 +626,7 @@ __meta__ = {
 ]]
 margin_left = -211.0
 margin_top = 19.0
-margin_right = -121.0
+margin_right = -51.0
 margin_bottom = 50.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -636,7 +648,7 @@ __meta__ = {
 ]]
 margin_left = -211.0
 margin_top = 50.0
-margin_right = -121.0
+margin_right = -51.0
 margin_bottom = 81.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -658,7 +670,7 @@ __meta__ = {
 ]]
 margin_left = -211.0
 margin_top = 81.0
-margin_right = -121.0
+margin_right = -51.0
 margin_bottom = 112.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -680,7 +692,7 @@ __meta__ = {
 ]]
 margin_left = -211.0
 margin_top = 112.0
-margin_right = -121.0
+margin_right = -51.0
 margin_bottom = 143.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -702,7 +714,7 @@ __meta__ = {
 ]]
 margin_left = -211.0
 margin_top = 143.0
-margin_right = -121.0
+margin_right = -51.0
 margin_bottom = 174.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -719,672 +731,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="column 4" type="Node2D" parent="Database"]
-position = Vector2( 229, 0 )
-
-[node name="cb_1" type="CheckBox" parent="Database/column 4" groups=[
-"Group_4",
-]]
-margin_left = -208.0
-margin_top = -136.0
-margin_right = -118.0
-margin_bottom = -105.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+[node name="Column_name_3" type="Label" parent="Database/column 3"]
+margin_left = -200.0
+margin_top = -150.0
+margin_right = -68.0
+margin_bottom = -136.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 5 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_2" type="CheckBox" parent="Database/column 4" groups=[
-"Group_4",
-]]
-margin_left = -208.0
-margin_top = -105.0
-margin_right = -118.0
-margin_bottom = -74.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 5 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_3" type="CheckBox" parent="Database/column 4" groups=[
-"Group_4",
-]]
-margin_left = -208.0
-margin_top = -74.0
-margin_right = -118.0
-margin_bottom = -43.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 5 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_4" type="CheckBox" parent="Database/column 4" groups=[
-"Group_4",
-]]
-margin_left = -208.0
-margin_top = -43.0
-margin_right = -118.0
-margin_bottom = -12.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 5 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_5" type="CheckBox" parent="Database/column 4" groups=[
-"Group_4",
-]]
-margin_left = -208.0
-margin_top = -12.0
-margin_right = -118.0
-margin_bottom = 19.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 5 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_6" type="CheckBox" parent="Database/column 4" groups=[
-"Group_4",
-]]
-margin_left = -208.0
-margin_top = 19.0
-margin_right = -118.0
-margin_bottom = 50.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 5 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_7" type="CheckBox" parent="Database/column 4" groups=[
-"Group_4",
-]]
-margin_left = -208.0
-margin_top = 50.0
-margin_right = -118.0
-margin_bottom = 81.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 5 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_8" type="CheckBox" parent="Database/column 4" groups=[
-"Group_4",
-]]
-margin_left = -208.0
-margin_top = 81.0
-margin_right = -118.0
-margin_bottom = 112.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 5 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_9" type="CheckBox" parent="Database/column 4" groups=[
-"Group_4",
-]]
-margin_left = -208.0
-margin_top = 112.0
-margin_right = -118.0
-margin_bottom = 143.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 5 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_10" type="CheckBox" parent="Database/column 4" groups=[
-"Group_4",
-]]
-margin_left = -208.0
-margin_top = 143.0
-margin_right = -118.0
-margin_bottom = 174.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 5 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="column 5" type="Node2D" parent="Database"]
-position = Vector2( 319, 0 )
-
-[node name="cb_1" type="CheckBox" parent="Database/column 5" groups=[
-"Group_5",
-]]
-margin_left = -208.0
-margin_top = -136.0
-margin_right = -118.0
-margin_bottom = -105.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 6 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_2" type="CheckBox" parent="Database/column 5" groups=[
-"Group_5",
-]]
-margin_left = -208.0
-margin_top = -105.0
-margin_right = -118.0
-margin_bottom = -74.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 6 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_3" type="CheckBox" parent="Database/column 5" groups=[
-"Group_5",
-]]
-margin_left = -208.0
-margin_top = -74.0
-margin_right = -118.0
-margin_bottom = -43.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 6 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_4" type="CheckBox" parent="Database/column 5" groups=[
-"Group_5",
-]]
-margin_left = -208.0
-margin_top = -43.0
-margin_right = -118.0
-margin_bottom = -12.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 6 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_5" type="CheckBox" parent="Database/column 5" groups=[
-"Group_5",
-]]
-margin_left = -208.0
-margin_top = -12.0
-margin_right = -118.0
-margin_bottom = 19.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 6 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_6" type="CheckBox" parent="Database/column 5" groups=[
-"Group_5",
-]]
-margin_left = -208.0
-margin_top = 19.0
-margin_right = -118.0
-margin_bottom = 50.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 6 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_7" type="CheckBox" parent="Database/column 5" groups=[
-"Group_5",
-]]
-margin_left = -208.0
-margin_top = 50.0
-margin_right = -118.0
-margin_bottom = 81.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 6 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_8" type="CheckBox" parent="Database/column 5" groups=[
-"Group_5",
-]]
-margin_left = -208.0
-margin_top = 81.0
-margin_right = -118.0
-margin_bottom = 112.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 6 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_9" type="CheckBox" parent="Database/column 5" groups=[
-"Group_5",
-]]
-margin_left = -208.0
-margin_top = 112.0
-margin_right = -118.0
-margin_bottom = 143.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 6 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_10" type="CheckBox" parent="Database/column 5" groups=[
-"Group_5",
-]]
-margin_left = -208.0
-margin_top = 143.0
-margin_right = -118.0
-margin_bottom = 174.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 6 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="column 6" type="Node2D" parent="Database"]
-position = Vector2( 406, -1 )
-
-[node name="cb_1" type="CheckBox" parent="Database/column 6" groups=[
-"Group_6",
-]]
-margin_left = -204.0
-margin_top = -136.0
-margin_right = -130.0
-margin_bottom = -105.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-shortcut_in_tooltip = false
-enabled_focus_mode = 0
-group = SubResource( 7 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_2" type="CheckBox" parent="Database/column 6" groups=[
-"Group_6",
-]]
-margin_left = -204.0
-margin_top = -105.0
-margin_right = -130.0
-margin_bottom = -74.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 7 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_3" type="CheckBox" parent="Database/column 6" groups=[
-"Group_6",
-]]
-margin_left = -204.0
-margin_top = -74.0
-margin_right = -130.0
-margin_bottom = -43.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 7 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_4" type="CheckBox" parent="Database/column 6" groups=[
-"Group_6",
-]]
-margin_left = -204.0
-margin_top = -43.0
-margin_right = -130.0
-margin_bottom = -12.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 7 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_5" type="CheckBox" parent="Database/column 6" groups=[
-"Group_6",
-]]
-margin_left = -204.0
-margin_top = -12.0
-margin_right = -130.0
-margin_bottom = 19.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 7 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_6" type="CheckBox" parent="Database/column 6" groups=[
-"Group_6",
-]]
-margin_left = -204.0
-margin_top = 19.0
-margin_right = -130.0
-margin_bottom = 50.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 7 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_7" type="CheckBox" parent="Database/column 6" groups=[
-"Group_6",
-]]
-margin_left = -204.0
-margin_top = 50.0
-margin_right = -130.0
-margin_bottom = 81.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 7 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_8" type="CheckBox" parent="Database/column 6" groups=[
-"Group_6",
-]]
-margin_left = -204.0
-margin_top = 81.0
-margin_right = -130.0
-margin_bottom = 112.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 7 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_9" type="CheckBox" parent="Database/column 6" groups=[
-"Group_6",
-]]
-margin_left = -204.0
-margin_top = 112.0
-margin_right = -130.0
-margin_bottom = 143.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 7 )
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="cb_10" type="CheckBox" parent="Database/column 6" groups=[
-"Group_6",
-]]
-margin_left = -204.0
-margin_top = 143.0
-margin_right = -130.0
-margin_bottom = 174.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-disabled = true
-enabled_focus_mode = 0
-group = SubResource( 7 )
-flat = true
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1395,7 +748,7 @@ margin_top = 192.0
 margin_right = 274.0
 margin_bottom = 216.0
 mouse_default_cursor_shape = 2
-text = "Enter"
+text = "Search"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1414,7 +767,17 @@ __meta__ = {
 
 [node name="Virus" type="Node2D" parent="."]
 
-[node name="Button" type="Button" parent="."]
+[node name="Button_hide" type="Button" parent="."]
+margin_left = 204.0
+margin_top = -200.0
+margin_right = 232.0
+margin_bottom = -176.0
+text = "_"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_close" type="Button" parent="."]
 margin_left = 252.0
 margin_top = -200.0
 margin_right = 276.0
@@ -1427,7 +790,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="close" type="Sprite" parent="Button"]
+[node name="close" type="Sprite" parent="Button_close"]
 position = Vector2( 12, 12 )
 scale = Vector2( 0.375002, 0.375 )
 texture = ExtResource( 4 )
@@ -1457,6 +820,6 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Database/column 5/cb_1" to="." method="_on_cb_1_pressed"]
 [connection signal="pressed" from="Database/DB_button" to="." method="_on_DB_button_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button_hide" to="." method="_on_Button_hide_pressed"]
+[connection signal="pressed" from="Button_close" to="." method="_on_Button_pressed"]

@@ -136,7 +136,13 @@ func get_name():
 	if($room/student):
 		 return [$room/student.first_name,$room/student.second_name]
 	else:
-		return "damn"
+		return ['First name','Second name']
+
+func get_group():
+	if($room/student):
+		 return $room/student.group
+	else:
+		return "AAAA-00-11"
 
 func new_student(num): #1- только отчет, 2- отч + флешка, 3 - всё
 	student_leave(num)

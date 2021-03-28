@@ -19,6 +19,7 @@ func _ready():
 	$left_a.visible = false
 	$ot_1/name.text = get_parent().get_parent().get_name()[0]
 	$ot_1/sername.text = get_parent().get_parent().get_name()[1]
+	$ot_1/group.text = get_parent().get_parent().get_group()
 
 func _input(event):
 	if event is InputEventMouseButton and not event.is_pressed() and event.button_index == BUTTON_LEFT:
