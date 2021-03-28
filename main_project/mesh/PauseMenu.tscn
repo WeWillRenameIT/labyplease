@@ -110,7 +110,7 @@ margin_right = 662.0
 margin_bottom = 312.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
-text = "ОПЦИИ"
+text = "Опции"
 align = 1
 
 [node name="Volume" type="HSlider" parent="OptionsBlock"]
@@ -140,10 +140,39 @@ text = "Громость"
 align = 1
 
 [node name="Back" type="Button" parent="OptionsBlock"]
+visible = false
 margin_top = 336.0
 margin_right = 662.0
 margin_bottom = 360.0
 text = "Назад"
+
+[node name="ConfirmationDialogExit" type="ConfirmationDialog" parent="."]
+visible = true
+anchor_left = 0.006
+anchor_right = 0.006
+margin_left = -175.68
+margin_top = -64.0
+margin_right = 168.64
+margin_bottom = 71.84
+popup_exclusive = true
+window_title = ""
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConfirmationDialogMainMenu" type="ConfirmationDialog" parent="."]
+visible = true
+margin_left = -472.0
+margin_top = -32.0
+margin_right = 120.0
+margin_bottom = 40.0
+popup_exclusive = true
+window_title = "Подтверждение..."
+resizable = true
+dialog_text = "Вы точно хотите вернуться в главное меню?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="PauseBlock/QuitGameButton" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="PauseBlock/HBoxContainer/LoadButton" to="." method="_on_Load_pressed"]
 [connection signal="pressed" from="PauseBlock/HBoxContainer/SaveButton" to="." method="_on_Save_pressed"]
@@ -152,3 +181,5 @@ text = "Назад"
 [connection signal="pressed" from="PauseBlock/OptionsButton" to="." method="_on_Options_pressed"]
 [connection signal="value_changed" from="OptionsBlock/Volume" to="." method="_on_Volume_value_changed"]
 [connection signal="pressed" from="OptionsBlock/Back" to="." method="_on_Back_pressed"]
+[connection signal="confirmed" from="ConfirmationDialogExit" to="." method="_on_ConfirmationDialogExit_confirmed"]
+[connection signal="confirmed" from="ConfirmationDialogMainMenu" to="." method="_on_ConfirmationDialogMainMenu_confirmed"]

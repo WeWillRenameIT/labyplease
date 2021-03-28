@@ -20,32 +20,6 @@ extents = Vector2( 10, 11 )
 [node name="level_test" type="Node2D"]
 script = ExtResource( 11 )
 
-[node name="comp_cam" type="Camera2D" parent="."]
-position = Vector2( 176, -103.65 )
-scale = Vector2( 0.875887, -0.113867 )
-z_as_relative = false
-zoom = Vector2( 0.22, 0.26 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 0.5, 0.555 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Camera2D"]
-position = Vector2( 330, 74 )
-rotation = -3.14159
-scale = Vector2( 1.07831, -12.6696 )
-collision_layer = 31
-collision_mask = 31
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Camera2D/StaticBody2D"]
-position = Vector2( 606.505, -10.5763 )
-rotation = 3.14159
-polygon = PoolVector2Array( -25.9657, -20.5216, -25.9657, -22.4159, 626.908, -22.4141, 626.907, 11.0518, 597.231, 11.0518, 597.232, -20.5199 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera2D/StaticBody2D"]
-position = Vector2( 6.49165, -0.149138 )
-polygon = PoolVector2Array( -26.8933, -21.4774, -26.8932, -25.8975, 625.98, -25.8973, 625.979, 10.0943, 596.303, 10.0943, 596.304, -21.4773 )
-
 [node name="room" parent="." instance=ExtResource( 6 )]
 position = Vector2( -181, 0.0473003 )
 z_index = -100
@@ -60,7 +34,7 @@ position = Vector2( 49.0189, -16.4527 )
 z_as_relative = false
 
 [node name="big_table" type="Sprite" parent="."]
-position = Vector2( 176, 96 )
+position = Vector2( 176, 97 )
 scale = Vector2( 1.02465, 0.996229 )
 z_index = -100
 texture = ExtResource( 3 )
@@ -150,7 +124,7 @@ __meta__ = {
 visible = false
 margin_left = -229.0
 margin_top = -141.0
-margin_right = -199.0
+margin_right = -191.0
 margin_bottom = -110.0
 custom_fonts/font = ExtResource( 1 )
 text = "false"
@@ -161,5 +135,38 @@ __meta__ = {
 [node name="Hidden_stamp" parent="." instance=ExtResource( 8 )]
 position = Vector2( 319.963, 81.5 )
 scale = Vector2( 0.1, 0.1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 319.963, 103.5 )
+rotation = -3.14159
+scale = Vector2( 1.07831, -12.6696 )
+collision_layer = 31
+collision_mask = 31
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 594.417, -12.8623 )
+rotation = 3.14159
+polygon = PoolVector2Array( -25.9657, -20.5216, -25.9657, -22.4159, 626.908, -22.4141, 626.907, 11.0518, 597.231, 11.0518, 597.232, -20.5199 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( -0.0341372, -5.06639e-07 )
+polygon = PoolVector2Array( -26.8933, -21.4774, -26.8932, -25.8975, 625.98, -25.8973, 625.979, 10.0943, 596.303, 10.0943, 596.304, -21.4773 )
+
+[node name="Camera2D" type="Camera2D" parent="." groups=[
+"cam",
+]]
+position = Vector2( -321.002, -198.007 )
+scale = Vector2( 1, 1 )
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.501, 0.552 )
+
+[node name="comp_cam" type="Camera2D" parent="." groups=[
+"cam",
+]]
+position = Vector2( 36.5128, -194.965 )
+scale = Vector2( 1, 1 )
+anchor_mode = 0
+zoom = Vector2( 0.219, 0.244 )
 [connection signal="finished" from="background_music" to="." method="_on_background_music_finished"]
 [connection signal="ready" from="background_music" to="." method="_on_background_music_ready"]

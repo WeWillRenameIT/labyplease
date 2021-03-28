@@ -29,7 +29,15 @@ func _input(event):
 			queue_free()
 
 func _on_Exit_pressed():
-	get_tree().quit()
+	
+	$ConfirmationDialogExit.popup()
+	$ConfirmationDialogExit.dialog_text = "Вы точно хотите выйти?"
+	$ConfirmationDialogExit.get_child(1).align = HALIGN_CENTER
+	$ConfirmationDialogExit.window_title = "Выход"
+	print($ConfirmationDialogExit.get_global_position())
+	print("bruh ", $ConfirmationDialogExit.get_position())
+	#get_tree().quit()
+
 	pass # Replace with function body.
 
 func _on_Load_pressed():
@@ -39,8 +47,7 @@ func _on_Save_pressed():
 	pass # Replace with function body.
 
 func _on_GoToMainMenu_pressed():
-	get_tree().paused = false
-	get_tree().change_scene("res://main menu/mainMenu.tscn")
+	$ConfirmationDialogMainMenu.popup()
 	pass # Replace with function body.
 	
 func _on_Continue_pressed():
@@ -68,4 +75,15 @@ func _on_Volume_value_changed(value):
 	var data = Main.json_load("user://options.json")
 	data["volume"] = value
 	Main.json_save(data,"user://options.json")
+	pass # Replace with function body.
+
+
+func _on_ConfirmationDialogExit_confirmed():
+	get_tree().quit()
+	pass # Replace with function body.
+
+
+func _on_ConfirmationDialogMainMenu_confirmed():
+	get_tree().paused = false
+	get_tree().change_scene("res://main menu/mainMenu.tscn")
 	pass # Replace with function body.

@@ -83,10 +83,12 @@ func json_save(data,path):
 func pause_game():
 	var pause_menu = preload("res://mesh/PauseMenu.tscn")
 	var instance = pause_menu.instance()
-	add_child(instance)
-	instance.set_position(Vector2(-553.015,-304))
-	instance.set_scale(Vector2(0.503,0.557))
+	return instance
+	#add_child(instance)
+	#instance.set_position(Vector2(-553.015,-304))
+	#instance.set_scale(Vector2(0.503,0.557))
 	get_tree().paused = true;
+	
 	pass
 	
 

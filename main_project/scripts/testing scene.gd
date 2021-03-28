@@ -44,16 +44,26 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("pause"):
-		#Main.pause_game()
+		#Main.pause_game() #эт пока не работает, и, видимо, работать не будет
+		#хз как сделать это из main скрипта, но ладно
+		#--------------------------------------------------
 		var pause_menu = preload("res://mesh/PauseMenu.tscn")
 		var instance = pause_menu.instance()
-		print(get_child_count())
-		add_child(instance)
-		get_tree().paused = true;
-		instance.set_position(Vector2(-320,-200))
-		instance.set_scale(Vector2(0.503,0.557))
-		#pass
+		# получаем все камеры из группы cam
+		var cams = get_tree().get_nodes_in_group("cam")
+		var currentCam
+		# проходимся по массиву камер, берем из них ту, которая сейчас
+		# используется, т.е. current
+
+		for cam in cams:
+			if cam.is_current():
+				currentCam = cam
 		
+		currentCam.add_child(instance)
+		# zoom камеры == scale паузы
+		instance.set_scale(currentCam.get_zoom())
+		get_tree().paused = true;
+		#--------------------------------------------------
 
 func _process(delta):
 	#print(get_tree().is_input_handled())
