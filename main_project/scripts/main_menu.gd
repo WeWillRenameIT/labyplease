@@ -27,6 +27,9 @@ func _ready():
 	# Загрузить локаль
 	loadLocale()
 	
+	# Заблокировать кнопки, пока не загрузится сейв
+	lockButtons()
+	
 	# Запустить анимацию облаков
 	$Art/Clouds.material.set_shader_param("scroll_speed", 0.025)
 	
@@ -36,7 +39,7 @@ func _ready():
 		$Music.set_volume_db(linear2db(Main.currentVolume))
 	
 	# Загрузка профилей
-	var saveDataDirectory =  Directory.new()
+	var saveDataDirectory = Directory.new()
 	saveDataDirectory.open(saveDataDirectoryString)
 	saveDataDirectory.list_dir_begin(true)
 	
@@ -60,28 +63,68 @@ func _ready():
 		# Обработать, будто мы выбрали этот профиль
 		_on_ProfileList_item_selected(0)
 	else:
-		# TODO: заблокировать кнопки новой игры и загрузки, пока не будет создан профиль?
-		# временный фикс - создаётся сейв Player))
-		profileList.add_item("Player", null, true);
-		profileList.set_item_metadata(profileList.get_item_count() - 1, "user://savedata/Player.save")
-		Main.newSaveFile("Player")
-		profileList.select(0)
-		# Обработать, будто мы выбрали этот профиль
-		_on_ProfileList_item_selected(0)
+		$profileSelect.visible = true
+		$CreateProfileDialog.popup()
 	
 
 func loadLocale():
 	# Загрузка текста кнопок в необходимой локали
-	$menuContainer/newGameButton.text = Main.json_load(localeFilePath)[currentLang]["newGame"]
-	$menuContainer/loadGameButton.text = Main.json_load(localeFilePath)[currentLang]["loadGame"]
-	$menuContainer/quitButton.text = Main.json_load(localeFilePath)[currentLang]["quit"]
-	$Tutorial/Label.text = Main.json_load(localeFilePath)[currentLang]["tutorial"]
-	$Tutorial2/Label.text = Main.json_load(localeFilePath)[currentLang]["tutorial2"]
+	var localeData = Main.json_load(localeFilePath)[currentLang]
+	$menuContainer/newGameButton.text = localeData["newGame"]
+	$menuContainer/loadGameButton.text = localeData["loadGame"]
+	$menuContainer/quitButton.text = localeData["quit"]
+	
+	$Tutorial/Label.text = localeData["tutorial"]
+	$Tutorial2/Label.text = localeData["tutorial2"]
+	
+	$ShowProfileSelectBtn.text = localeData["profiles"]
+	$profileSelect/VBoxContainer/Label.text = localeData["profiles"]
+	$profileSelect/VBoxContainer/NewProfileBtn.text = localeData["newProfile"]
+	$profileSelect/VBoxContainer/DeleteProfileBtn.text = localeData["deleteProfile"]
+	
+	$CreateProfileDialog.window_title = localeData["createProfileDialogWindowTitle"]
+	$CreateProfileDialog.get_ok().text = localeData["createProfileDialogOk"]
+	$CreateProfileDialog.get_cancel().text = localeData["dialogCancel"]
+	
+	$DeleteProfileDialog.window_title = localeData["deleteProfileDialogWindowTitle"]
+	$DeleteProfileDialog.dialog_text = localeData["deleteProfileDialogText"]
+	$DeleteProfileDialog.get_ok().text = localeData["deleteProfileDialogOk"]
+	$DeleteProfileDialog.get_cancel().text = localeData["dialogCancel"]
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+# Блокирует кнопки "Новая игра" и "Загрузить игру", а так же "Удалить профиль"
+# Когда сейв не выбран они должны быть заблокированы
+func lockButtons():
+	$menuContainer/newGameButton.disabled = true
+	$menuContainer/loadGameButton.disabled = true
+	$profileSelect/VBoxContainer/DeleteProfileBtn.disabled = true
+
+# Разблокирует кнопки "Новая игра" и "Загрузить игру", а так же "Удалить профиль"
+func unlockButtons():
+	$menuContainer/newGameButton.disabled = false
+	$profileSelect/VBoxContainer/DeleteProfileBtn.disabled = false
+	if (!isBlankSaveData()):
+		$menuContainer/loadGameButton.disabled = false
+	else:
+		$menuContainer/loadGameButton.disabled = true
+
+# Проверяет, пустой ли сейв и разблокирует кнопку "Загрузить игру"
+func isBlankSaveData():
+	# TODO: Переписать
+	# Берём два JSON, удаляем у них name и сравниваем
+	var matches = 0
+	for key in Main.saveData.keys():
+		if key != "name" and Main.blankSaveData[key] == Main.saveData[key]:
+			matches += 1
+	#print(matches) # debug
+	if matches == 11:
+		return true
+	else:
+		return false
 
 func _on_newGameButton_pressed():
 	#Думаю эт бесполнезно (Doktan: 21.03.2021)
@@ -146,34 +189,45 @@ func _on_Button2_pressed():
 
 
 func _on_CreateProfile_pressed():
-	var name = $profileSelect/VBoxContainer/NameInput.text
-	if (name.length() > 0):
+	var name = $CreateProfileDialog/NameInput.text
+	if (name.length() > 0 && !Main.profileExists(name)):
 		var saveFile = Main.newSaveFile(name)
 		var profileList = $profileSelect/VBoxContainer/ProfileList
 		profileList.add_item(name, null, true)
 		profileList.set_item_metadata(profileList.get_item_count() - 1, saveFile)
-		$profileSelect/VBoxContainer/NameInput.text = ""
-		
+		$CreateProfileDialog/NameInput.text = ""
+		$profileSelect/VBoxContainer/ProfileList.select(profileList.get_item_count() - 1)
+		_on_ProfileList_item_selected(profileList.get_item_count() - 1)
+	else:
+		$CreateProfileDialog.popup()
 
 # Выбор определённого профиля
 func _on_ProfileList_item_selected(index):
 	var saveName = $profileSelect/VBoxContainer/ProfileList.get_item_metadata(index)
 	Main.loadSaveData(saveName)
-	
-	# TODO: Переписать
-	# Берём два JSON, удаляем у них name и сравниваем
-	var matches = 0
-	for key in Main.saveData.keys():
-		if key != "name" and Main.blankSaveData[key] == Main.saveData[key]:
-			matches += 1
-	print(matches)
-	if matches == 11:
-		$menuContainer/loadGameButton.disabled = true
-	else:
-		$menuContainer/loadGameButton.disabled = false
-
-
-	
+	unlockButtons()
 
 func _on_ShowProfileSelectBtn_pressed():
 	$profileSelect.visible = !$profileSelect.visible
+
+func _on_NewProfileBtn_pressed():
+	$CreateProfileDialog.popup();
+	$CreateProfileDialog/NameInput.grab_focus()
+
+
+func _on_DeleteProfileBtn_pressed():
+	$DeleteProfileDialog.popup();
+
+
+func _on_DeleteProfileDialog_confirmed():
+	var saveFileToDelete = Main.saveFile
+	Main.deleteSaveFile()
+	for i in ($profileSelect/VBoxContainer/ProfileList.get_item_count()):
+		if ($profileSelect/VBoxContainer/ProfileList.get_item_metadata(i) == saveFileToDelete):
+			$profileSelect/VBoxContainer/ProfileList.remove_item(i)
+	lockButtons()
+	
+	# Загрузить другой сейв, если остался
+	if ($profileSelect/VBoxContainer/ProfileList.get_item_count() > 0):
+		$profileSelect/VBoxContainer/ProfileList.select(0)
+		_on_ProfileList_item_selected(0)

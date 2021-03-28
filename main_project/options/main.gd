@@ -32,6 +32,21 @@ func loadSaveData(saveFileFullPath):
 func saveSaveData():
 	json_save(saveData, saveFile)
 
+func profileExists(profileName):
+	var saveDataDirectory = Directory.new()
+	saveDataDirectory.open("user://savedata/")
+	saveDataDirectory.list_dir_begin(true)
+	
+	var nextSaveFile = saveDataDirectory.get_next()
+	while nextSaveFile != '':
+		# TODO: Если JSON не парсентся, то откинуть файл
+		if (Main.json_load("user://savedata/" + nextSaveFile) != null):
+			var name = Main.json_load("user://savedata/" + nextSaveFile)["name"]
+			if (name == profileName):
+				return true
+		nextSaveFile = saveDataDirectory.get_next()
+	return false
+
 # Создаёт новый сейв для профиля с именем profileName, возвращает путь к файлу
 func newSaveFile(profileName):
 	if (saveFile != null && saveData != null):
@@ -41,6 +56,12 @@ func newSaveFile(profileName):
 	saveFile = "user://savedata/" + profileName + ".save"
 	saveSaveData()
 	return saveFile
+
+func deleteSaveFile():
+	if (saveFile != null && saveData != null):
+		Directory.new().remove(saveFile)
+		saveData = null
+		saveFile = null
 
 const blankSaveData = {
 	"name": "Player",

@@ -4,7 +4,16 @@
         "loadGame": "Загрузить игру",
         "quit": "Выход",
         "tutorial": "Управление: мышкой.\nИгроку требуется проверять работы студентов:\n1. Открыть студенческий билет (1), проверить его данные на компьютере (6);\n2. Вставить флешку (2) в считыывающее устройство (5), проверить флешку на вирусы и проверить программу студента на компьютере (6);\n3. Пролистать отчёт (4).\nРуководствуясь сообщениями о результатах проверок, игрок принимает решение о выставлении оценки 'зачтено' или 'не зачтено'.\nОценка 'зачтено' ставится путём установки на отчёт (4) штампа (3) и нажатием кнопки 'Можете идти'.\nОценка 'не зачтено' ставится путём нажатия кнопки 'Можете идти' без установки штампа.",
-        "tutorial2": "При проверке программы с флешки, на которой находится вирус, компьютер зависнет, а использованный порт считывающего устройства сломается. Именно поэтому стоит проверять флешки на вирусы перед проверкой программы.\nЕсли компьютер завис, требуется нажать красную кнопку в нижнем левом углу, чтобы перезагрузить компьютер.\nЕсли у игрока не осталось рабочих портов считывающего устройства, игрок может потратить 1000р. на починку портов или закончить игру на текущем уровне и перейти к следующему."
+        "tutorial2": "При проверке программы с флешки, на которой находится вирус, компьютер зависнет, а использованный порт считывающего устройства сломается. Именно поэтому стоит проверять флешки на вирусы перед проверкой программы.\nЕсли компьютер завис, требуется нажать красную кнопку в нижнем левом углу, чтобы перезагрузить компьютер.\nЕсли у игрока не осталось рабочих портов считывающего устройства, игрок может потратить 1000р. на починку портов или закончить игру на текущем уровне и перейти к следующему.",
+        "profiles": "Профили",
+        "newProfile": "Новый",
+        "deleteProfile": "Удалить",
+        "createProfileDialogWindowTitle": "Введите имя профиля",
+        "createProfileDialogOk": "Создать",
+        "deleteProfileDialogWindowTitle": "Удаление профиля",
+        "deleteProfileDialogText": "Данные профиля будут безвозвратно удалены!",
+        "deleteProfileDialogOk": "Удалить",
+        "dialogCancel": "Отмена"
     },
 
     "English":{
@@ -12,6 +21,15 @@
         "loadGame": "Load Game",
         "quit": "Quit",
         "tutorial": "Controls: mouse.\nThe player is tasked with checking students' works:\n1. Open the ID (1), check it's data on the computer (6);\n2. Insert the flash drive (2) in the reader port (5), check for viruses and check the student's program on the computer (6);\n3. Flip through the report (4).\nBased on the messages shown when checking parts of the work, the player decides on the appropriate mark.\nThe mark 'accepted' is put by stamping (3) the report (4) and pressing the 'You can go' button.\nThe mark 'not accepted' is put by pressing the 'You can go' button without stamping the report.",
-        "tutorial2": "If you check the student's program from a virus-infected flash drive, the computer will crash and the flash drive port you had used will fry. That's why it's recommended to check the flash drives for viruses before proceeding with the testing.\nIn case the computer crashes, you have to press the red button in the bottom right corner to reboot it.\nIf there are no working flash drive ports left, you can pay 1000p. to repair them and carry on playing or proceed on to the next day."
+        "tutorial2": "If you check the student's program from a virus-infected flash drive, the computer will crash and the flash drive port you had used will fry. That's why it's recommended to check the flash drives for viruses before proceeding with the testing.\nIn case the computer crashes, you have to press the red button in the bottom right corner to reboot it.\nIf there are no working flash drive ports left, you can pay 1000p. to repair them and carry on playing or proceed on to the next day.",
+        "profiles": "Profiles",
+        "newProfile": "New profile",
+        "deleteProfile": "Delete",
+        "createProfileDialogWindowTitle": "Enter profile name",
+        "createProfileDialogOk": "Create",
+        "deleteProfileDialogWindowTitle": "Profile deletion",
+        "deleteProfileDialogText": "The profile data will be irreversibly deleted!",
+        "deleteProfileDialogOk": "Delete",
+        "dialogCancel": "Cancel"
     }
 }

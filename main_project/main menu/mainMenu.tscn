@@ -292,44 +292,81 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="profileSelect"]
 margin_left = 52.0
 margin_top = 8.0
-margin_right = 236.0
+margin_right = 237.0
 margin_bottom = 316.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="profileSelect/VBoxContainer"]
-margin_right = 184.0
+margin_right = 185.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="profileSelect/VBoxContainer"]
 margin_top = 4.0
-margin_right = 184.0
+margin_right = 185.0
 margin_bottom = 28.0
-text = "Профиль"
+text = "Профили"
 align = 1
 
 [node name="ProfileList" type="ItemList" parent="profileSelect/VBoxContainer"]
 margin_top = 32.0
-margin_right = 184.0
+margin_right = 185.0
 margin_bottom = 242.0
 rect_min_size = Vector2( 20, 210 )
 custom_styles/bg = SubResource( 4 )
 
-[node name="NameInput" type="TextEdit" parent="profileSelect/VBoxContainer"]
+[node name="NewProfileBtn" type="Button" parent="profileSelect/VBoxContainer"]
 margin_top = 246.0
-margin_right = 184.0
-margin_bottom = 276.0
-rect_min_size = Vector2( 130, 30 )
+margin_right = 185.0
+margin_bottom = 270.0
+text = "Новый"
 
-[node name="CreateProfile" type="Button" parent="profileSelect/VBoxContainer"]
-margin_top = 280.0
-margin_right = 184.0
-margin_bottom = 304.0
-rect_min_size = Vector2( 50, 0 )
-text = "Создать"
+[node name="DeleteProfileBtn" type="Button" parent="profileSelect/VBoxContainer"]
+margin_top = 274.0
+margin_right = 185.0
+margin_bottom = 298.0
+custom_colors/font_color_disabled = Color( 1, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 0, 0, 1 )
+text = "Удалить"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreateProfileDialog" type="ConfirmationDialog" parent="."]
+margin_left = 533.33
+margin_top = 332.297
+margin_right = 837.33
+margin_bottom = 434.297
+window_title = "Введите имя"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameInput" type="LineEdit" parent="CreateProfileDialog"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 296.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 130, 30 )
+max_length = 24
+context_menu_enabled = false
+
+[node name="DeleteProfileDialog" type="ConfirmationDialog" parent="."]
+margin_left = 513.149
+margin_top = 343.586
+margin_right = 900.149
+margin_bottom = 445.586
+window_title = "Подтверждение"
+dialog_text = "Все данные профиля будут безвозвратно удалены!"
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="menuContainer/newGameButton" to="." method="_on_newGameButton_pressed"]
 [connection signal="pressed" from="menuContainer/loadGameButton" to="." method="_on_loadGameButton_pressed"]
 [connection signal="pressed" from="menuContainer/quitButton" to="." method="_on_quitButton_pressed"]
@@ -339,4 +376,7 @@ text = "Создать"
 [connection signal="pressed" from="Tutorial2/Button2" to="." method="_on_Button2_pressed"]
 [connection signal="pressed" from="ShowProfileSelectBtn" to="." method="_on_ShowProfileSelectBtn_pressed"]
 [connection signal="item_selected" from="profileSelect/VBoxContainer/ProfileList" to="." method="_on_ProfileList_item_selected"]
-[connection signal="pressed" from="profileSelect/VBoxContainer/CreateProfile" to="." method="_on_CreateProfile_pressed"]
+[connection signal="pressed" from="profileSelect/VBoxContainer/NewProfileBtn" to="." method="_on_NewProfileBtn_pressed"]
+[connection signal="pressed" from="profileSelect/VBoxContainer/DeleteProfileBtn" to="." method="_on_DeleteProfileBtn_pressed"]
+[connection signal="confirmed" from="CreateProfileDialog" to="." method="_on_CreateProfile_pressed"]
+[connection signal="confirmed" from="DeleteProfileDialog" to="." method="_on_DeleteProfileDialog_confirmed"]
