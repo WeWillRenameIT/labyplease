@@ -31,7 +31,7 @@ func _ready():
 	lockButtons()
 	
 	# Запустить анимацию облаков
-	$Art/Clouds.material.set_shader_param("scroll_speed", 0.025)
+	#$Art/Clouds.material.set_shader_param("scroll_speed", 0.025)
 	
 	# Включить музыку
 	if (!$Music.is_playing()):
@@ -136,7 +136,7 @@ func _on_newGameButton_pressed():
 	#Main.json_save(temp,"user://options.json")
 	#-------------------------------------------
 	Main.newGame()
-	get_tree().change_scene("res://testing scene.tscn")
+	get_tree().change_scene("res://cutscenes/Intro.tscn")
 
 func _on_languageToggleBtn_pressed():
 	if (Main.currentLang == "English"):

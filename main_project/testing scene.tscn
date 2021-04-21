@@ -156,7 +156,6 @@ polygon = PoolVector2Array( -26.8933, -21.4774, -26.8932, -25.8975, 625.98, -25.
 "cam",
 ]]
 position = Vector2( -321.002, -198.007 )
-scale = Vector2( 1, 1 )
 anchor_mode = 0
 current = true
 zoom = Vector2( 0.501, 0.552 )
@@ -165,7 +164,6 @@ zoom = Vector2( 0.501, 0.552 )
 "cam",
 ]]
 position = Vector2( 36.5128, -194.965 )
-scale = Vector2( 1, 1 )
 anchor_mode = 0
 zoom = Vector2( 0.219, 0.244 )
 [connection signal="finished" from="background_music" to="." method="_on_background_music_finished"]
