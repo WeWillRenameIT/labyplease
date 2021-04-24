@@ -1,18 +1,27 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://sprites/mainMenu/clouds.png" type="Texture" id=1]
+[ext_resource path="res://sprites/cutscenes/cutsceneSky.png" type="Texture" id=1]
 [ext_resource path="res://materials/scroll.tres" type="Material" id=2]
 [ext_resource path="res://cutscenes/Intro.gd" type="Script" id=3]
 [ext_resource path="res://sounds/story.ogg" type="AudioStream" id=4]
 [ext_resource path="res://sprites/theme_for_buttons.tres" type="Theme" id=5]
 [ext_resource path="res://sprites/cutscenes/road.png" type="Texture" id=6]
-[ext_resource path="res://sprites/cutscenes/house1.png" type="Texture" id=7]
+[ext_resource path="res://sprites/cutscenes/CutsceneBG.png" type="Texture" id=7]
 [ext_resource path="res://sprites/cutscenes/character.png" type="Texture" id=8]
 [ext_resource path="res://texts/fontSources/17543.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://sprites/cutscenes/House.png" type="Texture" id=10]
+[ext_resource path="res://sprites/cutscenes/house_dirt_path.png" type="Texture" id=11]
+[ext_resource path="res://sprites/cutscenes/CutsceneCityscape1.png" type="Texture" id=12]
+[ext_resource path="res://sprites/cutscenes/CutsceneCityscape2.png" type="Texture" id=13]
+[ext_resource path="res://shaders/scroll.shader" type="Shader" id=14]
+[ext_resource path="res://sprites/cutscenes/CutsceneWater.png" type="Texture" id=15]
+[ext_resource path="res://sprites/cutscenes/CutsceneTrainBridge.png" type="Texture" id=16]
+[ext_resource path="res://materials/water.tres" type="Material" id=17]
+[ext_resource path="res://sprites/cutscenes/CutsceneTrain.png" type="Texture" id=18]
 
 [sub_resource type="Animation" id=1]
 resource_name = "IntroCutscene"
-length = 14.0
+length = 63.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("StreetScene/Character:position")
 tracks/0/interp = 1
@@ -20,10 +29,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 4, 7.5, 9.5, 13.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 4, 14.5, 16.6, 19, 23 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 96.7143, 420.955 ), Vector2( 700, 420.955 ), Vector2( 700, 420.955 ), Vector2( 1400, 420.955 ) ]
+"values": [ Vector2( 520, 480 ), Vector2( 520, 480 ), Vector2( 800, 480 ), Vector2( 800, 480 ), Vector2( 1400, 460 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("StreetScene/Character:flip_h")
@@ -32,25 +41,25 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 4, 7.7, 9.2 ),
+"times": PoolRealArray( 4, 16.8, 18.7 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("StreetScene/TextBox/RichTextLabel:text")
+tracks/2/path = NodePath("TextBox/RichTextLabel:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 4, 7.7, 9.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 4, 7, 12, 16.8, 18.7, 23, 28.1, 36, 42.9, 48, 58 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ "Игрок: Пойду в ВУЗ, буду лабы принимать", "Игрок: Ой, пропуск забыл", "Игрок: А ладно, меня и так пустят" ]
+"values": [ "Игрок: Что же, сегодня мой первый день в аспирантуре", "Игрок: Отсрочку от армии уже оформил, осталось только выучиться и получить степень кандидата наук", "Игрок: А для этого придётся, наверное, хотя бы раз сходить в вуз...", "Игрок: Ой, пропуск забыл", "Игрок: А ладно, меня и так пустят", "Радио: Министерство образования выпустило сегодня новый приказ", "Радио: Согласно нему, 80% обучающихся по программам аспирантуры будут обязаны преподавать во все свободные от учёбы дни", "Радио: Данное решение должно устранить кадровую проблему в столичных вузах, начавшуюся в связи с падением заработных плат преподавателей", "Радио: Мы попросили главу министерства прокоментировать новое решение", "Министр: \"А кто, кто иначе преподавать будет?! Вы знаете, что у нас тысяча студентов на каждом направлении, во всех вузах?\"", "Игрок: Надеюсь, меня это не коснётся..." ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("GameLogo/GameLogoText:bbcode_text")
+tracks/3/path = NodePath("ChapterTextScene/GameLogoText:bbcode_text")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -59,8 +68,8 @@ tracks/3/keys = {
 "times": PoolRealArray( -0.2, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ "[center]WeWillRenameIT
-Presents[/center]", "[center]Laby Please[/center]" ]
+"values": [ "[center]Глава 1[/center]", "[center]Глава 1
+Аспирант[/center]" ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath(".:position")
@@ -69,27 +78,91 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( -0.2, 4 ),
+"times": PoolRealArray( -0.2, 4, 23 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -720 ), Vector2( 0, -1440 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("TextBox:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( -0.2, 23 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -720 ) ]
+"values": [ Vector2( 250, 1320 ), Vector2( 250, 2040 ) ]
 }
 
 [sub_resource type="DynamicFont" id=2]
 size = 70
 font_data = ExtResource( 9 )
 
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 14 )
+shader_param/scroll_speed = 0.005
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 14 )
+shader_param/scroll_speed = 0.03
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = ExtResource( 14 )
+shader_param/scroll_speed = 0.18
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 14 )
+shader_param/scroll_speed = 0.2
+
 [node name="IntroCuscene" type="Node2D"]
-position = Vector2( 0, -720 )
+position = Vector2( 0, -1440 )
 script = ExtResource( 3 )
 
 [node name="CutsceneAnimation" type="AnimationPlayer" parent="."]
 autoplay = "IntroCutscene"
 anims/IntroCutscene = SubResource( 1 )
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -5.0
+autoplay = true
+
+[node name="ChapterTextScene" type="Control" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG_Color" type="ColorRect" parent="ChapterTextScene"]
+margin_right = 1280.0
+margin_bottom = 720.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameLogoText" type="RichTextLabel" parent="ChapterTextScene"]
+margin_left = 250.0
+margin_top = 250.0
+margin_right = 1050.0
+margin_bottom = 450.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]Глава 1
+Аспирант[/center]"
+text = "Глава 1
+Аспирант"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="StreetScene" type="Control" parent="."]
 margin_top = 720.0
-margin_bottom = 720.0
+margin_right = 1280.0
+margin_bottom = 1440.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -99,10 +172,6 @@ material = ExtResource( 2 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 1 )
 centered = false
-
-[node name="Music" type="AudioStreamPlayer" parent="StreetScene"]
-stream = ExtResource( 4 )
-autoplay = true
 
 [node name="SkipButton" type="Button" parent="StreetScene"]
 margin_left = 1070.0
@@ -116,78 +185,124 @@ __meta__ = {
 }
 
 [node name="Road" type="Sprite" parent="StreetScene"]
-position = Vector2( 0, 430 )
-scale = Vector2( 10, 10 )
+position = Vector2( 0, 481 )
+scale = Vector2( 10, 8.23669 )
 texture = ExtResource( 6 )
 centered = false
 
-[node name="ColorRect" type="ColorRect" parent="StreetScene"]
-margin_left = -4.0
-margin_top = 334.0
-margin_right = 1301.0
-margin_bottom = 431.0
-color = Color( 0.403922, 0.619608, 0.301961, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="DirtPath" type="Sprite" parent="StreetScene"]
+position = Vector2( 905, 335 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 11 )
+centered = false
+
+[node name="House3" type="Sprite" parent="StreetScene"]
+position = Vector2( 900, 200 )
+scale = Vector2( 1.75, 1.75 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="House2" type="Sprite" parent="StreetScene"]
+position = Vector2( 1175, 240 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
+centered = false
+flip_h = true
 
 [node name="House" type="Sprite" parent="StreetScene"]
-position = Vector2( 388.056, 269.623 )
-scale = Vector2( 6, 6 )
-texture = ExtResource( 7 )
+position = Vector2( 766.946, 351.347 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 10 )
+centered = false
+offset = Vector2( -153.389, -70.2694 )
 
 [node name="Character" type="Sprite" parent="StreetScene"]
-position = Vector2( 700, 420.955 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 1400, 460 )
 texture = ExtResource( 8 )
 
-[node name="TextBox" type="ColorRect" parent="StreetScene"]
-margin_left = 250.0
-margin_top = 600.0
-margin_right = 1050.0
-margin_bottom = 700.0
-color = Color( 1, 1, 1, 0.705882 )
+[node name="CityScene" type="Control" parent="."]
+margin_top = 1440.0
+margin_right = 1280.0
+margin_bottom = 2160.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="StreetScene/TextBox"]
+[node name="CityBG" type="Sprite" parent="CityScene"]
+scale = Vector2( 5, 5 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="CityScapeFar" type="Sprite" parent="CityScene"]
+material = SubResource( 4 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 12 )
+centered = false
+
+[node name="CityScapeNear" type="Sprite" parent="CityScene"]
+material = SubResource( 5 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 13 )
+centered = false
+
+[node name="WaterSprite" type="Sprite" parent="CityScene"]
+material = SubResource( 7 )
+position = Vector2( -53.5143, 540 )
+scale = Vector2( 5.42273, 5 )
+texture = ExtResource( 15 )
+centered = false
+
+[node name="WaterDistortions" type="Sprite" parent="CityScene"]
+material = ExtResource( 17 )
+position = Vector2( 0, 540 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 15 )
+centered = false
+
+[node name="TrainBridge" type="Sprite" parent="CityScene"]
+material = SubResource( 6 )
+position = Vector2( 0, 355 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 16 )
+centered = false
+
+[node name="Train" type="Sprite" parent="CityScene"]
+position = Vector2( 650, 500 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 18 )
+
+[node name="SkipButton2" type="Button" parent="CityScene"]
+margin_left = 1070.0
+margin_top = 12.0
+margin_right = 1270.0
+margin_bottom = 52.0
+theme = ExtResource( 5 )
+text = "Пропустить"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextBox" type="ColorRect" parent="."]
+margin_left = 250.0
+margin_top = 2040.0
+margin_right = 1050.0
+margin_bottom = 2140.0
+color = Color( 0, 0, 0, 0.705882 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextBox"]
 margin_left = 50.0
 margin_top = 10.0
 margin_right = 750.0
 margin_bottom = 90.0
 theme = ExtResource( 5 )
-text = "Игрок: А ладно, меня и так пустят"
+text = "Радио: Министерство образования выпустило сегодня новый приказ"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GameLogo" type="Control" parent="."]
-margin_right = 1280.0
-margin_bottom = 720.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BG_Color" type="ColorRect" parent="GameLogo"]
-margin_right = 1280.0
-margin_bottom = 720.0
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GameLogoText" type="RichTextLabel" parent="GameLogo"]
-margin_left = 250.0
-margin_top = 250.0
-margin_right = 1050.0
-margin_bottom = 450.0
-custom_fonts/normal_font = SubResource( 2 )
-bbcode_enabled = true
-bbcode_text = "[center]Laby Please[/center]"
-text = "Laby Please"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="animation_finished" from="CutsceneAnimation" to="." method="_on_CutsceneAnimation_animation_finished"]
 [connection signal="pressed" from="StreetScene/SkipButton" to="." method="_on_SkipButton_pressed"]
+[connection signal="pressed" from="CityScene/SkipButton2" to="." method="_on_SkipButton_pressed"]

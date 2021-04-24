@@ -13,4 +13,4 @@ void fragment() {
 
 [resource]
 shader = SubResource( 1 )
-shader_param/scroll_speed = 0.025
+shader_param/scroll_speed = 0.015
