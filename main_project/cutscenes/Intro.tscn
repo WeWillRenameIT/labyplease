@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://sprites/cutscenes/cutsceneSky.png" type="Texture" id=1]
 [ext_resource path="res://materials/scroll.tres" type="Material" id=2]
@@ -18,10 +18,14 @@
 [ext_resource path="res://sprites/cutscenes/CutsceneTrainBridge.png" type="Texture" id=16]
 [ext_resource path="res://materials/water.tres" type="Material" id=17]
 [ext_resource path="res://sprites/cutscenes/CutsceneTrain.png" type="Texture" id=18]
+[ext_resource path="res://sprites/cutscenes/UniversityEntrance.png" type="Texture" id=19]
+[ext_resource path="res://sprites/cutscenes/classroomBg.png" type="Texture" id=20]
+[ext_resource path="res://sprites/cutscenes/character2.png" type="Texture" id=21]
+[ext_resource path="res://sprites/cutscenes/classroomChairs.png" type="Texture" id=23]
 
 [sub_resource type="Animation" id=1]
 resource_name = "IntroCutscene"
-length = 63.0
+length = 111.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("StreetScene/Character:position")
 tracks/0/interp = 1
@@ -53,10 +57,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 4, 7, 12, 16.8, 18.7, 23, 28.1, 36, 42.9, 48, 58 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 4, 7, 12, 16.8, 18.7, 23, 28.1, 36, 42.9, 48, 58, 73, 76, 80, 83, 89, 93, 96, 101, 105, 109 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ "Игрок: Что же, сегодня мой первый день в аспирантуре", "Игрок: Отсрочку от армии уже оформил, осталось только выучиться и получить степень кандидата наук", "Игрок: А для этого придётся, наверное, хотя бы раз сходить в вуз...", "Игрок: Ой, пропуск забыл", "Игрок: А ладно, меня и так пустят", "Радио: Министерство образования выпустило сегодня новый приказ", "Радио: Согласно нему, 80% обучающихся по программам аспирантуры будут обязаны преподавать во все свободные от учёбы дни", "Радио: Данное решение должно устранить кадровую проблему в столичных вузах, начавшуюся в связи с падением заработных плат преподавателей", "Радио: Мы попросили главу министерства прокоментировать новое решение", "Министр: \"А кто, кто иначе преподавать будет?! Вы знаете, что у нас тысяча студентов на каждом направлении, во всех вузах?\"", "Игрок: Надеюсь, меня это не коснётся..." ]
+"values": [ "Игрок: Что же, сегодня мой первый день в аспирантуре.", "Игрок: Отсрочку от армии уже оформил, осталось только выучиться и получить степень кандидата наук.", "Игрок: А для этого придётся, наверное, хотя бы раз сходить в вуз...", "Игрок: Ой, пропуск забыл.", "Игрок: А ладно, меня и так пустят.", "Радио: Министерство образования выпустило сегодня новый приказ.", "Радио: Согласно нему, 80% обучающихся по программам аспирантуры будут обязаны преподавать во все свободные от учёбы дни.", "Радио: Данное решение должно устранить кадровую проблему в столичных вузах, начавшуюся в связи с падением заработных плат преподавателей.", "Радио: Мы попросили главу министерства прокоментировать новое решение.", "Министр: \"А кто, кто иначе преподавать будет?! Вы знаете, что у нас тысяча студентов на каждом направлении, во всех вузах?\"", "Игрок: Надеюсь, меня это не коснётся...", "Преподаватель: О, а вот и новый ассистент.", "Преподаватель: Вам предстоит принимать лабораторные работы во все неучебные дни, с 8:00 до 18:00.", "Игрок: О нет! Но у меня же три работы, меня уволят...", "Игрок: Я работаю на заводе, в кебабной и верстаю на фрилансе сайты для \"AMOGUS Corp.\"", "Игрок: Как же я буду оплачивать своё элитное жильё в хрущёвке?", "Преподаватель: Придётся довольствоваться стипендией.", "Преподаватель: Однако не печальтесь, у нас много должников, поэтому руководство решило дополнительно поощрять работу аспирантов.", "Преподаватель: Я расскажу всё, о чём нужно знать, в своём электронном письме.", "Преподаватель: Завтра у Вас первый день приёма лабораторных. А на сегодня всё, можете идти.", "Игрок: Кошмар какой-то..." ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("ChapterTextScene/GameLogoText:bbcode_text")
@@ -78,10 +82,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( -0.2, 4, 23 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( -0.2, 4, 23, 63, 73 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -720 ), Vector2( 0, -1440 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -720 ), Vector2( 0, -1440 ), Vector2( 0, -2160 ), Vector2( 0, -2880 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("TextBox:rect_position")
@@ -90,25 +94,73 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( -0.2, 23 ),
+"times": PoolRealArray( -0.2, 23, 73 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 250, 1320 ), Vector2( 250, 2040 ), Vector2( 250, 3480 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("UniversityEntranceScene/CharacterUniversityEntrance:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 63, 67, 73 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -80, 640 ), Vector2( 425, 610 ), Vector2( 1000, 600 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("UniversityEntranceScene/CharacterUniversityEntrance:z_index")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 63, 67 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ Vector2( 250, 1320 ), Vector2( 250, 2040 ) ]
+"values": [ 0, -1 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ClassroomScene/CharacterClassroom:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 73, 75, 109, 111 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -80, 385 ), Vector2( 120, 385 ), Vector2( 120, 385 ), Vector2( -100, 385 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("ClassroomScene/CharacterClassroom:flip_h")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 73, 109 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [sub_resource type="DynamicFont" id=2]
 size = 70
 font_data = ExtResource( 9 )
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 14 )
 shader_param/scroll_speed = 0.005
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 14 )
 shader_param/scroll_speed = 0.03
 
-[sub_resource type="ShaderMaterial" id=7]
+[sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 14 )
 shader_param/scroll_speed = 0.18
 
@@ -117,7 +169,7 @@ shader = ExtResource( 14 )
 shader_param/scroll_speed = 0.2
 
 [node name="IntroCuscene" type="Node2D"]
-position = Vector2( 0, -1440 )
+position = Vector2( 0, -2880 )
 script = ExtResource( 3 )
 
 [node name="CutsceneAnimation" type="AnimationPlayer" parent="."]
@@ -234,19 +286,19 @@ texture = ExtResource( 7 )
 centered = false
 
 [node name="CityScapeFar" type="Sprite" parent="CityScene"]
-material = SubResource( 4 )
+material = SubResource( 3 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 12 )
 centered = false
 
 [node name="CityScapeNear" type="Sprite" parent="CityScene"]
-material = SubResource( 5 )
+material = SubResource( 4 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 13 )
 centered = false
 
 [node name="WaterSprite" type="Sprite" parent="CityScene"]
-material = SubResource( 7 )
+material = SubResource( 5 )
 position = Vector2( -53.5143, 540 )
 scale = Vector2( 5.42273, 5 )
 texture = ExtResource( 15 )
@@ -282,11 +334,95 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="UniversityEntranceScene" type="Control" parent="."]
+margin_top = 2160.0
+margin_right = 1280.0
+margin_bottom = 2880.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UniversityEntrance" type="Sprite" parent="UniversityEntranceScene"]
+scale = Vector2( 5, 5 )
+texture = ExtResource( 19 )
+centered = false
+
+[node name="CharacterUniversityEntrance" type="Sprite" parent="UniversityEntranceScene"]
+position = Vector2( 1000, 600 )
+scale = Vector2( 1.53093, 1.53093 )
+z_index = -1
+texture = ExtResource( 8 )
+
+[node name="SkipButton3" type="Button" parent="UniversityEntranceScene"]
+margin_left = 1070.0
+margin_top = 12.0
+margin_right = 1270.0
+margin_bottom = 52.0
+theme = ExtResource( 5 )
+text = "Пропустить"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClassroomScene" type="Control" parent="."]
+margin_top = 2880.0
+margin_right = 1280.0
+margin_bottom = 3600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Clouds" type="TextureRect" parent="ClassroomScene"]
+material = ExtResource( 2 )
+margin_left = 1.29236
+margin_top = 40.0
+margin_right = 329.292
+margin_bottom = 107.0
+rect_scale = Vector2( 5, 5 )
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Classroom" type="Sprite" parent="ClassroomScene"]
+scale = Vector2( 5, 5 )
+texture = ExtResource( 20 )
+centered = false
+
+[node name="CharacterClassroom" type="Sprite" parent="ClassroomScene"]
+position = Vector2( -100, 385 )
+scale = Vector2( 4.5, 4.5 )
+texture = ExtResource( 8 )
+flip_h = true
+
+[node name="Professor" type="Sprite" parent="ClassroomScene"]
+position = Vector2( 504.453, 419.871 )
+scale = Vector2( 4.5, 4.5 )
+texture = ExtResource( 21 )
+flip_h = true
+
+[node name="Chairs" type="Sprite" parent="ClassroomScene"]
+scale = Vector2( 5, 5 )
+texture = ExtResource( 23 )
+centered = false
+
+[node name="SkipButton4" type="Button" parent="ClassroomScene"]
+margin_left = 1070.0
+margin_top = 12.0
+margin_right = 1270.0
+margin_bottom = 52.0
+theme = ExtResource( 5 )
+text = "Пропустить"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TextBox" type="ColorRect" parent="."]
 margin_left = 250.0
-margin_top = 2040.0
+margin_top = 3480.0
 margin_right = 1050.0
-margin_bottom = 2140.0
+margin_bottom = 3580.0
 color = Color( 0, 0, 0, 0.705882 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -298,7 +434,7 @@ margin_top = 10.0
 margin_right = 750.0
 margin_bottom = 90.0
 theme = ExtResource( 5 )
-text = "Радио: Министерство образования выпустило сегодня новый приказ"
+text = "Игрок: Кошмар какой-то..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -306,3 +442,5 @@ __meta__ = {
 [connection signal="animation_finished" from="CutsceneAnimation" to="." method="_on_CutsceneAnimation_animation_finished"]
 [connection signal="pressed" from="StreetScene/SkipButton" to="." method="_on_SkipButton_pressed"]
 [connection signal="pressed" from="CityScene/SkipButton2" to="." method="_on_SkipButton_pressed"]
+[connection signal="pressed" from="UniversityEntranceScene/SkipButton3" to="." method="_on_SkipButton_pressed"]
+[connection signal="pressed" from="ClassroomScene/SkipButton4" to="." method="_on_SkipButton_pressed"]
