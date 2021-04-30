@@ -1,0 +1,15 @@
+{
+
+    "Russian":{
+        "label": "Опции",
+        "volume": "Громкость",
+        "back": "Назад"
+    },
+
+    "English":{
+        "label": "Options",
+        "volume": "Volume",
+        "back": "Back"
+    }
+
+}

@@ -91,6 +91,8 @@ func loadLocale():
 	$DeleteProfileDialog.get_ok().text = localeData["deleteProfileDialogOk"]
 	$DeleteProfileDialog.get_cancel().text = localeData["dialogCancel"]
 	
+	$menuContainer/options.text = localeData["options"]
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -231,3 +233,8 @@ func _on_DeleteProfileDialog_confirmed():
 	if ($profileSelect/VBoxContainer/ProfileList.get_item_count() > 0):
 		$profileSelect/VBoxContainer/ProfileList.select(0)
 		_on_ProfileList_item_selected(0)
+
+
+func _on_options_pressed():
+	get_node("Options Container").popup()
+	pass # Replace with function body.

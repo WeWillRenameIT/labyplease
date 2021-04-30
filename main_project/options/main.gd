@@ -79,6 +79,8 @@ const blankSaveData = {
 }
 
 func _ready():
+	currentLang = json_load("user://options.json")["language"]
+	currentVolume = json_load("user://options.json")["volume"]
 	pause_mode = Node.PAUSE_MODE_PROCESS
 
 func json_load(path): # Импрот данных из json файла, path - путь до json файла

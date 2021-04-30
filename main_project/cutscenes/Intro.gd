@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	$Music.set_volume_db(linear2db(Main.currentVolume))
 	pass # Replace with function body.
 
 #func _process(delta):
