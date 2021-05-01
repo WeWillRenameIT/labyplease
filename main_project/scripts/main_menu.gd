@@ -238,3 +238,20 @@ func _on_DeleteProfileDialog_confirmed():
 func _on_options_pressed():
 	get_node("Options Container").popup()
 	pass # Replace with function body.
+
+var consoles_count = 0
+func _input(event):
+	if(event.is_action_pressed("console") and consoles_count == 0):
+		var node = load("res://mesh/devConsole.tscn")
+		var console_instance = node.instance()
+		console_instance.set_name("console")
+		add_child(console_instance)
+		consoles_count+=1
+		console_instance.set_position(Vector2(0,465))
+		console_instance.connect("consoleDestroyed",self,"OnConsoleDestroyed")
+		var textEdit = console_instance.get_node("TextEdit")
+		
+
+func OnConsoleDestroyed():
+	consoles_count -= 1
+
