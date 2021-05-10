@@ -144,7 +144,7 @@ func get_group():
 	else:
 		return "AAAA-00-11"
 
-func new_student(num): #1- только отчет, 2- отч + флешка, 3 - всё
+func new_student(num): #1- только отчет, 2- отч + флешка, 3 - отч + флешка+студак (всё)
 	student_leave(num)
 	$room/wall_up_left/wall_dc.new_student()
 	print("\nnew student")
@@ -177,6 +177,9 @@ func new_student(num): #1- только отчет, 2- отч + флешка, 3 
 	student = true;
 
 func student_leave(num):
+	if($"computer/Games".visible):
+		$"computer/Games".close_force()
+		print("Close minigames")
 	student = false;
 	if $room/wall_up_left/wall_dc.wait:
 		return

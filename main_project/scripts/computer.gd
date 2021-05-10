@@ -1,7 +1,7 @@
 extends Node2D
 
 var notify = true
-var test_speed = 10 # Скорость проверки теста
+var test_speed = 10 # Скорость проверки теста, больше - дольше (целое)
 var vir_speed = 8 # Скорость проверки вируса
 var int_speed = 0.1 # Скорость проверки студента
 var boot_speed = 4 # Скорость загрузки пк. Число отнимается от 20 и ставится таймер таймер(20-5) по стандарту
@@ -65,7 +65,7 @@ func _process(delta):
 	if boot:
 		boot_speed = 15
 	if test_s:
-		test_speed = 10
+		test_speed = 5 #Целое
 	if vir:
 		vir_speed = 10
 	if check:
@@ -75,7 +75,6 @@ func _process(delta):
 	var test = $reader.get_test() # Пройдет ли флешка тест
 	var port = $reader.get_port() # В какой порт вставлена флешка
 	var speed = $reader.get_speed() # Скорость сканирования флешки
-	var fio = get_parent().fio() # Получаем правильность данных из студака
 	
 	inside = $reader.get_inside() # Проверяем вставлена ли флешка
 	# Если вставлена
@@ -119,18 +118,6 @@ func _process(delta):
 		listing = false
 		$background/ProgressBarCheck.value = 0
 	
-	# Если флешка заражена и прошел тест, то выключаем пк и ломаем вход ридера
-	if $background/ProgressBarTest.value >=100:
-		if virus:
-			$background.visible = false
-			$bruh.visible = true
-			$AnimatedSprite.frame = 0
-			$reader.off_port(port)
-			inside = false
-		gear_work = true
-		gear = false
-		$background/ProgressBarTest.value = 0
-	
 	# Прошло сканирование на вирусы
 	if rad_work and virus:
 		$background/label.text = virusTrue
@@ -144,38 +131,39 @@ func _process(delta):
 		yield(get_tree().create_timer(1.5),"timeout")
 		$background/label.visible = false
 		rad_work = false
-	
-	# Прошел тест программы
-	if gear_work and test:
-		$background/label.text = testTrue
-		$background/label.visible = true
-		yield(get_tree().create_timer(1.5),"timeout")
-		$background/label.visible = false
-		gear_work = false
-	elif gear_work and !test:
-		$background/label.text = testFalse
-		$background/label.visible = true
-		yield(get_tree().create_timer(1.5),"timeout")
-		$background/label.visible = false
-		gear_work = false
-	
+
 	# Если все порты сломаны - конец уровня
 	if ports<=$reader.notwork:
 		no_lives()
 		set_process(false)
 
 func _on_list_b_button_up():
-	if (!$Games.visible and !$background/list/checked.visible and get_parent().student):
+	if (!$Games.visible and get_parent().student):
 		$Games.visible = true
-		if !rad and !gear and get_parent().children()==3:
-			$Games.play("db")
+		$Games.play("db")
 
 func _on_rad_b_pressed():
-	if !gear and !listing: rad = true #Если идет тест, то не можем проверить на вирусы
+	if (!$Games.visible and get_parent().student):
+		$Games.visible = true
+		#$Games.play("vrs")
 
 func _on_gear_b_pressed():
-	if !rad and !listing: gear = true #Если проверяется на вирусы, не можем тестировать
+	if (!$Games.visible and get_parent().student and $reader.get_inside()):
+		$Games.visible = true
+		$Games.play("prgm")
 
+func break_port():
+	if $reader.get_virus():
+		$Games.close_force()
+		$background.visible = false
+		$bruh.visible = true
+		$AnimatedSprite.frame = 0
+		$reader.off_port($reader.get_port())
+		if ports<=$reader.notwork:
+			no_lives()
+			set_process(false)
+		inside = false
+		gear = false
 
 func _on_book_b_pressed():
 	print("book") # Тут надо вывести окно с подсказками в игре что куда тыкать и тп

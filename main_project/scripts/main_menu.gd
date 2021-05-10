@@ -139,7 +139,8 @@ func _on_newGameButton_pressed():
 	#-------------------------------------------
 	Main.newGame()
 	get_tree().change_scene("res://cutscenes/Intro.tscn")
-
+	#get_tree().change_scene("res://testing scene.tscn")
+	
 func _on_languageToggleBtn_pressed():
 	if (Main.currentLang == "English"):
 		Main.currentLang = "Russian"

@@ -6,7 +6,7 @@ var max_velocity = 300  # максимальная скорость
 var friction_coef = 100 # коэффициент трения
 var test = true #Что выведет компьютер при тестированнии программы на флешке
 var virus = false #Содержит ли флешка вирусы
-var scan_speed = 1 #Скорость сканирования флешки от единицы!
+var scan_speed = 0.5 #Скорость сканирования флешки, больше - дольше
 var drag = false
 var bruh = Vector2(0,0)
 
@@ -14,7 +14,7 @@ func _ready():
 	generate()
 	print("virus: "+String(virus))
 	print("test: "+String(test))
-	print("speed: "+String(scan_speed))
+	print("speed: "+String(float(scan_speed)))
 	
 func _on_fm_1_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
@@ -67,7 +67,7 @@ func generate():
 		test = true
 	else:
 		test = false
-	scan_speed = randi()%5 + 1
+	scan_speed = float((randi()%5 + 1)/5.0)
 
 func new_position(vect):
 	transform = Transform2D(0.0, vect)

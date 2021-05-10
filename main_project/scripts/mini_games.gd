@@ -3,10 +3,16 @@ var game = 'none' #db/prgm/vrs/none
 var block = false;
 var opened = false;
 var cam_zoom = false;
+var block_prgm;
+var block_db;
+var db_state;
+var block_virus;
 var real_names = 0
 var real_sernames = 0
 var student_verificeted_text = "Student verificated"
 var student_nv_text = "Student doesn't exist"
+var prgm_error = "Vse slomalos GOSPODI."
+var res_text = "Result: "
 var column_1 = "First ame"
 var column_2 = "Second name"
 var column_3 = "Group"
@@ -43,6 +49,8 @@ var arr_sernames = ["Ivanov",
 var letters = ["A","B","C","D","E","F",'G','H','I','J','K','L','M','N','O','P',
 'Q','R','S','T','U','V','W','X','Y','Z']
 #Фамилий и имен должно быть больше 10
+var math = ["+","-","*","/","%"]
+var math_sighn;
 #Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -69,10 +77,11 @@ func game_type(type):
 
 func game():
 	if(game=='db'):
-		db_game()
+		db_game() if !db_state else notification_node(student_verificeted_text if int(db_state) == 1 else student_nv_text)
 	elif(game=='prgm'):
-		pass
+		prgm_game()
 	elif(game=='vrs'):
+		#vrs_game()
 		pass
 
 func play(type):
@@ -94,8 +103,50 @@ func generate_group():
 		first = first+'-'+String(num)+'-2'+String(randi()%10)
 	return first
 
+func prgm_game():
+	$Program.visible = true
+	$Virus.visible = false
+	$Database.visible = false
+	$Background.frame = 1
+	if(block_prgm):
+		block_prgm = false
+		$"Program/A-edit".editable = true
+		$"Program/B-edit".editable = true
+		$Program/pgm_button.disabled = false;
+		return
+		
+	$"Program/A-edit".editable = false
+	$"Program/B-edit".editable = false
+	$Program/pgm_button.disabled = true;
+
+	math_sighn = null
+	var math_num = randi()%math.size();
+	$Program/code_label.text=''
+	$Program/calculating.text=''
+	$Program/result.text=''
+	$"Program/A-edit".text = ""
+	$"Program/B-edit".text = ""
+	
+	var spd_cmp = get_parent().test_speed #Computer speed
+	var spd_flsh = get_parent().get_node('reader').get_speed() #Flash memory speed
+	for i in range(0,spd_cmp):
+		$Program/math_label.text = "a"+math[randi()%math.size()]+"b"
+		yield(get_tree().create_timer(float(spd_flsh)), "timeout")
+		$Program/code_label.text+=String(randi()%1000000)+"\n"
+		$Program/pgm_bar.value+= float(100/spd_cmp)
+	$Program/math_label.text = "a"+math[math_num]+"b"
+	math_sighn = math[math_num]
+	$"Program/A-edit".editable = true
+	$"Program/B-edit".editable = true
+
 func db_game():
+	$Program.visible = false
+	$Virus.visible = false
 	$Database.visible = true
+	$Background.frame = 0
+	if(block_db):
+		block_db = false;
+		return
 	$"Database/column 1/Column_name_1".text = column_1
 	$"Database/column 2/Column_name_2".text = column_2
 	$"Database/column 3/Column_name_3".text = column_3
@@ -180,9 +231,18 @@ func _on_Button_pressed():
 func notification_node(text):
 	$"notification".visible = true
 	$"notification/n_text".text = text
-	yield(get_tree().create_timer(2), "timeout")
+	yield(get_tree().create_timer(3), "timeout")
 	$"notification".visible = false
 	$"notification/n_text".text = ""
+	close()
+
+func db_reload():
+	for i in range(1, 4):
+		for j in range(1, 11):
+			var node = "Database/column %s/cb_%s"
+			node = node % [i,j]
+			get_node(node).text = '';
+			get_node(node).disabled = true;
 
 func _on_DB_button_pressed():
 	#выключаем кнопки
@@ -213,8 +273,9 @@ func _on_DB_button_pressed():
 			$Database/ProgressBar.value+=(3.34)
 			yield(get_tree().create_timer(timer), "timeout")
 			check = true
-			
+	
 	if rn == 3:
+		db_state = truth
 		if truth:
 			notification_node(student_verificeted_text)
 			get_parent().get_node("background/list/checked").visible = true
@@ -225,9 +286,7 @@ func _on_DB_button_pressed():
 			get_parent().get_node("background/list/checked").frame = 0
 	else:
 		notification_node("ERROR-582")
-	block = false
-	yield(get_tree().create_timer(2), "timeout")
-	close()
+	yield(get_tree().create_timer(3), "timeout")
 
 
 func close():
@@ -235,14 +294,107 @@ func close():
 		change_cam()
 	opened = false
 	if(game=='db'):
+		block = false;
+		block_db = true;
 		$Database.visible = false
+		get_parent().listing = false;
 	elif(game == 'prgm'):
+		block = false;
+		block_prgm = true;
 		$Program.visible = false
+		get_parent().gear = false;
 	elif(game == 'vrs'):
+		block = false;
 		$Virus.visible = false
+		get_parent().rad = false;
 	game = 'none'
 	get_parent().get_node("Games").visible = false
 
+func close_force():
+	if(cam_zoom):
+		change_cam()
+	opened = false
+	db_state = false
+	if(game=='db'):
+		block = false;
+		block_db = false
+		$Database.visible = false
+		get_parent().listing = false;
+		db_reload()
+	elif(game == 'prgm'):
+		block = false;
+		block_prgm = false
+		$Program.visible = false
+		get_parent().gear = false;
+	elif(game == 'vrs'):
+		block = false;
+		block_virus = false
+		$Virus.visible = false
+		get_parent().rad = false;
+	game = 'none'
+	get_parent().get_node("Games").visible = false
 
 func _on_Button_hide_pressed():
 	change_cam()
+
+func _on_pgm_button_pressed():
+	if($"Program/A-edit".text.empty() or $"Program/B-edit".text.empty()):
+		return
+	$Program/pgm_bar.value = 0;
+	$"Program/A-edit".editable = false
+	$"Program/B-edit".editable = false
+	$Program/pgm_button.disabled = true;
+	var a_int=int($"Program/A-edit".text)
+	var b_int=int($"Program/B-edit".text)
+	var res;
+	var spd_cmp = get_parent().test_speed #Computer speed
+	var spd_flsh = get_parent().get_node('reader').get_speed() #Flash memory speed
+	match math_sighn:
+		"+":res=a_int+b_int
+		"-":res=a_int-b_int
+		"*":res=a_int*b_int
+		"/":res=a_int/b_int
+		"%":res=a_int%b_int
+	
+	for i in range(0,spd_cmp):
+		$Program/code_label.text+=String(randi()%1000000)+"\n"
+		if(i%3!=0):
+			if($Program/calculating.text.empty()):
+				$Program/calculating.text="Calculating"
+			$Program/calculating.text+="."
+		else:
+			$Program/calculating.text="Calculating"
+		yield(get_tree().create_timer(float(spd_flsh)), "timeout")
+		$Program/pgm_bar.value+= float(100/spd_cmp)
+	
+	if !get_parent().get_node('reader').get_test():
+		if!(randi()%4):
+			$Program/calculating.text="*&^$436*&^345%5673^$e^(&f(&75^$p)()_)y&*to8G"
+			$Program/result.text = "CANNOT EXECUTE SAMPLE TEXT EXE"
+			notification_node(prgm_error)
+		else:
+			$Program/result.text = String(res+randi()%3+1);
+	else:
+		$Program/result.text = res_text+String(res);
+	
+	if get_parent().get_node('reader').get_virus():
+		get_parent().break_port()
+
+func _on_Aedit_text_changed(new_text):
+	if(!new_text.is_valid_integer() and !new_text.empty()):
+		$"Program/A-edit".text = new_text[0] if new_text[0].is_valid_integer() else new_text[1] if new_text.length()>1 else '';
+	if(new_text.length()>0 and !($"Program/B-edit".text.empty())):
+		$Program/pgm_button.disabled = false;
+	else:
+		$Program/pgm_button.disabled = true;
+
+func _on_Bedit_text_changed(new_text):
+	if(!new_text.is_valid_integer() and !new_text.empty()):
+		$"Program/B-edit".text = new_text[0] if new_text[0].is_valid_integer() else new_text[1] if new_text.length()>1 else '';
+	if (math_sighn == "/" or math_sighn == "%") and int(new_text)==0:
+		$"Program/B-edit".text = ''
+		return
+	if(new_text.length()>0 and !($"Program/A-edit".text.empty()) and new_text.is_valid_integer()):
+		$Program/pgm_button.disabled = false;
+	else:
+		$Program/pgm_button.disabled = true;

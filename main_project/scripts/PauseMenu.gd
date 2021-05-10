@@ -18,7 +18,6 @@ func _ready():
 	print("Pause menu")
 	
 
-
 func _input(event):
 	if event.is_action_pressed("pause"):
 		if $OptionsBlock.visible == true:
