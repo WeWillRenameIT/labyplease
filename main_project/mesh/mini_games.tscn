@@ -946,6 +946,7 @@ scale = Vector2( 0.375002, 0.375 )
 texture = ExtResource( 4 )
 
 [node name="notification" type="Node2D" parent="."]
+visible = false
 
 [node name="Panel" type="Panel" parent="notification"]
 margin_left = -288.0

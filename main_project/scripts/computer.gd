@@ -77,6 +77,16 @@ func _process(delta):
 	var speed = $reader.get_speed() # Скорость сканирования флешки
 	
 	inside = $reader.get_inside() # Проверяем вставлена ли флешка
+	
+	if get_parent().level==1:
+		$background/radiation.visible = false;
+		$background/list.visible = false;
+	elif get_parent().level==2:
+		$background/list.visible = false;
+	else:
+		$background/radiation.visible = true;
+		$background/list.visible = true;
+		
 	# Если вставлена
 	if inside and notify: 
 		$background/notify.visible = true

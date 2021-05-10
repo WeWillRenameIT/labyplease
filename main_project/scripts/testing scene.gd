@@ -12,7 +12,7 @@ var students = 0
 var new = false
 var children = 0
 var open=false
-var level = 3  #1- только отчет, 2- отч + флешка, 3 - всё. По сути это система уровней SAVE
+var level = 3  #1 - отч + флешка, 2 - добавляем вирусы 3 - добавляем студак. По сути это система уровней SAVE
 var end_time
 var optionsPath = "user://options.json"
 var student = false
@@ -164,13 +164,15 @@ func new_student(num): #1- только отчет, 2- отч + флешка, 3 
 		$players_stuff.add_child(otchet)
 		$players_stuff/otchet.new_position(spawn1)
 		$players_stuff/otchet.set_rotation_degrees(90) 
-	if num >=2:
 		$players_stuff.add_child(fm)
 		$players_stuff/fm_1.new_position(spawn3)
+	if num == 1:
+		$players_stuff/fm_1.no_virus()
 	if num == 3:
 		$players_stuff.add_child(studak)
 		$players_stuff/studak.new_position(spawn2)
 	children = $players_stuff.get_child_count()
+		
 	print("right: "+ String(right))
 	print("wrong: "+ String(wrong))
 	print("Very wrong: "+ String(very_wrong))

@@ -69,6 +69,10 @@ func generate():
 		test = false
 	scan_speed = float((randi()%5 + 1)/5.0)
 
+func no_virus():
+	virus = false
+	print("virus: "+String(virus))
+
 func new_position(vect):
 	transform = Transform2D(0.0, vect)
 	set_rotation_degrees(-90) 
