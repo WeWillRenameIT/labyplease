@@ -5,7 +5,7 @@ var opened = false;
 var cam_zoom = false;
 var block_prgm;
 var block_db;
-var db_state;
+var db_state=0;
 var block_virus;
 var real_names = 0
 var real_sernames = 0
@@ -77,7 +77,13 @@ func game_type(type):
 
 func game():
 	if(game=='db'):
-		db_game() if !db_state else notification_node(student_verificeted_text if int(db_state) == 1 else student_nv_text)
+		if(db_state == 0): #не проходил проверку
+			db_game()
+		else:
+			if db_state == 1: #студент есть
+				notification_node(student_verificeted_text)
+			elif db_state == 2: #no student
+				notification_node(student_nv_text)
 	elif(game=='prgm'):
 		prgm_game()
 	elif(game=='vrs'):
@@ -275,12 +281,13 @@ func _on_DB_button_pressed():
 			check = true
 	
 	if rn == 3:
-		db_state = truth
 		if truth:
 			notification_node(student_verificeted_text)
+			db_state = 1
 			get_parent().get_node("background/list/checked").visible = true
 			get_parent().get_node("background/list/checked").frame = 1
 		else:
+			db_state = 2
 			notification_node(student_nv_text)
 			get_parent().get_node("background/list/checked").visible = true
 			get_parent().get_node("background/list/checked").frame = 0
@@ -314,7 +321,7 @@ func close_force():
 	if(cam_zoom):
 		change_cam()
 	opened = false
-	db_state = false
+	db_state = 0
 	if(game=='db'):
 		block = false;
 		block_db = false
