@@ -97,7 +97,9 @@ func end():
 	$computer/background/shop.visible = true
 	$computer/background/shop.playing = true
 	$computer/background/shop.play()
+	
 	comp_cam(true)
+	
 	if end_time:
 		$computer/background/grayblock/repair_reader.disabled=true
 		$computer/background/grayblock/repair_reader.visible=false

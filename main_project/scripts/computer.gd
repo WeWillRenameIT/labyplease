@@ -2,7 +2,7 @@ extends Node2D
 
 var notify = true
 var test_speed = 10 # Скорость проверки теста, больше - дольше (целое)
-var vir_speed = 8 # Скорость проверки вируса
+var vir_speed = 0.5 # Скорость проверки вируса
 var int_speed = 0.1 # Скорость проверки студента
 var boot_speed = 4 # Скорость загрузки пк. Число отнимается от 20 и ставится таймер таймер(20-5) по стандарту
 var boot= false # Ускоритель загрузки (SAVE!)
@@ -67,7 +67,7 @@ func _process(delta):
 	if test_s:
 		test_speed = 5 #Целое
 	if vir:
-		vir_speed = 10
+		vir_speed = 0.1
 	if check:
 		int_speed = 0.05
 	
@@ -153,9 +153,9 @@ func _on_list_b_button_up():
 		$Games.play("db")
 
 func _on_rad_b_pressed():
-	if (!$Games.visible and get_parent().student):
+	if (!$Games.visible and get_parent().student and $reader.get_inside()):
 		$Games.visible = true
-		#$Games.play("vrs")
+		$Games.play("vrs")
 
 func _on_gear_b_pressed():
 	if (!$Games.visible and get_parent().student and $reader.get_inside()):
@@ -185,6 +185,7 @@ func _on_que_b_button_up():
 	$background/Node2D.visible = false
 
 func no_lives():
+	$Games.close_force()
 	get_parent().end()
 	$background/grayblock/note_2.text=readerBroken
 	$background/grayblock/repair_reader.visible=true

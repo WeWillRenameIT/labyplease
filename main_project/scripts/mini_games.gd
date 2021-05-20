@@ -5,10 +5,13 @@ var opened = false;
 var cam_zoom = false;
 var block_prgm;
 var block_db;
-var db_state=0;
+var db_state=0;#0-unknown, 1-yes, 2-no
 var block_virus;
+var virus_status=0; #0-unknown, 1-yes, 2-no
 var real_names = 0
 var real_sernames = 0
+var virus_exist = "VIRUS DETECTED"
+var virus_not_exist = "CLEAR"
 var student_verificeted_text = "Student verificated"
 var student_nv_text = "Student doesn't exist"
 var prgm_error = "Vse slomalos GOSPODI."
@@ -53,7 +56,7 @@ var math = ["+","-","*","/","%"]
 var math_sighn;
 #Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Background.visible = false
 
 func change_cam():
 	cam_zoom = !cam_zoom
@@ -76,6 +79,8 @@ func game_type(type):
 		game='none'
 
 func game():
+	if(!$Background.visible):
+		$Background.visible=true
 	if(game=='db'):
 		if(db_state == 0): #не проходил проверку
 			db_game()
@@ -87,8 +92,7 @@ func game():
 	elif(game=='prgm'):
 		prgm_game()
 	elif(game=='vrs'):
-		#vrs_game()
-		pass
+		vrs_game()
 
 func play(type):
 	if(opened):
@@ -108,6 +112,26 @@ func generate_group():
 	else:
 		first = first+'-'+String(num)+'-2'+String(randi()%10)
 	return first
+
+func prgm_reload():
+	$Program/math_label.text = ""
+	$Program/code_label.text = ""
+	$Program/pgm_bar.value = 0
+	$"Program/A-edit".text = ""
+	$"Program/B-edit".text = ""
+	$Program/calculating.text = ""
+	$Program/result.text = ""
+
+func vrs_game():#Пока просто заполнение бара
+	$Program.visible = false
+	$Virus.visible = true
+	$Database.visible = false
+	$Background.visible = false
+	$Virus/ProgressBar/VirusButton.disabled = false
+	if(virus_status == 1):
+		notification_node(virus_exist);
+	elif (virus_status == 2):
+		notification_node(virus_not_exist);
 
 func prgm_game():
 	$Program.visible = true
@@ -132,6 +156,7 @@ func prgm_game():
 	$Program/result.text=''
 	$"Program/A-edit".text = ""
 	$"Program/B-edit".text = ""
+	$Button_close.disabled = true
 	
 	var spd_cmp = get_parent().test_speed #Computer speed
 	var spd_flsh = get_parent().get_node('reader').get_speed() #Flash memory speed
@@ -144,6 +169,7 @@ func prgm_game():
 	math_sighn = math[math_num]
 	$"Program/A-edit".editable = true
 	$"Program/B-edit".editable = true
+	$Button_close.disabled = false
 
 func db_game():
 	$Program.visible = false
@@ -161,6 +187,7 @@ func db_game():
 		return
 	block = true
 	$Database/ProgressBar.value = 0
+	$Button_close.disabled = true
 	for i in range(1, 4):
 		for j in range(1, 11):
 			var node = "Database/column %s/cb_%s"
@@ -225,6 +252,7 @@ func db_game():
 			$Database/ProgressBar.value+=(3.34) #3.34 = 100/30   30 - колво кнопок
 			yield(get_tree().create_timer(timer), "timeout")
 	#Включаем кнопки
+	$Button_close.disabled = false
 	for i in range(1, 4):
 		for j in range(1, 11):
 			var node = "Database/column %s/cb_%s"
@@ -235,11 +263,13 @@ func _on_Button_pressed():
 	close()
 
 func notification_node(text):
+	$Button_close.disabled = true
 	$"notification".visible = true
 	$"notification/n_text".text = text
-	yield(get_tree().create_timer(3), "timeout")
+	yield(get_tree().create_timer(2), "timeout")
 	$"notification".visible = false
 	$"notification/n_text".text = ""
+	$Button_close.disabled = false
 	close()
 
 func db_reload():
@@ -252,6 +282,7 @@ func db_reload():
 
 func _on_DB_button_pressed():
 	#выключаем кнопки
+	$Button_close.disabled = true
 	for i in range(1, 4):
 		for j in range(1, 11):
 			var node = "Database/column %s/cb_%s"
@@ -279,18 +310,18 @@ func _on_DB_button_pressed():
 			$Database/ProgressBar.value+=(3.34)
 			yield(get_tree().create_timer(timer), "timeout")
 			check = true
-	
+	$Button_close.disabled = false
 	if rn == 3:
 		if truth:
 			notification_node(student_verificeted_text)
 			db_state = 1
-			get_parent().get_node("background/list/checked").visible = true
-			get_parent().get_node("background/list/checked").frame = 1
+			#get_parent().get_node("background/list/checked").visible = true
+			#get_parent().get_node("background/list/checked").frame = 1
 		else:
 			db_state = 2
 			notification_node(student_nv_text)
-			get_parent().get_node("background/list/checked").visible = true
-			get_parent().get_node("background/list/checked").frame = 0
+			#get_parent().get_node("background/list/checked").visible = true
+			#get_parent().get_node("background/list/checked").frame = 0
 	else:
 		notification_node("ERROR-582")
 	yield(get_tree().create_timer(3), "timeout")
@@ -312,6 +343,7 @@ func close():
 		get_parent().gear = false;
 	elif(game == 'vrs'):
 		block = false;
+		block_virus = true
 		$Virus.visible = false
 		get_parent().rad = false;
 	game = 'none'
@@ -321,23 +353,20 @@ func close_force():
 	if(cam_zoom):
 		change_cam()
 	opened = false
+	block = false;
+	block_db = false
 	db_state = 0
-	if(game=='db'):
-		block = false;
-		block_db = false
-		$Database.visible = false
-		get_parent().listing = false;
-		db_reload()
-	elif(game == 'prgm'):
-		block = false;
-		block_prgm = false
-		$Program.visible = false
-		get_parent().gear = false;
-	elif(game == 'vrs'):
-		block = false;
-		block_virus = false
-		$Virus.visible = false
-		get_parent().rad = false;
+	$Database.visible = false
+	get_parent().listing = false;
+	db_reload()
+	block_prgm = false
+	$Program.visible = false
+	get_parent().gear = false;
+	prgm_reload()
+	block_virus = false
+	virus_status = 0
+	$Virus.visible = false
+	get_parent().rad = false;
 	game = 'none'
 	get_parent().get_node("Games").visible = false
 
@@ -363,6 +392,8 @@ func _on_pgm_button_pressed():
 		"/":res=a_int/b_int
 		"%":res=a_int%b_int
 	
+	$Button_close.disabled = true
+	
 	for i in range(0,spd_cmp):
 		$Program/code_label.text+=String(randi()%1000000)+"\n"
 		if(i%3!=0):
@@ -373,6 +404,8 @@ func _on_pgm_button_pressed():
 			$Program/calculating.text="Calculating"
 		yield(get_tree().create_timer(float(spd_flsh)), "timeout")
 		$Program/pgm_bar.value+= float(100/spd_cmp)
+	
+	$Button_close.disabled = false
 	
 	if !get_parent().get_node('reader').get_test():
 		if!(randi()%4):
@@ -405,3 +438,26 @@ func _on_Bedit_text_changed(new_text):
 		$Program/pgm_button.disabled = false;
 	else:
 		$Program/pgm_button.disabled = true;
+
+
+func _on_VirusButton_pressed():
+	var timev = get_parent().vir_speed
+	var status = get_parent().get_node('reader').get_virus()
+	$Button_close.disabled = true
+	$Virus/ProgressBar.value = 0
+	$Virus/ProgressBar/radiation.rotation_degrees=0
+	$Virus/ProgressBar/VirusButton.disabled = true
+	block_virus = true
+	for i in range(0,20):
+		yield(get_tree().create_timer(timev), "timeout")
+		$Virus/ProgressBar.value += 5
+		$Virus/ProgressBar/radiation.rotation_degrees+=18
+	$Virus/ProgressBar/VirusButton.disabled = false
+	block_virus = false
+	$Button_close.disabled = false
+	if(status): 
+		virus_status = 1 
+		notification_node(virus_exist);
+	else: 
+		virus_status = 2
+		notification_node(virus_not_exist);
