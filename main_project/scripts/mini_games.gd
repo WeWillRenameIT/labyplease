@@ -3,6 +3,7 @@ var game = 'none' #db/prgm/vrs/none
 var block = false;
 var opened = false;
 var cam_zoom = false;
+var pause_time = 0.1
 var block_prgm;
 var block_db;
 var db_state=0;#0-unknown, 1-yes, 2-no
@@ -127,6 +128,7 @@ func vrs_game():#Пока просто заполнение бара
 	$Virus.visible = true
 	$Database.visible = false
 	$Background.visible = false
+	$Virus/ProgressBar.value = 0
 	$Virus/ProgressBar/VirusButton.disabled = false
 	if(virus_status == 1):
 		notification_node(virus_exist);
@@ -162,6 +164,10 @@ func prgm_game():
 	var spd_flsh = get_parent().get_node('reader').get_speed() #Flash memory speed
 	for i in range(0,spd_cmp):
 		$Program/math_label.text = "a"+math[randi()%math.size()]+"b"
+		if(!visible):
+			return
+		while(get_tree().paused):
+			yield(get_tree().create_timer(pause_time), "timeout")
 		yield(get_tree().create_timer(float(spd_flsh)), "timeout")
 		$Program/code_label.text+=String(randi()%1000000)+"\n"
 		$Program/pgm_bar.value+= float(100/spd_cmp)
@@ -250,6 +256,10 @@ func db_game():
 							nrg = generate_group()
 						get_node(node).text = nrg
 			$Database/ProgressBar.value+=(3.34) #3.34 = 100/30   30 - колво кнопок
+			if(!visible):
+				return
+			while(get_tree().paused):
+				yield(get_tree().create_timer(pause_time), "timeout")
 			yield(get_tree().create_timer(timer), "timeout")
 	#Включаем кнопки
 	$Button_close.disabled = false
@@ -308,6 +318,10 @@ func _on_DB_button_pressed():
 				else:
 					break
 			$Database/ProgressBar.value+=(3.34)
+			if(!visible):
+				return
+			while(get_tree().paused):
+				yield(get_tree().create_timer(pause_time), "timeout")
 			yield(get_tree().create_timer(timer), "timeout")
 			check = true
 	$Button_close.disabled = false
@@ -369,6 +383,7 @@ func close_force():
 	get_parent().rad = false;
 	game = 'none'
 	get_parent().get_node("Games").visible = false
+	emit_signal("timeout")
 
 func _on_Button_hide_pressed():
 	change_cam()
@@ -395,6 +410,10 @@ func _on_pgm_button_pressed():
 	$Button_close.disabled = true
 	
 	for i in range(0,spd_cmp):
+		if(!visible):
+			return
+		while(get_tree().paused):
+			yield(get_tree().create_timer(pause_time), "timeout")
 		$Program/code_label.text+=String(randi()%1000000)+"\n"
 		if(i%3!=0):
 			if($Program/calculating.text.empty()):
@@ -448,11 +467,17 @@ func _on_VirusButton_pressed():
 	$Virus/ProgressBar/radiation.rotation_degrees=0
 	$Virus/ProgressBar/VirusButton.disabled = true
 	block_virus = true
+	
 	for i in range(0,20):
+		if(!visible):
+			return
+		while(get_tree().paused):
+			yield(get_tree().create_timer(pause_time), "timeout")
 		yield(get_tree().create_timer(timev), "timeout")
 		$Virus/ProgressBar.value += 5
 		$Virus/ProgressBar/radiation.rotation_degrees+=18
 	$Virus/ProgressBar/VirusButton.disabled = false
+	
 	block_virus = false
 	$Button_close.disabled = false
 	if(status): 
@@ -461,3 +486,6 @@ func _on_VirusButton_pressed():
 	else: 
 		virus_status = 2
 		notification_node(virus_not_exist);
+
+func get_blocked():
+	return (block_db or block_virus or block_prgm)
