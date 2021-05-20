@@ -257,18 +257,19 @@ func _on_shop_b_pressed():
 
 func _on_next_level_pressed():
 	get_parent().level +=1
-	var temp = Main.json_load(optionsPath)
-	temp['bank'] = get_parent().bank
-	temp['global_right'] = get_parent().global_right
-	temp['global_wrong'] = get_parent().global_wrong
-	temp['global_students'] = get_parent().global_students
-	temp['level'] = get_parent().level
-	temp['boot'] = boot
-	temp['test_s'] = test_s
-	temp['vir'] = vir
-	temp['check'] = check
-	temp['ports'] = ports
+	Main.saveData['bank'] = get_parent().bank
+	Main.saveData['global_right'] = get_parent().global_right
+	Main.saveData['global_wrong'] = get_parent().global_wrong
+	Main.saveData['global_students'] = get_parent().global_students
+	Main.saveData['level'] = get_parent().level
+	Main.saveData['boot'] = boot
+	Main.saveData['test_s'] = test_s
+	Main.saveData['vir'] = vir
+	Main.saveData['check'] = check
+	Main.saveData['ports'] = ports
+	Main.saveSaveData()
 	$background/grayblock/next_level.disabled = true
+	get_tree().change_scene("res://testing scene.tscn");
 
 
 func _on_exit_pressed():

@@ -163,15 +163,10 @@ func _on_languageToggleBtn_pressed():
 
 
 func _on_loadGameButton_pressed():
-	Main.currentLevel = Main.json_load("user://options.json")["currentLevel"]
 	get_tree().change_scene("res://testing scene.tscn")
-	# TODO - загрузка сохранения
-	pass # Replace with function body.
-
 
 func _on_quitButton_pressed():
 	get_tree().quit()
-
 
 func _on_TutorialButton_pressed():
 	if ($Tutorial.visible == false && $Tutorial2.visible == false):

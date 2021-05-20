@@ -4,6 +4,7 @@ var hours=0
 var minutes=0
 var time=0
 var i=480 # 1440 - 24.00 часа 60минут - 60 секунд 480 - 8 часов утра 1075-17.45
+#var i = 1050 # debug, replace with the string above for production
 var alarm = false
 var end = false
 
