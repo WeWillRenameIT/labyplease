@@ -73,6 +73,8 @@ func _process(delta):
 		$room/wall_up_left/wall_dc/queue/tolpa.stop()
 		$room/wall_up_left/wall_dc/queue.visible = false
 		set_process(false)
+		if student == false:
+			end()
 		#yield(get_tree().create_timer(3),"timeout")
 		#end()
 	if $computer/clocks.i >= 1065:
