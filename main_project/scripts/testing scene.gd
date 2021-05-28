@@ -26,7 +26,7 @@ func _ready():
 	global_students = Main.saveData['global_students']
 	level = Main.saveData['level']
 	
-	print("CurrentLevel: ", Main.saveData['currentLevel'])
+	print("Current level: ", Main.saveData['level'])
 	randomize()
 	# Запустить первого студента
 	$room._on_Next_pressed()

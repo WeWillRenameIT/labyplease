@@ -122,8 +122,7 @@ func isBlankSaveData():
 	for key in Main.saveData.keys():
 		if key != "name" and Main.blankSaveData[key] == Main.saveData[key]:
 			matches += 1
-	#print(matches) # debug
-	if matches == 11:
+	if matches == 10:
 		return true
 	else:
 		return false

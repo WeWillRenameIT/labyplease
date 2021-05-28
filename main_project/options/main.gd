@@ -20,7 +20,7 @@ var saveData = null
 func newGame():
 	if (saveData != null):
 		var name = saveData.name
-		saveData = blankSaveData
+		saveData = blankSaveData.duplicate()
 		saveData.name = name
 		saveSaveData()
 
@@ -51,7 +51,7 @@ func profileExists(profileName):
 func newSaveFile(profileName):
 	if (saveFile != null && saveData != null):
 		saveSaveData()
-	saveData = blankSaveData
+	saveData = blankSaveData.duplicate()
 	saveData.name = profileName
 	saveFile = "user://savedata/" + profileName + ".save"
 	saveSaveData()
@@ -65,7 +65,6 @@ func deleteSaveFile():
 
 const blankSaveData = {
 	"name": "Player",
-	"currentLevel": 1,
 	"bank": 0,
 	"global_right": 0,
 	"global_wrong": 0,

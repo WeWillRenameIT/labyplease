@@ -12,8 +12,6 @@ func _process(delta):
 	i+=delta
 	time = int(i)
 	
-	#print(time)
-	
 	minutes = time % 60
 	hours = time / 60
 
