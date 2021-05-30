@@ -187,7 +187,7 @@ func new_student(num): #1- только отчет, 2- отч + флешка, 3 
 		$players_stuff/fm_1.new_position(spawn3)
 	if num == 1:
 		$players_stuff/fm_1.no_virus()
-	if num == 3:
+	if num >= 3:
 		$players_stuff.add_child(studak)
 		$players_stuff/studak.new_position(spawn2)
 	children = $players_stuff.get_child_count()

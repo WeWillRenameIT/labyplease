@@ -15,6 +15,13 @@ var localeFilePath = "res://texts/otchet.json" # Файл локали
 var workCheckCorrect
 var workCheckIncorrect
 
+# Seed для генерации содержимого отчёта
+var contentSeed
+
+const blockDiagramTexture1 = preload("res://sprites/otchet/blockDiagram1.png")
+const blockDiagramTexture2 = preload("res://sprites/otchet/blockDiagram2.png")
+const blockDiagramTexture3 = preload("res://sprites/otchet/blockDiagram3.png")
+
 func _ready():
 	generate()
 	cp = 0
@@ -87,22 +94,29 @@ func _on_otchet_input_event(viewport, event, shape_idx):
 			if event.button_index == BUTTON_RIGHT:
 				set_rotation_degrees(0)
 
-
+# пролистывание отчёта вперёд
 func _on_right_a_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed():
 			if event.button_index == BUTTON_LEFT:
+				# все страницы, кроме последней
 				if cp != pages:
 					cp+=1
+					
+					# показать номера страниц
 					$as_right/pages.visible = true
 					$as_right/pages.text = String((cp+1)*2-1)
 					$ot_1/pages.visible = true
 					$ot_1/pages.text = String((cp)*2)
+					
+					displayPagesContent()
+					
 					$as_right.frame = 1
 					$sec_col.disabled = false
 					$left_a/left.disabled = false
 					$left_a.visible = true
 					$right_a.visible = true
 					$ot_1.visible = true
+				# последняя страница
 				if cp == pages:
 					check_status = true
 					$as_right/pages.visible = false
@@ -115,6 +129,11 @@ func _on_right_a_input_event(viewport, event, shape_idx):
 					$right_a/right.disabled = true
 					$right_a.visible = false
 					$as_right.visible = false
+					
+					# спрятать контент отчёта
+					$ot_1/texts.visible = false
+					$ot_1/block_diagram.visible = false
+					$ot_1/texts2.visible = false
 				else:
 					$as_right/pages.visible = true
 					$as_right/pages.text = String((cp+1)*2-1)
@@ -126,7 +145,7 @@ func _on_right_a_input_event(viewport, event, shape_idx):
 					$as_right.visible = true
 				print(cp)
 
-
+# пролистывание отчёта назад
 func _on_left_a_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed():
 			if event.button_index == BUTTON_LEFT: #ЛКМ - листаем по страничке назад
@@ -138,6 +157,12 @@ func _on_left_a_input_event(viewport, event, shape_idx):
 					$as_right/pages.text = String((cp+1)*2-1)
 					$ot_1/pages.visible = true
 					$ot_1/pages.text = String((cp)*2)
+					
+					# показать контент правой страницы отчёта
+					$ot_1/block_diagram.visible = false
+					$ot_1/texts.visible = false
+					displayPagesContent()
+					
 					$main_col.disabled = true
 					$right_a.visible = true
 					$left_a/left.disabled = false
@@ -176,6 +201,7 @@ func generate():
 	pages = randi()%10 + 2 
 	if pages <= 3:
 		test = 0
+	contentSeed = randi()
 
 func new_position(vect):
 	transform = Transform2D(0.0, vect)
@@ -186,6 +212,41 @@ func approved():
 func test():
 	return test
 
+# Сгенерировать тест для страницы
+func generatePageText(page):
+	var text = ''
+	var generator = RandomNumberGenerator.new()
+	generator.seed = (contentSeed + cp)
+	for i in 20:
+		for j in (generator.randi_range(3, 5)):
+			text += String('-').repeat(generator.randi_range(3, 6))
+			text += ' '
+		text += '\n'
+	return text 
+
+func displayPagesContent():
+	# показать контент правой страницы отчёта
+	$ot_1/block_diagram.visible = false
+	$ot_1/texts.visible = false
+	# показать либо блок-схему, либо текст
+	if (contentSeed + cp) % ((contentSeed % 3) + 3) == 0:
+		var generator = RandomNumberGenerator.new()
+		generator.seed = (contentSeed + cp)
+		var diagramType = generator.randi_range(0, 2)
+		if diagramType == 0:
+			$ot_1/block_diagram.set_texture(blockDiagramTexture1)
+		elif diagramType == 1:
+			$ot_1/block_diagram.set_texture(blockDiagramTexture2)
+		elif diagramType == 2:
+			$ot_1/block_diagram.set_texture(blockDiagramTexture3)
+		$ot_1/block_diagram.visible = true
+	else:
+		$ot_1/texts.text = generatePageText(cp)
+		$ot_1/texts.visible = true
+	
+	# показать контент левой страницы отчёта
+	$ot_1/texts2.visible = true
+	$ot_1/texts2.text = generatePageText(pages + cp)
 
 func _on_stampable_input_event(viewport, event, shape_idx):
 	pass

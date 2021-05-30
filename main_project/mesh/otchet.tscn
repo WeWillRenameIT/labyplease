@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://sprites/otchet/ot_main.png" type="Texture" id=1]
 [ext_resource path="res://sprites/otchet/ot_1.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://texts/workCheckedFont.tres" type="DynamicFont" id=5]
 [ext_resource path="res://sprites/otchet/maskTest.png" type="Texture" id=6]
 [ext_resource path="res://mesh/torch.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sprites/otchet/blockDiagram1.png" type="Texture" id=8]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -60,39 +61,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="texts" type="Label" parent="as_right"]
-visible = false
-margin_left = -131.291
-margin_top = -58.035
-margin_right = 28.7086
-margin_bottom = 295.965
-rect_scale = Vector2( 0.50461, 0.328294 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "22222222222222222222
-22222222222222222222
-11111111111111111111
-11111111111111111111
-
-1223456457
-1231
-123
-
-123123747
-1
-123
-
-12312334573221
-
-123123
-123123123
-123123123
-123123123123123
-123123123123123
-123123123123123123"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="status_main" type="Label" parent="as_right"]
 margin_left = -40.0
 margin_top = 31.0
@@ -107,7 +75,6 @@ __meta__ = {
 }
 
 [node name="ot_1" type="Sprite" parent="."]
-visible = false
 position = Vector2( -80, 0.450019 )
 scale = Vector2( 1.04348, 1.04453 )
 texture = ExtResource( 2 )
@@ -171,6 +138,45 @@ text = "22222222222222222222
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="texts2" type="Label" parent="ot_1"]
+visible = false
+margin_left = -39.2912
+margin_top = -58.8303
+margin_right = 120.709
+margin_bottom = 295.17
+rect_scale = Vector2( 0.50461, 0.328294 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "22222222222222222222
+22222222222222222222
+11111111111111111111
+11111111111111111111
+
+1223456457
+1231
+123
+
+123123747
+1
+123
+
+12312334573221
+
+123123
+123123123
+123123123
+123123123123123
+123123123123123
+123123123123123123"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="block_diagram" type="Sprite" parent="ot_1"]
+visible = false
+position = Vector2( 94, -4 )
+scale = Vector2( 1, 1.00628 )
+texture = ExtResource( 8 )
 
 [node name="right_a" type="Area2D" parent="."]
 position = Vector2( 18, 0 )
