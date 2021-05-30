@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 var mouse_drag_scale = 10
-var max_velocity = 800  # максимальная скорость
+var max_velocity = 1000  # максимальная скорость
 var friction_coef = 1.13 # коэффициент трения
 var pages = 10
 var cp = 0
@@ -63,7 +63,7 @@ func _process(delta):
 func _input(event):
 	if event is InputEventMouseButton and not event.is_pressed() and event.button_index == BUTTON_LEFT:
 		drag = false
-		z_index = 0
+		z_index = -3
 
 func _integrate_forces(state):
 	state.angular_velocity = 0 #Занулим скорость вращения флешки
@@ -88,7 +88,7 @@ func _on_otchet_input_event(viewport, event, shape_idx):
 		if event.is_pressed():
 			if event.button_index == BUTTON_LEFT:
 				drag = true
-				z_index = 2
+				z_index = -2
 				#set_rotation_degrees(0) 
 				bruh = get_local_mouse_position()
 			if event.button_index == BUTTON_RIGHT:
@@ -163,7 +163,8 @@ func _on_left_a_input_event(viewport, event, shape_idx):
 					$ot_1/texts.visible = false
 					displayPagesContent()
 					
-					$main_col.disabled = true
+					$main_col.disabled = false
+					$sec_col.disabled = false
 					$right_a.visible = true
 					$left_a/left.disabled = false
 					$left_a.visible = true

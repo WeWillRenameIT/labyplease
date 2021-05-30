@@ -105,6 +105,7 @@ texture = ExtResource( 4 )
 [node name="left" type="CollisionShape2D" parent="left_a"]
 position = Vector2( -102, 38.75 )
 shape = SubResource( 1 )
+
 [connection signal="input_event" from="." to="." method="_on_otchet_input_event"]
 [connection signal="input_event" from="right_a" to="." method="_on_right_a_input_event"]
 [connection signal="input_event" from="left_a" to="." method="_on_left_a_input_event"]

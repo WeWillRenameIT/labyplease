@@ -44,4 +44,5 @@ scale = Vector2( 2, 2 )
 [node name="fmc_1" type="CollisionShape2D" parent="fma_1"]
 scale = Vector2( 0.5, 0.5 )
 shape = SubResource( 2 )
+
 [connection signal="input_event" from="." to="." method="_on_fm_1_input_event"]

@@ -85,6 +85,12 @@ enter_console={
  ]
 }
 
+[physics]
+
+common/physics_fps=240
+common/physics_jitter_fix=1.0
+2d/physics_engine="GodotPhysics"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
