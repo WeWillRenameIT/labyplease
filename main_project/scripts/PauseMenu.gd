@@ -5,7 +5,6 @@ func _ready():
 	# Параметры для загрузки локали
 	var localeFilePath = "res://texts/pauseMenu.json"
 	var currentLang = Main.currentLang;
-	
 	var localeJson = Main.json_load(localeFilePath)
 	
 	$PauseBlock/Label.text = localeJson[currentLang]["label"]
@@ -17,7 +16,6 @@ func _ready():
 	$PauseBlock/OptionsButton.text = localeJson[currentLang]["optionsButton"]
 	print("Pause menu")
 	
-
 func _input(event):
 	if event.is_action_pressed("pause"):
 		if $OptionsBlock.visible == true:
@@ -29,12 +27,14 @@ func _input(event):
 
 func _on_Exit_pressed():
 	
-	$ConfirmationDialogExit.popup()
-	$ConfirmationDialogExit.dialog_text = "Вы точно хотите выйти?"
-	$ConfirmationDialogExit.get_child(1).align = HALIGN_CENTER
-	$ConfirmationDialogExit.window_title = "Выход"
-	print($ConfirmationDialogExit.get_global_position())
-	print("bruh ", $ConfirmationDialogExit.get_position())
+	#$ConfirmationDialogExit.popup()
+	#$ConfirmationDialogExit.set_scale(get_scale())
+	#$ConfirmationDialogExit.set_position(Vector2(-88.176,-80))
+	#$ConfirmationDialogExit.dialog_text = "Вы точно хотите выйти?"
+	#$ConfirmationDialogExit.get_child(1).align = HALIGN_CENTER
+	#$ConfirmationDialogExit.window_title = "Выход"
+	#print($ConfirmationDialogExit.get_global_position())
+	#print("bruh ", $ConfirmationDialogExit.get_position())
 	#get_tree().quit()
 
 	pass # Replace with function body.
@@ -46,7 +46,9 @@ func _on_Save_pressed():
 	pass # Replace with function body.
 
 func _on_GoToMainMenu_pressed():
-	$ConfirmationDialogMainMenu.popup()
+	#$ConfirmationDialogMainMenu.popup()
+	#$ConfirmationDialogMainMenu.set_position(Vector2(-160.32,-80.2949))
+	#$ConfirmationDialogMainMenu.set_scale(get_scale())
 	pass # Replace with function body.
 	
 func _on_Continue_pressed():

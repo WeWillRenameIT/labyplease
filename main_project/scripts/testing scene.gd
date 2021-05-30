@@ -64,6 +64,19 @@ func _input(event):
 		instance.set_scale(currentCam.get_zoom())
 		get_tree().paused = true;
 		#--------------------------------------------------
+	if(event.is_action_pressed("console")):
+		if(Main.consoles_count == 0):
+			var node = load("res://mesh/devConsole.tscn")
+			var console_instance = node.instance()
+			console_instance.set_name("console")
+			add_child(console_instance)
+			Main.consoles_count+=1
+			console_instance.set_scale(Vector2(0.503,0.513))
+			console_instance.set_position(Vector2(-322.074,64.256))
+			console_instance.connect("consoleDestroyed",self,"OnConsoleDestroyed")
+			var textEdit = console_instance.get_node("TextEdit")
+		else:
+			get_node('console')._on_TextureButton_pressed()
 
 func _process(delta):
 	#print(get_tree().is_input_handled())

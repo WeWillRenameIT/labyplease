@@ -17,6 +17,9 @@ var currentVolume = 1
 var saveFile = null
 var saveData = null
 
+# для консоли разработчика
+var consoles_count = 0
+
 func newGame():
 	if (saveData != null):
 		var name = saveData.name
