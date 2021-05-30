@@ -302,3 +302,10 @@ func _on_background_music_finished():
 	music.set_loop(false)
 	$background_music.stream = music
 	$background_music.play()
+
+
+func _on_otchet_EasterEgg_Area_body_entered(body):
+	if body.name == "otchet":
+		$otchet_EasterEgg_Area/easterEggApplause.play()
+		yield(get_tree().create_timer(5.0), "timeout")
+		body.reset = true

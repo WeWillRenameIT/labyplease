@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://texts/generalFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://mesh/reader.tscn" type="PackedScene" id=2]
@@ -11,11 +11,15 @@
 [ext_resource path="res://mesh/inst.tscn" type="PackedScene" id=9]
 [ext_resource path="res://mesh/wall_ul.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scripts/testing scene.gd" type="Script" id=11]
+[ext_resource path="res://sounds/applause.ogg" type="AudioStream" id=12]
 [ext_resource path="res://sprites/scene/small_table.png" type="Texture" id=13]
 [ext_resource path="res://mesh/ruler.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 11 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 46.4369, 117.796 )
 
 [node name="level_test" type="Node2D"]
 script = ExtResource( 11 )
@@ -167,5 +171,17 @@ position = Vector2( 36.5128, -194.965 )
 anchor_mode = 0
 zoom = Vector2( 0.22, 0.259 )
 
+[node name="otchet_EasterEgg_Area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="otchet_EasterEgg_Area"]
+position = Vector2( 405, 90 )
+shape = SubResource( 2 )
+
+[node name="easterEggApplause" type="AudioStreamPlayer2D" parent="otchet_EasterEgg_Area"]
+stream = ExtResource( 12 )
+
 [connection signal="finished" from="background_music" to="." method="_on_background_music_finished"]
 [connection signal="ready" from="background_music" to="." method="_on_background_music_ready"]
+[connection signal="body_entered" from="otchet_EasterEgg_Area" to="." method="_on_otchet_EasterEgg_Area_body_entered"]

@@ -11,6 +11,9 @@ var bruh = Vector2(0,0)
 var approved = false
 var check_status = false
 
+# В случае, если отчёт нужно переместить в исходное положение
+var reset = false
+
 var localeFilePath = "res://texts/otchet.json" # Файл локали
 var workCheckCorrect
 var workCheckIncorrect
@@ -78,6 +81,9 @@ func _integrate_forces(state):
 	# Код далее задаёт трение.
 	if !drag and state.linear_velocity.length() != 0:
 		state.linear_velocity /= friction_coef
+	if reset:
+		state.transform = Transform2D(0.0, Vector2(-96, 120))
+		reset = false
 
 func _on_otchet_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
