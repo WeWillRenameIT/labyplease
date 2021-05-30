@@ -6,7 +6,12 @@
         "saveButton": "Сохранить игру",
         "backToMainMenuButton": "Вернуться в главное меню",
         "continueButton": "Продолжить",
-        "optionsButton": "Опции"
+        "optionsButton": "Опции",
+        "mainMenuText": "Вы точно хотите выйти в главное меню?",
+        "exitText": "Вы точно хотите выйти из игры?",
+        "confirm": "Да",
+        "volume": "Громкость",
+        "decline": "Нет"
     },
 
     "English":{
@@ -16,6 +21,11 @@
         "saveButton": "Save Game",
         "backToMainMenuButton": "Back to Main Menu",
         "continueButton": "Continue",
-        "optionsButton": "Options"
+        "optionsButton": "Options",
+        "mainMenuText": "Do you want to return to the main menu?",
+        "exitText":"Do you want to exit the game?",
+        "confirm": "Yes",
+        "volume": "Volume",
+        "decline": "No"
     }
 }

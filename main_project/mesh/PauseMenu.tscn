@@ -147,7 +147,6 @@ margin_bottom = 360.0
 text = "Назад"
 
 [node name="ConfirmationDialogExit" type="ConfirmationDialog" parent="."]
-visible = true
 anchor_left = 0.381
 anchor_top = 0.222
 anchor_right = 0.631
@@ -164,7 +163,6 @@ __meta__ = {
 }
 
 [node name="ConfirmationDialogMainMenu" type="ConfirmationDialog" parent="."]
-visible = true
 anchor_left = 0.25
 anchor_top = 0.456
 anchor_right = 0.762
@@ -181,6 +179,58 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Dialog" type="Control" parent="."]
+visible = false
+margin_left = 320.0
+margin_right = 982.0
+margin_bottom = 360.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dim2" type="Panel" parent="Dialog"]
+modulate = Color( 1, 1, 1, 0.784314 )
+margin_left = -320.0
+margin_right = 960.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialog_window" type="Panel" parent="Dialog"]
+margin_left = 48.0
+margin_top = 152.0
+margin_right = 616.0
+margin_bottom = 304.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Decline" type="Button" parent="Dialog/Dialog_window"]
+margin_left = 48.0
+margin_top = 103.84
+margin_right = 112.0
+margin_bottom = 141.84
+text = "Нет"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Confirm" type="Button" parent="Dialog/Dialog_window"]
+margin_left = 464.0
+margin_top = 103.84
+margin_right = 528.0
+margin_bottom = 141.84
+text = "Да"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Dialog/Dialog_window"]
+margin_left = 24.0
+margin_top = 32.0
+margin_right = 592.0
+margin_bottom = 88.0
+text = "Вы точно хотите выйти в главное меню?"
+scroll_active = false
+
 [connection signal="pressed" from="PauseBlock/ContinueButton" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="PauseBlock/HBoxContainer/LoadButton" to="." method="_on_Load_pressed"]
 [connection signal="pressed" from="PauseBlock/HBoxContainer/SaveButton" to="." method="_on_Save_pressed"]
@@ -191,3 +241,5 @@ __meta__ = {
 [connection signal="pressed" from="OptionsBlock/Back" to="." method="_on_Back_pressed"]
 [connection signal="confirmed" from="ConfirmationDialogExit" to="." method="_on_ConfirmationDialogExit_confirmed"]
 [connection signal="confirmed" from="ConfirmationDialogMainMenu" to="." method="_on_ConfirmationDialogMainMenu_confirmed"]
+[connection signal="pressed" from="Dialog/Dialog_window/Decline" to="." method="_on_Decline_pressed"]
+[connection signal="pressed" from="Dialog/Dialog_window/Confirm" to="." method="_on_Confirm_pressed"]

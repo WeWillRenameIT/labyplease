@@ -1,5 +1,8 @@
 extends Control
 
+# переменная, которая говорит, куда идти из меню паузы (main menu or exit)
+var goTo = ''
+
 func _ready():
 	$OptionsBlock/Volume.value = Main.currentVolume
 	# Параметры для загрузки локали
@@ -14,6 +17,10 @@ func _ready():
 	$PauseBlock/BackToMainMenuButton.text = localeJson[currentLang]["backToMainMenuButton"]
 	$PauseBlock/ContinueButton.text = localeJson[currentLang]["continueButton"]
 	$PauseBlock/OptionsButton.text = localeJson[currentLang]["optionsButton"]
+	$OptionsBlock/OptionsLabel.text = localeJson[currentLang]["optionsButton"]
+	$OptionsBlock/Volume/VolumeLabel.text = localeJson[currentLang]["volume"]
+	$Dialog/Dialog_window/Decline.text = localeJson[currentLang]["decline"]
+	$Dialog/Dialog_window/Confirm.text = localeJson[currentLang]["confirm"]
 	print("Pause menu")
 	
 func _input(event):
@@ -26,7 +33,12 @@ func _input(event):
 			queue_free()
 
 func _on_Exit_pressed():
-	
+	$Dialog.visible = true
+	goTo = 'Exit'
+	var localeFilePath = "res://texts/pauseMenu.json"
+	var currentLang = Main.currentLang;
+	var localeJson = Main.json_load(localeFilePath)
+	$Dialog/Dialog_window/RichTextLabel.text = localeJson[currentLang]["exitText"]
 	#$ConfirmationDialogExit.popup()
 	#$ConfirmationDialogExit.set_scale(get_scale())
 	#$ConfirmationDialogExit.set_position(Vector2(-88.176,-80))
@@ -46,6 +58,12 @@ func _on_Save_pressed():
 	pass # Replace with function body.
 
 func _on_GoToMainMenu_pressed():
+	$Dialog.visible = true
+	goTo = 'MainMenu'
+	var localeFilePath = "res://texts/pauseMenu.json"
+	var currentLang = Main.currentLang;
+	var localeJson = Main.json_load(localeFilePath)
+	$Dialog/Dialog_window/RichTextLabel.text = localeJson[currentLang]["mainMenuText"]
 	#$ConfirmationDialogMainMenu.popup()
 	#$ConfirmationDialogMainMenu.set_position(Vector2(-160.32,-80.2949))
 	#$ConfirmationDialogMainMenu.set_scale(get_scale())
@@ -87,4 +105,19 @@ func _on_ConfirmationDialogExit_confirmed():
 func _on_ConfirmationDialogMainMenu_confirmed():
 	get_tree().paused = false
 	get_tree().change_scene("res://main menu/mainMenu.tscn")
+	pass # Replace with function body.
+
+
+func _on_Confirm_pressed():
+	
+	if(goTo == 'MainMenu'):
+		get_tree().paused = false
+		get_tree().change_scene("res://main menu/mainMenu.tscn")
+	else:
+		get_tree().quit()
+	pass # Replace with function body.
+
+
+func _on_Decline_pressed():
+	$Dialog.visible = false
 	pass # Replace with function body.

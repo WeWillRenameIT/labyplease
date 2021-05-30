@@ -165,7 +165,7 @@ zoom = Vector2( 0.501, 0.552 )
 ]]
 position = Vector2( 36.5128, -194.965 )
 anchor_mode = 0
-zoom = Vector2( 0.219, 0.244 )
+zoom = Vector2( 0.22, 0.259 )
 
 [connection signal="finished" from="background_music" to="." method="_on_background_music_finished"]
 [connection signal="ready" from="background_music" to="." method="_on_background_music_ready"]
