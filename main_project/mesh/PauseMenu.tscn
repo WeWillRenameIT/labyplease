@@ -39,20 +39,21 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="PauseBlock"]
 margin_right = 662.0
-margin_bottom = 44.0
+margin_bottom = 52.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
 text = "ПАУЗА"
 align = 1
 
 [node name="ContinueButton" type="Button" parent="PauseBlock"]
-margin_top = 69.0
+margin_top = 77.0
 margin_right = 662.0
-margin_bottom = 107.0
+margin_bottom = 129.0
 size_flags_vertical = 3
 text = "Продолжить"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PauseBlock"]
+visible = false
 margin_top = 132.0
 margin_right = 662.0
 margin_bottom = 170.0
@@ -78,21 +79,21 @@ size_flags_vertical = 3
 text = "Сохранить игру"
 
 [node name="OptionsButton" type="Button" parent="PauseBlock"]
-margin_top = 195.0
+margin_top = 154.0
 margin_right = 662.0
-margin_bottom = 233.0
+margin_bottom = 206.0
 size_flags_vertical = 3
 text = "Опции"
 
 [node name="BackToMainMenuButton" type="Button" parent="PauseBlock"]
-margin_top = 258.0
+margin_top = 231.0
 margin_right = 662.0
-margin_bottom = 296.0
+margin_bottom = 283.0
 size_flags_vertical = 3
 text = "Вернуться в главное меню"
 
 [node name="QuitGameButton" type="Button" parent="PauseBlock"]
-margin_top = 321.0
+margin_top = 308.0
 margin_right = 662.0
 margin_bottom = 360.0
 size_flags_vertical = 3

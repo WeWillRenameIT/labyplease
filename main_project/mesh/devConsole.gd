@@ -15,6 +15,8 @@ func _on_TextureButton_pressed():
 
 func _input(event):
 	if(event.is_action_pressed("enter_console")):
+		if($LineEdit.text == 'sv_cheats(1)'):
+			$TextEdit.text = 'Тут так не принято'
 		if(get_parent().name == 'level_test'):
 			if($LineEdit.text =='next_level'):
 				get_parent().end()
