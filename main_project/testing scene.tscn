@@ -19,7 +19,7 @@
 extents = Vector2( 10, 11 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 46.4369, 117.796 )
+extents = Vector2( 45, 135 )
 
 [node name="level_test" type="Node2D"]
 script = ExtResource( 11 )
@@ -150,11 +150,11 @@ collision_mask = 31
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2( 594.417, -12.8623 )
 rotation = 3.14159
-polygon = PoolVector2Array( -25.9657, -20.5216, -25.9657, -22.4159, 626.908, -22.4141, 626.907, 11.0518, 597.231, 11.0518, 597.232, -20.5199 )
+polygon = PoolVector2Array( -100, -20.522, -100, -30, 626.908, -30, 626.907, 11.0518, 597.231, 11.0518, 597.232, -20.5199 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2( -0.0341372, -5.06639e-07 )
-polygon = PoolVector2Array( -26.8933, -21.4774, -26.8932, -25.8975, 625.98, -25.8973, 625.979, 10.0943, 596.303, 10.0943, 596.304, -21.4773 )
+polygon = PoolVector2Array( -35, -21.5, -35, -40, 705, -40, 705, 10, 596.303, 10.0943, 596.304, -21.5 )
 
 [node name="Camera2D" type="Camera2D" parent="." groups=[
 "cam",

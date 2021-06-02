@@ -17,6 +17,8 @@ var end_time
 var optionsPath = "user://options.json"
 var student = false
 
+var applauseEasterEggPlayed = false
+
 func _ready():
 	# Загрузить данные из сохранения	
 	print("Профиль: " + Main.saveData['name'])
@@ -306,6 +308,10 @@ func _on_background_music_finished():
 
 func _on_otchet_EasterEgg_Area_body_entered(body):
 	if body.name == "otchet":
-		$otchet_EasterEgg_Area/easterEggApplause.play()
-		yield(get_tree().create_timer(5.0), "timeout")
+		if applauseEasterEggPlayed == false:
+			$otchet_EasterEgg_Area/easterEggApplause.play()
+			applauseEasterEggPlayed = true
+			yield(get_tree().create_timer(5.0), "timeout")
+		else:
+			yield(get_tree().create_timer(2.0), "timeout")
 		body.reset = true

@@ -29,7 +29,7 @@ func _on_fm_1_input_event(_viewport, event, _shape_idx):
 				#set_rotation_degrees(0) 
 				local_mouse_position = get_local_mouse_position()
 			if event.button_index == BUTTON_RIGHT:
-				set_rotation_degrees(0)
+				set_rotation_degrees(-90)
 
 func _input(event):
 	if event is InputEventMouseButton and not event.is_pressed() and event.button_index == BUTTON_LEFT:
