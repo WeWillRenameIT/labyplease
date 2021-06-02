@@ -20,8 +20,12 @@ func _on_stamp_1_input_event(viewport, event, shape_idx):
 				#obj.set_region_rect(Rect2(Vector2(0,0),)) 
 				#print(testArea.get_overlapping_areas())
 				#print(obj.get_region_rect()) 
-				obj.set_position(get_global_position()-test.get_global_position())
-				obj.position.y += 9
+				var otchet = test.get_parent()
+				var stamp_vector = get_global_position() - test.get_global_position()
+				obj.set_position(stamp_vector.rotated(-otchet.rotation_degrees * 0.0174533))
+				obj.set_rotation_degrees(-otchet.rotation_degrees)
+				#obj.position.y += 9
+				print(test.get_parent().get_name())
 				test.add_child(obj)
 				test.get_parent().approved = true
 				#print("disance:" , testArea.position - obj.position)

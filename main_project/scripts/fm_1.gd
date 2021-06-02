@@ -8,7 +8,7 @@ var test = true #Что выведет компьютер при тестиро�
 var virus = false #Содержит ли флешка вирусы
 var scan_speed = 0.5 #Скорость сканирования флешки, больше - дольше
 var drag = false
-var bruh = Vector2(0,0)
+var local_mouse_position = Vector2(0,0)
 
 func _ready():
 	generate()
@@ -27,7 +27,7 @@ func _on_fm_1_input_event(_viewport, event, _shape_idx):
 				drag = true
 				z_index = -2
 				#set_rotation_degrees(0) 
-				bruh = get_local_mouse_position()
+				local_mouse_position = get_local_mouse_position()
 			if event.button_index == BUTTON_RIGHT:
 				set_rotation_degrees(0)
 
@@ -39,7 +39,8 @@ func _input(event):
 func _integrate_forces(state):
 	state.angular_velocity = 0 #Занулим скорость вращения флешки
 	if drag:
-		state.linear_velocity = get_global_mouse_position() - global_position - Vector2(bruh.y,-bruh.x)
+		var drag_vector = local_mouse_position.rotated(rotation_degrees * 0.0174533)
+		state.linear_velocity = get_global_mouse_position() - global_position - Vector2(drag_vector.x, drag_vector.y)
 		state.linear_velocity *= mouse_drag_scale
 		# При слишком большой скорости объект начинает проходить сквозь другие объекты.
 		# Код далее ограничивает максимальную скорость.

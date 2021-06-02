@@ -7,7 +7,7 @@ var pages = 10
 var cp = 0
 var test = false
 var drag = false
-var bruh = Vector2(0,0)
+var local_mouse_position = Vector2(0,0)
 var approved = false
 var check_status = false
 
@@ -71,7 +71,8 @@ func _input(event):
 func _integrate_forces(state):
 	state.angular_velocity = 0 #Занулим скорость вращения флешки
 	if drag:
-		state.linear_velocity = get_global_mouse_position() - global_position - Vector2(bruh.x,bruh.y)
+		var drag_vector = local_mouse_position.rotated(rotation_degrees * 0.0174533)
+		state.linear_velocity = get_global_mouse_position() - global_position - Vector2(drag_vector.x, drag_vector.y)
 		state.linear_velocity *= mouse_drag_scale
 		# При слишком большой скорости объект начинает проходить сквозь другие объекты.
 		# Код далее ограничивает максимальную скорость.
@@ -96,7 +97,7 @@ func _on_otchet_input_event(viewport, event, shape_idx):
 				drag = true
 				z_index = -2
 				#set_rotation_degrees(0) 
-				bruh = get_local_mouse_position()
+				local_mouse_position = get_local_mouse_position()
 			if event.button_index == BUTTON_RIGHT:
 				set_rotation_degrees(0)
 
@@ -261,7 +262,7 @@ func _on_stampable_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT:
 			drag = true
 			set_rotation_degrees(0) 
-			bruh = get_local_mouse_position()
+			local_mouse_position = get_local_mouse_position()
 		if event.button_index == BUTTON_RIGHT:
 			set_rotation_degrees(0)"""
 
