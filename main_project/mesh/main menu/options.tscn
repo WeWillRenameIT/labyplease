@@ -67,6 +67,17 @@ margin_right = 704.0
 margin_bottom = 360.0
 text = "Назад"
 
+[node name="full_screen" type="CheckBox" parent="."]
+margin_left = 8.0
+margin_top = 136.0
+margin_right = 320.0
+margin_bottom = 176.0
+text = "Полноэкранный режим"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="about_to_show" from="." to="." method="_on_Options_Container_about_to_show"]
 [connection signal="value_changed" from="Volume" to="." method="_on_Volume_value_changed"]
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="full_screen" to="." method="_on_full_screen_pressed"]

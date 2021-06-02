@@ -3,12 +3,14 @@
     "Russian":{
         "label": "Опции",
         "volume": "Громкость",
+        "toggleFS": "Полноэкранный режим",
         "back": "Назад"
     },
 
     "English":{
         "label": "Options",
         "volume": "Volume",
+        "toggleFS": "Fullscreen mode",
         "back": "Back"
     }
 

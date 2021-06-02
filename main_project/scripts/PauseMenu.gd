@@ -21,6 +21,7 @@ func _ready():
 	$OptionsBlock/Volume/VolumeLabel.text = localeJson[currentLang]["volume"]
 	$Dialog/Dialog_window/Decline.text = localeJson[currentLang]["decline"]
 	$Dialog/Dialog_window/Confirm.text = localeJson[currentLang]["confirm"]
+	$OptionsBlock/Fullscreen.text = Main.json_load("res://texts/options.json")[currentLang]["toggleFS"]
 	print("Pause menu")
 	
 func _input(event):
@@ -120,4 +121,12 @@ func _on_Confirm_pressed():
 
 func _on_Decline_pressed():
 	$Dialog.visible = false
+	pass # Replace with function body.
+
+
+func _on_Fullscreen_pressed():
+	var data = Main.json_load("user://options.json")
+	OS.window_fullscreen = !OS.window_fullscreen
+	data["fullScreen"] = OS.window_fullscreen
+	Main.json_save(data,"user://options.json")
 	pass # Replace with function body.

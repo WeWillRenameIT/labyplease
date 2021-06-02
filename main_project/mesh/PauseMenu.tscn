@@ -147,6 +147,15 @@ margin_right = 662.0
 margin_bottom = 360.0
 text = "Назад"
 
+[node name="Fullscreen" type="CheckBox" parent="OptionsBlock"]
+margin_top = 128.0
+margin_right = 312.0
+margin_bottom = 168.0
+text = "Полноэкранный режим"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ConfirmationDialogExit" type="ConfirmationDialog" parent="."]
 anchor_left = 0.381
 anchor_top = 0.222
@@ -240,6 +249,7 @@ scroll_active = false
 [connection signal="pressed" from="PauseBlock/QuitGameButton" to="." method="_on_Exit_pressed"]
 [connection signal="value_changed" from="OptionsBlock/Volume" to="." method="_on_Volume_value_changed"]
 [connection signal="pressed" from="OptionsBlock/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="OptionsBlock/Fullscreen" to="." method="_on_Fullscreen_pressed"]
 [connection signal="confirmed" from="ConfirmationDialogExit" to="." method="_on_ConfirmationDialogExit_confirmed"]
 [connection signal="confirmed" from="ConfirmationDialogMainMenu" to="." method="_on_ConfirmationDialogMainMenu_confirmed"]
 [connection signal="pressed" from="Dialog/Dialog_window/Decline" to="." method="_on_Decline_pressed"]
