@@ -5,21 +5,11 @@ extends Control
 var localeFilePath = "res://texts/mainMenu.json"
 var saveDataDirectoryString = "user://savedata/"
 var currentLang
-var optionsFile
+var optionsFile = "user://options.json"
 
 func _ready():
-	# Загрузить настройки
-	optionsFile = "user://options.json"
-	if File.new().file_exists(optionsFile):
-		Main.currentLang = Main.json_load(optionsFile)["language"]
-		currentLang = Main.currentLang
-		OS.window_fullscreen = Main.json_load(optionsFile)["fullScreen"]
-		#Main.currentVolume = Main.json_load(optionsFile)["volume"] #problem, need fix!
-	else:
-		Directory.new().copy("res://options/templates/options.json", optionsFile)
-		Main.currentLang = Main.json_load(optionsFile)["language"]
-		currentLang = Main.currentLang
-		Main.currentVolume = Main.json_load(optionsFile)["volume"]
+	Main.loadOptions()
+	currentLang = Main.currentLang
 	
 	# Создать папку для сохранений, если её нет (важно для Android версии)
 	if (!Directory.new().dir_exists("user://savedata")):
