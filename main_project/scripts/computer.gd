@@ -278,37 +278,72 @@ func _on_exit_pressed():
 	shop = 0
 	$background/shop_menu/count.text = ""
 
-
+var pressed_sdd = false
 func _on_ssd_b_pressed():
-	$background/shop_menu/test_ssd.frame = 1
-	$background/shop_menu/test_ssd/ssd_b.disabled=true
-	shop+=5000
+	var price = 5000
+	if(!pressed_sdd):
+		$background/shop_menu/test_ssd.frame = 1
+		#$background/shop_menu/test_ssd/ssd_b.disabled=true
+		shop+=price
+	else:
+		$background/shop_menu/test_ssd.frame = 0
+		shop-=price
+		
+	pressed_sdd = !pressed_sdd
 	$background/shop_menu/count.text = String(shop)+"p."
 
 
+var pressed_cpu = false
 func _on_cpu_b_pressed():
-	$background/shop_menu/cpu.frame = 1
-	$background/shop_menu/cpu/cpu_b.disabled=true
-	shop+=15000
+	var price = 15000
+	if(!pressed_cpu):
+		$background/shop_menu/cpu.frame = 1
+		#$background/shop_menu/cpu/cpu_b.disabled=true
+		shop+=price
+	else:
+		$background/shop_menu/cpu.frame = 0
+		shop-=price
 	$background/shop_menu/count.text = String(shop)+"p."
+	pressed_cpu = !pressed_cpu	
+	
 
-
+var int_b_pressed = false
 func _on_int_b_pressed():
-	$background/shop_menu/internet.frame = 1
-	$background/shop_menu/internet/int_b.disabled=true
-	shop+=7500
+	var price = 7500
+	if(!int_b_pressed):
+		$background/shop_menu/internet.frame = 1
+		#$background/shop_menu/internet/int_b.disabled=true
+		shop+=price
+	else:
+		$background/shop_menu/internet.frame = 0
+		shop-=price
 	$background/shop_menu/count.text = String(shop)+"p."
+	int_b_pressed = !int_b_pressed
 
+var read_b_pressed = false
 func _on_read_b_pressed():
-	$background/shop_menu/more_reader.frame = 1
-	$background/shop_menu/more_reader/read_b.disabled=true
-	shop+=2500
+	var price = 2500
+	if(!read_b_pressed):
+		$background/shop_menu/more_reader.frame = 1
+		#$background/shop_menu/more_reader/read_b.disabled=true
+		shop+=price
+	else:
+		$background/shop_menu/more_reader.frame = 0
+		shop-=price
+	read_b_pressed = !read_b_pressed
 	$background/shop_menu/count.text = String(shop)+"p."
 
+var vir_b_pressed = false
 func _on_vir_b_pressed():
-	$background/shop_menu/antivirus.frame = 1
-	$background/shop_menu/antivirus/vir_b.disabled=true
-	shop+=3500
+	var price = 3500
+	if(!vir_b_pressed):
+		$background/shop_menu/antivirus.frame = 1
+		#$background/shop_menu/antivirus/vir_b.disabled=true
+		shop+=price
+	else:
+		shop-=price
+		$background/shop_menu/antivirus.frame = 0
+	vir_b_pressed = !vir_b_pressed
 	$background/shop_menu/count.text = String(shop)+"p."
 
 

@@ -173,7 +173,7 @@ frames = SubResource( 1 )
 animation = "New Anim"
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( -0.403887, -4 )
+position = Vector2( -2.98023e-08, -4.22437 )
 scale = Vector2( 1.035, 1.041 )
 texture = ExtResource( 5 )
 
@@ -532,10 +532,10 @@ scale = Vector2( 2.54787, 3.83082 )
 frames = SubResource( 5 )
 
 [node name="ssd_b" type="Button" parent="background/shop_menu/test_ssd"]
-margin_left = -49.0
-margin_top = -18.0
-margin_right = 50.0
-margin_bottom = 18.0
+margin_left = -49.3724
+margin_top = -18.6421
+margin_right = 49.6276
+margin_bottom = 17.3579
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -548,9 +548,9 @@ frames = SubResource( 6 )
 
 [node name="cpu_b" type="Button" parent="background/shop_menu/cpu"]
 margin_left = -49.0
-margin_top = -18.0
+margin_top = -17.9939
 margin_right = 50.0
-margin_bottom = 18.0
+margin_bottom = 18.0061
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -562,10 +562,10 @@ scale = Vector2( 2.54143, 3.80474 )
 frames = SubResource( 7 )
 
 [node name="vir_b" type="Button" parent="background/shop_menu/antivirus"]
-margin_left = -49.0
-margin_top = -18.0
-margin_right = 50.0
-margin_bottom = 18.0
+margin_left = -48.7999
+margin_top = -18.6126
+margin_right = 50.2001
+margin_bottom = 17.3874
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
