@@ -369,7 +369,7 @@ func _on_Buy_pressed():
 			boot = true
 		if $background/shop_menu/more_reader.frame == 1:
 			ports+=1
-			$reader._ready()
+			#$reader._ready()
 	check()
 	$background/shop_menu/total.text = String(get_parent().bank)+"p."
 	$background/grayblock/repair_reader.disabled=true
