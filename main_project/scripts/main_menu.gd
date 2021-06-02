@@ -137,8 +137,11 @@ func _on_newGameButton_pressed():
 	#temp['currentLevel'] = Main.currentLevel
 	#Main.json_save(temp,"user://options.json")
 	#-------------------------------------------
+	if(get_node('console')):
+		get_node('console')._on_TextureButton_pressed()
 	Main.newGame()
 	get_tree().change_scene("res://cutscenes/Intro.tscn")
+
 	#get_tree().change_scene("res://testing scene.tscn")
 	
 func _on_languageToggleBtn_pressed():
@@ -163,6 +166,8 @@ func _on_languageToggleBtn_pressed():
 
 
 func _on_loadGameButton_pressed():
+	if(get_node('console')):
+		get_node('console')._on_TextureButton_pressed()
 	get_tree().change_scene("res://testing scene.tscn")
 
 func _on_quitButton_pressed():
@@ -238,12 +243,11 @@ func _on_options_pressed():
 
 func _input(event):
 	if(event.is_action_pressed("console")):
-		if(Main.consoles_count == 0):
+		if(!Main.console_is_live):
 			var node = load("res://mesh/devConsole.tscn")
 			var console_instance = node.instance()
 			console_instance.set_name("console")
 			add_child(console_instance)
-			Main.consoles_count+=1
 			console_instance.set_position(Vector2(0,465))
 			console_instance.connect("consoleDestroyed",self,"OnConsoleDestroyed")
 			var textEdit = console_instance.get_node("TextEdit")

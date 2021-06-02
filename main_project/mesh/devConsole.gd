@@ -7,10 +7,11 @@ signal consoleDestroyed # в принципе не нужно из-за глоб
 
 func _ready():
 	$LineEdit.max_length = 30
+	Main.console_is_live = true
 
 func _on_TextureButton_pressed():
 	queue_free()
-	Main.consoles_count -= 1
+	Main.console_is_live = !Main.console_is_live
 	emit_signal("consoleDestroyed")
 
 func _input(event):
@@ -20,6 +21,8 @@ func _input(event):
 		if(get_parent().name == 'level_test'):
 			if($LineEdit.text =='next_level'):
 				get_parent().end()
+				queue_free()
+				Main.console_is_live = !Main.console_is_live
 			else:
 				$TextEdit.text = 'wrong command'
 		$LineEdit.text = ''

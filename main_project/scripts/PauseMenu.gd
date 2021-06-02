@@ -113,6 +113,8 @@ func _on_Confirm_pressed():
 	
 	if(goTo == 'MainMenu'):
 		get_tree().paused = false
+		if(Main.console_is_live):
+			Main.console_is_live = false
 		get_tree().change_scene("res://main menu/mainMenu.tscn")
 	else:
 		get_tree().quit()

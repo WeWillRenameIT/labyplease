@@ -67,12 +67,11 @@ func _input(event):
 		get_tree().paused = true;
 		#--------------------------------------------------
 	if(event.is_action_pressed("console")):
-		if(Main.consoles_count == 0):
+		if(!Main.console_is_live):
 			var node = load("res://mesh/devConsole.tscn")
 			var console_instance = node.instance()
 			console_instance.set_name("console")
 			add_child(console_instance)
-			Main.consoles_count+=1
 			console_instance.set_scale(Vector2(0.503,0.513))
 			console_instance.set_position(Vector2(-322.074,64.256))
 			console_instance.connect("consoleDestroyed",self,"OnConsoleDestroyed")

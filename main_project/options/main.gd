@@ -18,7 +18,7 @@ var saveFile = null
 var saveData = null
 
 # для консоли разработчика
-var consoles_count = 0
+var console_is_live = false
 
 func newGame():
 	if (saveData != null):
